@@ -1894,8 +1894,30 @@ tr:last-child td{border-bottom:0}
     var btn = t && t.closest ? t.closest("[data-go]") : null;
     if (btn) location.hash = "#/" + btn.getAttribute("data-go");
   });
+
+  /* Enlaces a una sección de la ficha abierta (el menú de arriba y los avisos
+     que apuntan a otra sección): se animan, y la URL se queda en la ficha para
+     que recargar no te saque al inicio. Los enlaces "#/juego" no pasan por aquí. */
+  function animar(){
+    return !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }
+  document.addEventListener("click", function(e){
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button) return;
+    var t = e.target;
+    var a = t && t.closest ? t.closest('a[href^="#"]') : null;
+    if (!a) return;
+    var href = a.getAttribute("href");
+    if (href.charAt(1) === "/" || href === "#") return;
+    var sec = document.getElementById(href.slice(1));
+    if (!sec) return;
+    e.preventDefault();
+    if (sec.scrollIntoView) {
+      try { sec.scrollIntoView({ behavior: animar() ? "smooth" : "auto", block: "start" }); }
+      catch (err) { sec.scrollIntoView(true); }
+    }
+  });
   back.addEventListener("click", function(){
-    if (history.length > 1) history.back(); else location.hash = "";
+    location.hash = "";
   });
   window.addEventListener("hashchange", route);
 

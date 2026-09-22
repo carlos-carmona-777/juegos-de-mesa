@@ -48,10 +48,19 @@ cd "/Users/carloscarmona/1_APPS/REGLAS JUEGOS" && git add -A && git commit -m ".
 
 GitHub Pages reconstruye solo, en un minuto más o menos.
 
-**Antes de subir, sube la versión de la caché en `sw.js`** (ahora mismo `const CACHE = "juegos-v3"`).
-Si no lo haces, los móviles que ya tengan la app instalada seguirán viendo la
-versión vieja para siempre: el service worker sirve desde caché y nunca vuelve
-a pedir los ficheros.
+Y ya está: **los cambios de `index.html` llegan solos** a los móviles que tengan la
+app instalada. El service worker pide la página a la red cada vez que se abre la
+app y solo tira de la copia guardada si no hay cobertura (o si la red tarda más de
+3 segundos), así que basta con abrirla una vez con datos para tener la última
+versión. Ya no hay que tocar nada a mano para eso.
+
+**Solo hay que subir `const CACHE` en `sw.js`** si cambias **fuentes, iconos o el
+manifest**, porque esos sí se sirven siempre desde caché. Cambiar el número obliga
+a volver a descargar la lista entera de `ASSETS`.
+
+> Al abrir la app sin cobertura se sirve lo último que se descargó, no la versión
+> del día de la instalación: cada vez que se abre con red, la copia guardada se
+> actualiza.
 
 ## Volver a la versión anterior
 
@@ -75,8 +84,8 @@ cd "/Users/carloscarmona/1_APPS/REGLAS JUEGOS" && git checkout festiva -- index.
 ```
 
 Solo cambia `index.html`; fuentes, iconos y service worker valen para las dos.
-Después de cambiar, sube la versión de caché en `sw.js` si ya la tenías instalada
-en el móvil.
+Después de cambiar solo hay que hacer commit y push: al abrir la app con red, el
+móvil se trae la versión que haya publicada.
 
 ## Editar el contenido
 
