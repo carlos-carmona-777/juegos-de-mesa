@@ -3,6 +3,8 @@
 App web (PWA) con el resumen de reglas de **Scopa**, **Solitario Pirámide**, **Crisps!** y **Tien Len**.
 Se instala en la pantalla de inicio del iPhone y funciona **sin conexión**.
 
+**En línea: https://carlos-carmona-777.github.io/juegos-de-mesa/**
+
 ## Qué hay aquí
 
 ```
@@ -29,39 +31,26 @@ Y abre <http://localhost:8777>.
 
 ## Instalarlo en el iPhone
 
-Necesita estar publicado en una URL **https** (el service worker solo funciona en
-https o en localhost). Tres opciones, de menos a más trabajo:
+Ya está publicado en GitHub Pages, así que solo queda:
 
-### 1. Netlify Drop — lo más rápido
-
-1. Entra en <https://app.netlify.com/drop>.
-2. Arrastra **la carpeta entera** a la ventana.
-3. Te da una URL del tipo `https://algo-random.netlify.app`. Ya está.
-
-### 2. GitHub Pages
-
-```bash
-cd "/Users/carloscarmona/1_APPS/REGLAS JUEGOS"
-git init && git add -A && git commit -m "Juegos de Mesa"
-gh repo create reglas-juegos --public --source=. --push
-gh api -X POST repos/:owner/reglas-juegos/pages -f "source[branch]=main" -f "source[path]=/"
-```
-
-Queda en `https://<tu-usuario>.github.io/reglas-juegos/`.
-
-### 3. Solo en casa, desde el Mac
-
-Levanta el servidor local y abre `http://<IP-del-Mac>:8777` desde el iPhone.
-Funciona para instalarla, pero Safari es más tacaño con el service worker en
-`http://` que no sea localhost, así que el modo offline puede fallar. Para uso
-real, mejor las opciones 1 o 2.
-
-### Y luego, en el iPhone
-
-1. Abre la URL en **Safari** (tiene que ser Safari; Chrome en iOS no instala PWAs).
+1. Abre <https://carlos-carmona-777.github.io/juegos-de-mesa/> en **Safari**
+   (tiene que ser Safari; Chrome en iOS no instala PWAs).
 2. Botón **Compartir** → **Añadir a pantalla de inicio**.
 3. Ábrela una vez con datos o wifi para que se descargue entera.
 4. A partir de ahí funciona en avión, en el metro y sin cobertura.
+
+## Publicar cambios
+
+```bash
+cd "/Users/carloscarmona/1_APPS/REGLAS JUEGOS" && git add -A && git commit -m "..." && git push
+```
+
+GitHub Pages reconstruye solo, en un minuto más o menos.
+
+**Antes de subir, sube la versión de la caché en `sw.js`** (`const CACHE = "juegos-v3"`).
+Si no lo haces, los móviles que ya tengan la app instalada seguirán viendo la
+versión vieja para siempre: el service worker sirve desde caché y nunca vuelve
+a pedir los ficheros.
 
 ## Volver a la versión anterior
 
@@ -100,10 +89,6 @@ el sprite SVG del principio del fichero (`#sp #he #di #cl` y `#oro #copa #esp #b
    (palabras clave para el buscador).
 3. Añade `"loquesea"` al array `GAMES` y su nombre a `TITLES`, en el `<script>`.
 4. Define un color de acento en `:root` y en los dos bloques de tema oscuro.
-
-**Importante:** cada vez que cambies cualquier fichero, sube la versión de la caché
-en `sw.js` (`const CACHE = "juegos-v3"`) o los móviles que ya la tengan instalada
-seguirán viendo la versión vieja.
 
 ### Cómo se escriben las cartas
 
