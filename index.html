@@ -429,7 +429,7 @@ tr:last-child td{border-bottom:0}
         <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
       </button>
     </li>
-    <li data-k="crisps escalada climbing dos jugadores damas queen especial trio poker escalera stair robar shreesh bhat sean ross">
+    <li data-k="crisps escalada climbing dos jugadores damas queen especial trio poker escalera stair robar mazo agotado se acaba el mazo sin robar en seco 11 cartas seis rondas shreesh bhat sean ross">
       <button class="tile" type="button" data-go="crisps" style="--ac:var(--crisps)">
         <span class="art" aria-hidden="true">
           <b class="k" data-c="9" style="--r:-8deg"></b>
@@ -797,6 +797,7 @@ tr:last-child td{border-bottom:0}
         <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>12 cartas</strong></span></li>
         <li><span class="lbl">Apartadas</span><span style="margin-left:auto"><strong>4 cartas</strong></span></li>
         <li><span class="lbl">Boca arriba</span><span style="margin-left:auto"><strong>1 carta</strong></span></li>
+        <li><span class="lbl">Mazo de robo</span><span style="margin-left:auto"><strong>11 cartas</strong> = 6 rondas</span></li>
       </ul>
       <p class="sub" style="margin-top:10px">Mazo: 4 copias de cada rango, del 2 al 10 y la Dama. Los palos no se usan.</p>
     </div>
@@ -815,6 +816,11 @@ tr:last-child td{border-bottom:0}
     </div>
 
     <div class="rblock">
+      <h3>Cuando se acaba el mazo</h3>
+      <p>A la <strong>sexta ronda</strong> el mazo se vacía. Desde ahí <strong>no hay carta boca arriba y no se roba más</strong>: se siguen jugando rondas igual, pero las manos ya solo bajan. El reparto acaba cuando alguien juega su última carta.</p>
+    </div>
+
+    <div class="rblock">
       <h3>Cómo puntuar</h3>
       <p>Quien juega su última carta gana el reparto: <strong>1 punto</strong>. El primero en llegar a <strong>3 puntos</strong> gana la partida.</p>
     </div>
@@ -826,6 +832,7 @@ tr:last-child td{border-bottom:0}
     <li><a href="#cr-turno">Tu turno</a></li>
     <li><a href="#cr-fuerza">Qué gana a qué</a></li>
     <li><a href="#cr-ronda">Fin de ronda</a></li>
+    <li><a href="#cr-mazo">Se acaba el mazo</a></li>
     <li><a href="#cr-ej">Ejemplo</a></li>
   </ul></nav>
 
@@ -927,7 +934,7 @@ tr:last-child td{border-bottom:0}
     </ol>
     <div class="note">
       <b>Si el mazo se agota</b>
-      <p>No se pone carta boca arriba y <strong>no se roba más</strong> durante lo que quede de reparto.</p>
+      <p>No se pone carta boca arriba y <strong>no se roba más</strong> durante lo que quede de reparto. Está detallado abajo: <a href="#cr-mazo"><strong>cuando se acaba el mazo</strong></a>.</p>
     </div>
     <h4>2 · Alguien juega su última carta</h4>
     <p>Gana <strong>1 punto</strong> y empieza un reparto nuevo inmediatamente. El primero en llegar a <strong>3 puntos</strong> gana la partida.</p>
@@ -935,6 +942,42 @@ tr:last-child td{border-bottom:0}
       <b>El truco del juego</b>
       <p>Ganar rondas te devuelve cartas a la mano. Vaciarla no va de ganar mucho, va de soltar combinaciones largas.</p>
     </div>
+  </section>
+
+  <section id="cr-mazo">
+    <h3 class="sec">Cuando se acaba el mazo</h3>
+    <p class="sub">Pasa en todos los repartos que duran un poco, así que conviene verlo venir. El mazo da para <strong>seis rondas</strong> exactas y luego el reparto sigue, pero en seco.</p>
+
+    <h4>Cuántas rondas aguanta</h4>
+    <p>De las 40 cartas, 24 van a las manos, 4 se apartan y 1 se descubre boca arriba: en el mazo quedan <strong>11</strong>. Cada fin de ronda se gastan <strong>dos</strong>: la que roba uno de los dos del mazo (el otro coge la que está boca arriba) y la que se descubre después.</p>
+    <div class="order">
+      <i>mazo</i><span>11</span><span>9</span><span>7</span><span>5</span><span>3</span><span>1</span><span class="hi">0</span>
+    </div>
+    <p>En la <strong>sexta ronda</strong> solo queda una carta en el mazo: entre ella y la que está boca arriba se completa el último robo de los dos jugadores, y ya <strong>no hay carta que descubrir</strong>. Cada jugador ha metido <strong>6 cartas</strong> en la mano a lo largo del reparto.</p>
+
+    <h4>Y a partir de ahí</h4>
+    <ol class="steps">
+      <li><strong>No se roba.</strong> Las rondas acaban igual —alguien pasa— pero después no se coge nada y no se descubre ninguna carta.</li>
+      <li><strong>Todo lo demás sigue idéntico.</strong> Quien gana la ronda abre la siguiente, y se responde con las mismas reglas de tipo, longitud y rango.</li>
+      <li><strong>Las manos ya solo bajan.</strong> Mientras había mazo podías recuperar cartas; ahora cada combinación que sueltas es terreno ganado.</li>
+      <li><strong>El reparto acaba de una sola manera:</strong> cuando alguien juega su última carta. Se lleva <strong>1 punto</strong> y se reparte de nuevo, barajando las 40 otra vez.</li>
+    </ol>
+    <div class="note warn">
+      <b>Lo que despista</b>
+      <p>Que se acabe el mazo <strong>no acaba el reparto</strong> ni lo empata: se juega hasta que una mano se queda vacía, aunque queden muchas rondas por delante. Y no hay bloqueo posible: el que no pueda responder pasa, la ronda se cierra y la abre el otro.</p>
+    </div>
+    <div class="note">
+      <b>Si os quedara una carta boca arriba sin mazo</b>
+      <p>Con el reparto estándar no ocurre: 11 es impar, así que la última del mazo se va junto con la de boca arriba. Si jugáis con otro número de cartas apartadas y se os desemparejan, lo coherente es que <strong>el que no pasó se lleve la carta boca arriba y el otro se quede sin robar</strong>, y de ahí en adelante en seco. Esto es regla de la casa, no del reglamento.</p>
+    </div>
+
+    <h4>Cómo cambia el juego</h4>
+    <ul class="bul">
+      <li><strong>Antes del corte, acumula.</strong> Ganar rondas te da cartas y además te deja elegir la mejor de las dos. Las seis primeras rondas son las que te montan la mano.</li>
+      <li><strong>Guarda una jugada larga para el final.</strong> Una secuencia o una escalera larga en seco vacía media mano de golpe, y el rival ya no repone.</li>
+      <li><strong>Cuenta lo que le queda.</strong> Sin mazo, las cartas del rival son un número cerrado: lo que ha robado menos lo que ha jugado. Es la parte del reparto donde de verdad se puede calcular.</li>
+      <li><strong>Las damas valen más en seco.</strong> Cerrar una ronda con una dama te devuelve la apertura sin coste, y el rival ya no puede robar el trío que le faltaba.</li>
+    </ul>
   </section>
 
   <section id="cr-ej">
