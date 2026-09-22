@@ -20,10 +20,11 @@
   --ink:#16281f; --ink-2:#4c6157; --ink-3:#7c8e84;
   --line:#ccd8c8; --line-soft:#dde5d9;
   --red:#bd262d; --gold:#a1710f; --felt:#1b5c46;
-  --lattice:rgba(27,92,70,.07);
+  --lattice:rgba(27,92,70,.08); --glow:rgba(255,252,240,.85);
   --shadow:0 2px 0 rgba(22,40,31,.05), 0 10px 26px -14px rgba(22,40,31,.45);
   --display:'Rye', 'Bevan', Georgia, 'Times New Roman', serif;
   --sans:'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --emboss:rgba(27,92,70,.13);
   --scopa:#966709; --piramide:#2b5796; --crisps:#b04f14; --tienlen:#ad2130;
   --maxw:46rem;
   color-scheme:light;
@@ -35,9 +36,11 @@
     --ink:#f2ecdd; --ink-2:#a7c3b5; --ink-3:#7c998b;
     --line:#2a5a46; --line-soft:#204d3b;
     --red:#f0787e; --gold:#e3b44e; --felt:#3ea07c;
-    --lattice:rgba(240,236,220,.05);
+    --lattice:rgba(240,236,220,.06); --glow:rgba(90,190,150,.16);
     --shadow:0 2px 0 rgba(0,0,0,.25), 0 12px 30px -16px rgba(0,0,0,.85);
-    --scopa:#e6ba52; --piramide:#8ab0ec; --crisps:#f09a52; --tienlen:#f0767e;
+    --emboss:rgba(0,0,0,.45);
+    --emboss:rgba(0,0,0,.45);
+  --scopa:#e6ba52; --piramide:#8ab0ec; --crisps:#f09a52; --tienlen:#f0767e;
     color-scheme:dark;
   }
 }
@@ -47,7 +50,7 @@
   --ink:#f2ecdd; --ink-2:#a7c3b5; --ink-3:#7c998b;
   --line:#2a5a46; --line-soft:#204d3b;
   --red:#f0787e; --gold:#e3b44e; --felt:#3ea07c;
-  --lattice:rgba(240,236,220,.05);
+  --lattice:rgba(240,236,220,.06); --glow:rgba(90,190,150,.16);
   --shadow:0 2px 0 rgba(0,0,0,.25), 0 12px 30px -16px rgba(0,0,0,.85);
   --scopa:#e6ba52; --piramide:#8ab0ec; --crisps:#f09a52; --tienlen:#f0767e;
   color-scheme:dark;
@@ -59,7 +62,9 @@ body{
   background-color:var(--bg);
   background-image:
     repeating-linear-gradient(45deg, var(--lattice) 0 1px, transparent 1px 15px),
-    repeating-linear-gradient(-45deg, var(--lattice) 0 1px, transparent 1px 15px);
+    repeating-linear-gradient(-45deg, var(--lattice) 0 1px, transparent 1px 15px),
+    radial-gradient(130% 70% at 50% -10%, var(--glow), transparent 65%);
+  background-attachment:fixed, fixed, fixed;
   color:var(--ink);
   font-family:var(--sans); font-size:16px; line-height:1.55;
   padding-top:env(safe-area-inset-top,0px);
@@ -73,21 +78,35 @@ a{color:inherit}
 
 /* ---------- playing cards ---------- */
 .k{
-  --kw:27px;
-  display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:1px;
-  width:var(--kw); height:calc(var(--kw) * 1.42); flex:none;
-  background:#faf6ea; color:#191919;
-  border:1px solid rgba(0,0,0,.3); border-radius:calc(var(--kw) * .15);
-  box-shadow:0 1px 2px rgba(0,0,0,.25);
-  font-family:var(--sans); font-weight:800; font-size:calc(var(--kw) * .44);
-  line-height:1; vertical-align:middle; font-style:normal; letter-spacing:0;
+  --kw:34px; --ink-c:#1a1a1a; --pip-c:#1a1a1a;
+  position:relative; display:inline-block; flex:none; vertical-align:middle;
+  width:var(--kw); height:calc(var(--kw) * 1.4);
+  background:linear-gradient(158deg, #fffdf7 0%, #f6f1e2 100%);
+  border:1px solid rgba(22,40,31,.32); border-radius:calc(var(--kw) * .12);
+  box-shadow:0 1px 2px rgba(0,0,0,.22), inset 0 0 0 1px rgba(255,255,255,.65);
+  font-family:var(--sans); font-weight:800; font-style:normal; line-height:1;
+  color:var(--ink-c); overflow:hidden;
 }
-.k i{font-style:normal}
-.k svg{width:calc(var(--kw) * .44); height:calc(var(--kw) * .44); fill:#191919; display:block}
-.k.r, .k.r svg{color:#bd262d} .k.r svg{fill:#bd262d}
-.k.oro svg{fill:#b8860b} .k.copa svg{fill:#bd262d} .k.esp svg{fill:#2f5fa8} .k.bas svg{fill:#1f7a4d}
-.k.n{font-size:calc(var(--kw) * .62)}
-.k.big{--kw:38px}
+.k .kc{position:absolute; display:flex; flex-direction:column; align-items:center; line-height:.88}
+.k .kc i{font-style:normal; font-size:calc(var(--kw) * .33); letter-spacing:-.05em}
+.k .kc svg{width:calc(var(--kw) * .2); height:calc(var(--kw) * .2); fill:var(--pip-c); display:block; margin-top:calc(var(--kw) * .02)}
+.k .k1{top:6%; left:7%}
+.k .k2{bottom:6%; right:7%; transform:rotate(180deg)}
+.k .kp{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:calc(var(--kw) * .40); height:calc(var(--kw) * .40); fill:var(--pip-c);
+}
+.k .kl{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  font-size:calc(var(--kw) * .5); color:var(--ink-c); letter-spacing:-.05em;
+}
+.k .kf{position:absolute; inset:15% 22%}
+.k .kf svg{
+  position:absolute; left:var(--x); top:var(--y);
+  width:calc(var(--kw) * .18); height:calc(var(--kw) * .18); fill:var(--pip-c);
+  transform:translate(-50%,-50%) rotate(var(--rot,0deg));
+}
+.k.big{--kw:46px}
 .seq{display:inline-flex; gap:4px; flex-wrap:wrap; align-items:center; vertical-align:middle}
 .sprite{position:absolute; width:0; height:0; overflow:hidden}
 
@@ -126,13 +145,19 @@ a{color:inherit}
 .wrap{max-width:var(--maxw); margin:0 auto; padding-inline:16px}
 main{padding-bottom:calc(52px + env(safe-area-inset-bottom,0px))}
 
-/* ---------- home ---------- */
+
+/* guirnalda */
+.bunting{
+  height:30px; margin:0 -16px 4px; flex:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='30' viewBox='0 0 80 30'%3E%3Cpath d='M0 4.5h80' stroke='%239a8a60' stroke-width='1.6' fill='none'/%3E%3Cpath d='M1 4h18l-9 20z' fill='%23d8a73c'/%3E%3Cpath d='M21 4h18l-9 20z' fill='%23c9404a'/%3E%3Cpath d='M41 4h18l-9 20z' fill='%235b8fd6'/%3E%3Cpath d='M61 4h18l-9 20z' fill='%234caa7e'/%3E%3C/svg%3E") repeat-x center top / 80px 30px;
+}
 .hero{padding-block:26px 6px; text-align:center}
 .fan{display:flex; justify-content:center; align-items:flex-end; margin:0 0 22px; padding-top:8px}
-.fan .k{--kw:58px; margin-inline:-11px; box-shadow:0 3px 10px -3px rgba(0,0,0,.4); transform:rotate(var(--r)) translateY(var(--y,0))}
+.fan .k{--kw:70px; margin-inline:-13px; box-shadow:0 3px 10px -3px rgba(0,0,0,.4); transform:rotate(var(--r)) translateY(var(--y,0))}
 h1{
-  font-family:var(--display); font-weight:400; font-size:clamp(2.1rem,10vw,3.1rem);
+  font-family:var(--display); font-weight:400; font-size:clamp(2.2rem,10.5vw,3.3rem);
   line-height:1.02; margin:0 0 12px; text-wrap:balance; color:var(--ink);
+  text-shadow:1.5px 2px 0 var(--emboss);
 }
 .lede{margin:0 auto; color:var(--ink-2); max-width:30em; font-size:1rem}
 
@@ -156,7 +181,7 @@ h1{
 .tile::before{content:""; position:absolute; inset:0 auto 0 0; width:7px; background:var(--ac)}
 .tile:active{transform:translateY(1px)}
 .tile .art{display:flex; padding-left:8px; flex:none}
-.tile .art .k{--kw:32px; margin-inline:-4px; transform:rotate(var(--r))}
+.tile .art .k{--kw:37px; margin-inline:-3px; transform:rotate(var(--r))}
 .tile .nm{display:block; font-family:var(--display); font-weight:400; font-size:1.18rem; line-height:1.15; color:var(--ac)}
 .tile .meta{display:block; color:var(--ink-2); font-size:.8rem; margin-top:4px; font-weight:600}
 .tile .go{color:var(--ac); flex:none; display:grid; place-items:center; width:22px}
@@ -172,6 +197,7 @@ h1{
 .gv h2{
   font-family:var(--display); font-weight:400; font-size:clamp(2rem,9vw,2.8rem);
   line-height:1.03; margin:0 0 14px; color:var(--ink); text-wrap:balance;
+  text-shadow:1.5px 2px 0 color-mix(in srgb, var(--ac) 22%, transparent);
 }
 .chips{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 22px; padding:0; list-style:none}
 .chips li{
@@ -192,6 +218,12 @@ h1{
 }
 :root[data-theme="dark"] .rband, :root:not([data-theme="light"]) .rband{color:#0e2a20}
 @media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .rband{color:#fffdf6}}
+.rband{position:relative; margin-bottom:9px}
+.rband::after{
+  content:""; position:absolute; left:0; right:0; top:100%; height:9px; pointer-events:none;
+  background:radial-gradient(circle at 9px 0, var(--ac) 0 8px, transparent 8.5px) repeat-x;
+  background-size:18px 9px;
+}
 .rband .dots{display:inline-flex; gap:4px; margin-left:auto; flex:none}
 .rband .dots span{width:8px; height:8px; background:currentColor; opacity:.5; transform:rotate(45deg)}
 .rblock{padding:14px 16px; border-top:2px dashed var(--line)}
@@ -204,7 +236,7 @@ h1{
 .rblock p:first-of-type{margin-top:0}
 .rblock p:last-child{margin-bottom:0}
 .rlist{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px}
-.rlist li{display:flex; align-items:center; gap:10px; font-size:.9rem}
+.rlist li{display:flex; align-items:center; gap:10px 12px; font-size:.9rem; flex-wrap:wrap}
 .rlist .lbl{font-weight:800; flex:none}
 .rlist .seq{margin-left:auto}
 .mini{display:flex; flex-wrap:wrap; gap:6px 14px; font-size:.9rem}
@@ -299,7 +331,8 @@ tr:last-child td{border-bottom:0}
 .pyr div{display:flex; gap:3px}
 .pyr b{
   width:clamp(17px,4.9vw,25px); height:clamp(24px,6.9vw,35px); border-radius:3px;
-  background:#faf6ea; border:1px solid rgba(0,0,0,.28);
+  background:linear-gradient(158deg, #fffdf7 0%, #f6f1e2 100%);
+  border:1px solid rgba(22,40,31,.3);
 }
 .pyr b.free{border:2px solid var(--ac); box-shadow:0 0 0 2px color-mix(in srgb, var(--ac) 25%, transparent)}
 .pyr .cap{font-size:.76rem; color:var(--ink-2); margin-top:10px; text-align:center; font-weight:600}
@@ -322,9 +355,9 @@ tr:last-child td{border-bottom:0}
 <symbol id="di" viewBox="0 0 100 100"><path d="M50 5l40 45-40 45L10 50z"/></symbol>
 <symbol id="cl" viewBox="0 0 100 100"><circle cx="50" cy="29" r="20"/><circle cx="25" cy="59" r="20"/><circle cx="75" cy="59" r="20"/><path d="M43 60h14c0 16 4 27 12 33H31c8-6 12-17 12-33z"/></symbol>
 <symbol id="oro" viewBox="0 0 100 100"><path d="M50 6a44 44 0 100 88 44 44 0 000-88zm0 12a32 32 0 110 64 32 32 0 010-64z"/><path d="M50 28a22 22 0 100 44 22 22 0 000-44zm0 9a13 13 0 110 26 13 13 0 010-26z"/></symbol>
-<symbol id="copa" viewBox="0 0 100 100"><path d="M46 8h8v9h-8z"/><path d="M20 20h60c0 24-11 38-25 41v20h14v10H31V81h14V61C31 58 20 44 20 20z"/></symbol>
-<symbol id="esp" viewBox="0 0 100 100"><path d="M50 4l9 17v43H41V21z"/><path d="M18 64h64v10H18z"/><path d="M44 74h12v14H44z"/><circle cx="50" cy="92" r="7"/></symbol>
-<symbol id="bas" viewBox="0 0 100 100"><path d="M69.7 12.6 81.4 20.4 33.3 92.4 21.6 84.6z"/><circle cx="60" cy="38" r="10"/><circle cx="40" cy="66" r="9"/></symbol>
+<symbol id="copa" viewBox="0 0 100 100"><path d="M44 6h12v11H44z"/><path d="M16 19h68c0 26-12 41-27 44v18h17v12H26V81h17V63C28 60 16 45 16 19z"/></symbol>
+<symbol id="esp" viewBox="0 0 100 100"><path d="M50 2 63 25v38H37V25z"/><path d="M21 63h58v13H21z"/><path d="M42 76h16v10H42z"/><circle cx="50" cy="92" r="8"/></symbol>
+<symbol id="bas" viewBox="0 0 100 100"><rect x="37" y="6" width="26" height="88" rx="13" transform="rotate(-35 50 50)"/><circle cx="61" cy="35" r="12"/><circle cx="40" cy="63" r="11"/></symbol>
 </defs></svg>
 
 <header class="top">
@@ -339,12 +372,13 @@ tr:last-child td{border-bottom:0}
 
 <!-- ================= HOME ================= -->
 <div class="wrap" id="home">
+  <div class="bunting" aria-hidden="true"></div>
   <div class="hero">
     <div class="fan" aria-hidden="true">
-      <b class="k" style="--r:-15deg; --y:6px"><i>A</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b>
-      <b class="k r" style="--r:-5deg"><i>K</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b>
-      <b class="k r" style="--r:5deg"><i>7</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b>
-      <b class="k" style="--r:15deg; --y:6px"><i>Q</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b>
+      <b class="k face" data-c="As" style="--r:-15deg; --y:6px"></b>
+      <b class="k face" data-c="Kh" style="--r:-5deg"></b>
+      <b class="k face" data-c="10d" style="--r:5deg"></b>
+      <b class="k face" data-c="Qc" style="--r:15deg; --y:6px"></b>
     </div>
     <h1>Juegos de Mesa</h1>
     <p class="lede">Las reglas de la casa, en el bolsillo. Cada juego abre con un resumen de una pantalla; debajo, el detalle para la duda que siempre sale a mitad de partida.</p>
@@ -359,8 +393,8 @@ tr:last-child td{border-bottom:0}
     <li data-k="scopa italiano escoba oros primera sietebello settebello siete de oros baraja espanola 11 puntos captura suma">
       <button class="tile" type="button" data-go="scopa" style="--ac:var(--scopa)">
         <span class="art" aria-hidden="true">
-          <b class="k oro" style="--r:-8deg"><i>7</i><svg viewBox="0 0 100 100"><use href="#oro"/></svg></b>
-          <b class="k copa" style="--r:8deg"><i>R</i><svg viewBox="0 0 100 100"><use href="#copa"/></svg></b>
+          <b class="k" data-c="7o" style="--r:-8deg"></b>
+          <b class="k" data-c="Rp" style="--r:8deg"></b>
         </span>
         <span><span class="nm">Scopa</span><span class="meta">2 o 4 jugadores &middot; 40 cartas</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
@@ -369,8 +403,8 @@ tr:last-child td{border-bottom:0}
     <li data-k="solitario piramide pyramid trece 13 parejas rey mazo descarte pasadas un jugador">
       <button class="tile" type="button" data-go="piramide" style="--ac:var(--piramide)">
         <span class="art" aria-hidden="true">
-          <b class="k" style="--r:-8deg"><i>K</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b>
-          <b class="k r" style="--r:8deg"><i>6</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b>
+          <b class="k" data-c="Ks" style="--r:-8deg"></b>
+          <b class="k" data-c="6h" style="--r:8deg"></b>
         </span>
         <span><span class="nm">Solitario Pirámide</span><span class="meta">1 jugador &middot; 52 cartas</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
@@ -379,8 +413,8 @@ tr:last-child td{border-bottom:0}
     <li data-k="crisps escalada climbing dos jugadores damas queen especial trio poker escalera stair robar shreesh bhat sean ross">
       <button class="tile" type="button" data-go="crisps" style="--ac:var(--crisps)">
         <span class="art" aria-hidden="true">
-          <b class="k n" style="--r:-8deg"><i>9</i></b>
-          <b class="k n" style="--r:8deg"><i>Q</i></b>
+          <b class="k" data-c="9" style="--r:-8deg"></b>
+          <b class="k" data-c="Q" style="--r:8deg"></b>
         </span>
         <span><span class="nm">Crisps!</span><span class="meta">2 jugadores &middot; 40 cartas</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
@@ -389,8 +423,8 @@ tr:last-child td{border-bottom:0}
     <li data-k="tien len vietnamita trece 13 cartas dos corazones bomba corte chat escalera parejas palos">
       <button class="tile" type="button" data-go="tienlen" style="--ac:var(--tienlen)">
         <span class="art" aria-hidden="true">
-          <b class="k" style="--r:-8deg"><i>3</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b>
-          <b class="k r" style="--r:8deg"><i>2</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b>
+          <b class="k" data-c="3s" style="--r:-8deg"></b>
+          <b class="k" data-c="2h" style="--r:8deg"></b>
         </span>
         <span><span class="nm">Tien Len</span><span class="meta">2–4 jugadores &middot; 52 cartas</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
@@ -412,8 +446,8 @@ tr:last-child td{border-bottom:0}
     <div class="rblock">
       <h3>Cartas a repartir</h3>
       <ul class="rlist">
-        <li><span class="lbl">A cada jugador</span><span class="seq"><b class="k oro"><i>3</i><svg viewBox="0 0 100 100"><use href="#oro"/></svg></b><b class="k esp"><i>S</i><svg viewBox="0 0 100 100"><use href="#esp"/></svg></b><b class="k bas"><i>A</i><svg viewBox="0 0 100 100"><use href="#bas"/></svg></b></span></li>
-        <li><span class="lbl">Boca arriba en la mesa</span><span class="seq"><b class="k copa"><i>5</i><svg viewBox="0 0 100 100"><use href="#copa"/></svg></b><b class="k oro"><i>2</i><svg viewBox="0 0 100 100"><use href="#oro"/></svg></b><b class="k esp"><i>7</i><svg viewBox="0 0 100 100"><use href="#esp"/></svg></b><b class="k bas"><i>C</i><svg viewBox="0 0 100 100"><use href="#bas"/></svg></b></span></li>
+        <li><span class="lbl">A cada jugador</span><span class="seq"><b class="k" data-c="3o"></b><b class="k" data-c="Se"></b><b class="k" data-c="Ab"></b></span></li>
+        <li><span class="lbl">En la mesa</span><span class="seq"><b class="k" data-c="5p"></b><b class="k" data-c="2o"></b><b class="k" data-c="7e"></b><b class="k" data-c="Cb"></b></span></li>
       </ul>
       <p class="sub" style="margin-top:10px">El resto queda de mazo. Cuando todos se quedan sin cartas, otras 3 a cada uno.</p>
     </div>
@@ -461,10 +495,10 @@ tr:last-child td{border-bottom:0}
     </ol>
     <h4>Los cuatro palos</h4>
     <div class="seq" style="gap:10px; margin:.8em 0">
-      <b class="k big oro"><i>7</i><svg viewBox="0 0 100 100"><use href="#oro"/></svg></b>
-      <b class="k big copa"><i>5</i><svg viewBox="0 0 100 100"><use href="#copa"/></svg></b>
-      <b class="k big esp"><i>3</i><svg viewBox="0 0 100 100"><use href="#esp"/></svg></b>
-      <b class="k big bas"><i>R</i><svg viewBox="0 0 100 100"><use href="#bas"/></svg></b>
+      <b class="k big" data-c="7o"></b>
+      <b class="k big" data-c="5p"></b>
+      <b class="k big" data-c="3e"></b>
+      <b class="k big" data-c="Rb"></b>
     </div>
     <p class="sub">Oros, copas, espadas y bastos. Los <strong>oros</strong> son los que puntúan.</p>
     <h4>Valor de cada carta</h4>
@@ -473,7 +507,7 @@ tr:last-child td{border-bottom:0}
     </div>
     <div class="note">
       <b>Sin baraja española</b>
-      <p>Sirve una francesa quitando los 8, 9 y 10. Entonces <span class="seq"><b class="k"><i>J</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b></span> = 8, <span class="seq"><b class="k"><i>Q</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b></span> = 9, <span class="seq"><b class="k"><i>K</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b></span> = 10, y los oros son los diamantes <span class="seq"><b class="k r"><i>7</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b></span>.</p>
+      <p>Sirve una francesa quitando los 8, 9 y 10. Entonces <span class="seq"><b class="k" data-c="Js"></b></span> = 8, <span class="seq"><b class="k" data-c="Qc"></b></span> = 9, <span class="seq"><b class="k" data-c="Ks"></b></span> = 10, y los oros son los diamantes <span class="seq"><b class="k" data-c="7d"></b></span>.</p>
     </div>
     <div class="note warn">
       <b>Repartir de nuevo</b>
@@ -496,12 +530,12 @@ tr:last-child td{border-bottom:0}
     <h4>Un ejemplo</h4>
     <p class="sub">Mesa:</p>
     <div class="seq" style="margin:.5em 0">
-      <b class="k big oro"><i>2</i><svg viewBox="0 0 100 100"><use href="#oro"/></svg></b>
-      <b class="k big esp"><i>5</i><svg viewBox="0 0 100 100"><use href="#esp"/></svg></b>
-      <b class="k big copa"><i>6</i><svg viewBox="0 0 100 100"><use href="#copa"/></svg></b>
-      <b class="k big bas"><i>R</i><svg viewBox="0 0 100 100"><use href="#bas"/></svg></b>
+      <b class="k big" data-c="2o"></b>
+      <b class="k big" data-c="5e"></b>
+      <b class="k big" data-c="6p"></b>
+      <b class="k big" data-c="Rb"></b>
     </div>
-    <p>Juegas un <span class="seq"><b class="k copa"><i>7</i><svg viewBox="0 0 100 100"><use href="#copa"/></svg></b></span>. No hay ningún 7 suelto, así que capturas <strong>2 + 5</strong>. El 6 y el rey se quedan. Si en vez de eso juegas un rey, te llevas el rey de la mesa.</p>
+    <p>Juegas un <span class="seq"><b class="k" data-c="7p"></b></span>. No hay ningún 7 suelto, así que capturas <strong>2 + 5</strong>. El 6 y el rey se quedan. Si en vez de eso juegas un rey, te llevas el rey de la mesa.</p>
     <div class="note">
       <b>Última baza</b>
       <p>Las cartas que queden en la mesa al acabar el mazo se las lleva el último jugador que capturó. Eso no cuenta como escoba.</p>
@@ -584,13 +618,13 @@ tr:last-child td{border-bottom:0}
       <h3>Movimientos válidos</h3>
       <p>Retirar <strong>dos cartas libres que sumen 13</strong>:</p>
       <div class="seq" style="margin:.7em 0 .3em">
-        <b class="k"><i>A</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b>
-        <b class="k r"><i>Q</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b>
+        <b class="k" data-c="As"></b>
+        <b class="k" data-c="Qh"></b>
         <span style="color:var(--ink-3); font-weight:800; margin:0 4px">·</span>
-        <b class="k r"><i>5</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b>
-        <b class="k"><i>8</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b>
+        <b class="k" data-c="5d"></b>
+        <b class="k" data-c="8c"></b>
         <span style="color:var(--ink-3); font-weight:800; margin:0 4px">·</span>
-        <b class="k"><i>K</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b>
+        <b class="k" data-c="Ks"></b>
         <em class="t" style="font-size:.85rem">solo</em>
       </div>
       <p class="sub">Libre = sin ninguna carta encima. El rey ya vale 13 y se va sin pareja.</p>
@@ -641,18 +675,18 @@ tr:last-child td{border-bottom:0}
         <thead><tr><th colspan="3">Parejas que suman 13</th><th>Va sola</th></tr></thead>
         <tbody>
           <tr>
-            <td><span class="seq"><b class="k"><i>A</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b><b class="k r"><i>Q</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b></span></td>
-            <td><span class="seq"><b class="k"><i>4</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b><b class="k r"><i>9</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b></span></td>
-            <td><span class="seq"><b class="k r"><i>6</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b><b class="k"><i>7</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b></span></td>
-            <td rowspan="3" style="vertical-align:middle"><span class="seq"><b class="k"><i>K</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b></span></td>
+            <td><span class="seq"><b class="k" data-c="As"></b><b class="k" data-c="Qh"></b></span></td>
+            <td><span class="seq"><b class="k" data-c="4c"></b><b class="k" data-c="9d"></b></span></td>
+            <td><span class="seq"><b class="k" data-c="6h"></b><b class="k" data-c="7s"></b></span></td>
+            <td rowspan="3" style="vertical-align:middle"><span class="seq"><b class="k" data-c="Ks"></b></span></td>
           </tr>
           <tr>
-            <td><span class="seq"><b class="k r"><i>2</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b><b class="k"><i>J</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b></span></td>
-            <td><span class="seq"><b class="k"><i>5</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b><b class="k r"><i>8</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b></span></td>
+            <td><span class="seq"><b class="k" data-c="2d"></b><b class="k" data-c="Jc"></b></span></td>
+            <td><span class="seq"><b class="k" data-c="5s"></b><b class="k" data-c="8h"></b></span></td>
             <td></td>
           </tr>
           <tr>
-            <td><span class="seq"><b class="k"><i>3</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b><b class="k r"><i>10</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b></span></td>
+            <td><span class="seq"><b class="k" data-c="3c"></b><b class="k" data-c="10d"></b></span></td>
             <td></td>
             <td></td>
           </tr>
@@ -712,8 +746,8 @@ tr:last-child td{border-bottom:0}
       <h3>Cartas a repartir</h3>
       <ul class="rlist">
         <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>12 cartas</strong></span></li>
-        <li><span class="lbl">Apartadas boca abajo</span><span style="margin-left:auto"><strong>4 cartas</strong></span></li>
-        <li><span class="lbl">Boca arriba junto al mazo</span><span style="margin-left:auto"><strong>1 carta</strong></span></li>
+        <li><span class="lbl">Apartadas</span><span style="margin-left:auto"><strong>4 cartas</strong></span></li>
+        <li><span class="lbl">Boca arriba</span><span style="margin-left:auto"><strong>1 carta</strong></span></li>
       </ul>
       <p class="sub" style="margin-top:10px">Mazo: 4 copias de cada rango, del 2 al 10 y la Dama. Los palos no se usan.</p>
     </div>
@@ -721,12 +755,12 @@ tr:last-child td{border-bottom:0}
     <div class="rblock">
       <h3>Jugadas válidas</h3>
       <ul class="rlist">
-        <li><span class="lbl">Individual</span><span class="seq"><b class="k n"><i>8</i></b></span></li>
-        <li><span class="lbl">Pareja</span><span class="seq"><b class="k n"><i>6</i></b><b class="k n"><i>6</i></b></span></li>
-        <li><span class="lbl">Secuencia</span><span class="seq"><b class="k n"><i>4</i></b><b class="k n"><i>5</i></b><b class="k n"><i>6</i></b></span></li>
-        <li><span class="lbl">Escalera</span><span class="seq"><b class="k n"><i>7</i></b><b class="k n"><i>7</i></b><b class="k n"><i>8</i></b><b class="k n"><i>8</i></b></span></li>
-        <li><span class="lbl">Trío <em class="t">esp.</em></span><span class="seq"><b class="k n"><i>9</i></b><b class="k n"><i>9</i></b><b class="k n"><i>9</i></b></span></li>
-        <li><span class="lbl">Póker <em class="t">esp.</em></span><span class="seq"><b class="k n"><i>3</i></b><b class="k n"><i>3</i></b><b class="k n"><i>3</i></b><b class="k n"><i>3</i></b></span></li>
+        <li><span class="lbl">Individual</span><span class="seq"><b class="k" data-c="8"></b></span></li>
+        <li><span class="lbl">Pareja</span><span class="seq"><b class="k" data-c="6"></b><b class="k" data-c="6"></b></span></li>
+        <li><span class="lbl">Secuencia</span><span class="seq"><b class="k" data-c="4"></b><b class="k" data-c="5"></b><b class="k" data-c="6"></b></span></li>
+        <li><span class="lbl">Escalera</span><span class="seq"><b class="k" data-c="7"></b><b class="k" data-c="7"></b><b class="k" data-c="8"></b><b class="k" data-c="8"></b></span></li>
+        <li><span class="lbl">Trío <em class="t">esp.</em></span><span class="seq"><b class="k" data-c="9"></b><b class="k" data-c="9"></b><b class="k" data-c="9"></b></span></li>
+        <li><span class="lbl">Póker <em class="t">esp.</em></span><span class="seq"><b class="k" data-c="3"></b><b class="k" data-c="3"></b><b class="k" data-c="3"></b><b class="k" data-c="3"></b></span></li>
       </ul>
       <p class="sub" style="margin-top:10px">Responder pide mismo tipo, misma longitud y rango <strong>igual o superior</strong>. Las damas no entran en secuencias ni escaleras.</p>
     </div>
@@ -784,10 +818,10 @@ tr:last-child td{border-bottom:0}
       <table>
         <thead><tr><th>Combinación</th><th>Qué es</th><th>Ejemplo</th></tr></thead>
         <tbody>
-          <tr><td><strong>Individual</strong></td><td>Una carta suelta</td><td><span class="seq"><b class="k n"><i>8</i></b></span></td></tr>
-          <tr><td><strong>Pareja</strong></td><td>2 cartas iguales</td><td><span class="seq"><b class="k n"><i>6</i></b><b class="k n"><i>6</i></b></span></td></tr>
-          <tr><td><strong>Secuencia</strong></td><td>3 o más consecutivas</td><td><span class="seq"><b class="k n"><i>4</i></b><b class="k n"><i>5</i></b><b class="k n"><i>6</i></b></span></td></tr>
-          <tr><td><strong>Escalera</strong></td><td>2 o más parejas consecutivas</td><td><span class="seq"><b class="k n"><i>7</i></b><b class="k n"><i>7</i></b><b class="k n"><i>8</i></b><b class="k n"><i>8</i></b></span></td></tr>
+          <tr><td><strong>Individual</strong></td><td>Una carta suelta</td><td><span class="seq"><b class="k" data-c="8"></b></span></td></tr>
+          <tr><td><strong>Pareja</strong></td><td>2 cartas iguales</td><td><span class="seq"><b class="k" data-c="6"></b><b class="k" data-c="6"></b></span></td></tr>
+          <tr><td><strong>Secuencia</strong></td><td>3 o más consecutivas</td><td><span class="seq"><b class="k" data-c="4"></b><b class="k" data-c="5"></b><b class="k" data-c="6"></b></span></td></tr>
+          <tr><td><strong>Escalera</strong></td><td>2 o más parejas consecutivas</td><td><span class="seq"><b class="k" data-c="7"></b><b class="k" data-c="7"></b><b class="k" data-c="8"></b><b class="k" data-c="8"></b></span></td></tr>
         </tbody>
       </table>
     </div>
@@ -796,8 +830,8 @@ tr:last-child td{border-bottom:0}
       <table>
         <thead><tr><th>Combinación</th><th>Qué es</th><th>Ejemplo</th></tr></thead>
         <tbody>
-          <tr><td><strong>Trío</strong></td><td>3 cartas iguales</td><td><span class="seq"><b class="k n"><i>9</i></b><b class="k n"><i>9</i></b><b class="k n"><i>9</i></b></span></td></tr>
-          <tr><td><strong>Póker</strong></td><td>4 cartas iguales</td><td><span class="seq"><b class="k n"><i>3</i></b><b class="k n"><i>3</i></b><b class="k n"><i>3</i></b><b class="k n"><i>3</i></b></span></td></tr>
+          <tr><td><strong>Trío</strong></td><td>3 cartas iguales</td><td><span class="seq"><b class="k" data-c="9"></b><b class="k" data-c="9"></b><b class="k" data-c="9"></b></span></td></tr>
+          <tr><td><strong>Póker</strong></td><td>4 cartas iguales</td><td><span class="seq"><b class="k" data-c="3"></b><b class="k" data-c="3"></b><b class="k" data-c="3"></b><b class="k" data-c="3"></b></span></td></tr>
         </tbody>
       </table>
     </div>
@@ -858,16 +892,16 @@ tr:last-child td{border-bottom:0}
     <h3 class="sec">Ejemplo de dos rondas</h3>
     <ol class="play">
       <li class="hd">Ronda 1 · abre Ana</li>
-      <li><span class="who">Ana</span><span class="seq"><b class="k n"><i>4</i></b><b class="k n"><i>4</i></b></span><span class="why">pareja</span></li>
-      <li><span class="who">Bru</span><span class="seq"><b class="k n"><i>4</i></b><b class="k n"><i>4</i></b></span><span class="why">iguala, y vale</span></li>
-      <li><span class="who">Ana</span><span class="seq"><b class="k n"><i>9</i></b><b class="k n"><i>9</i></b></span><span class="why">pareja mayor</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="4"></b><b class="k" data-c="4"></b></span><span class="why">pareja</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="4"></b><b class="k" data-c="4"></b></span><span class="why">iguala, y vale</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="9"></b><b class="k" data-c="9"></b></span><span class="why">pareja mayor</span></li>
       <li><span class="who">Bru</span><span style="font-weight:800">pasa</span><span class="why">fin de ronda</span></li>
       <li class="hd">Roban · Ana elige primero, Bru se lleva la otra</li>
       <li class="hd">Ronda 2 · abre Ana</li>
-      <li><span class="who">Ana</span><span class="seq"><b class="k n"><i>8</i></b></span><span class="why">individual</span></li>
-      <li><span class="who">Bru</span><span class="seq"><b class="k n"><i>Q</i></b></span><span class="why">dama, la más alta</span></li>
-      <li><span class="who">Ana</span><span class="seq"><b class="k n"><i>6</i></b><b class="k n"><i>6</i></b><b class="k n"><i>6</i></b></span><span class="why">trío sobre dama sola</span></li>
-      <li><span class="who">Bru</span><span class="seq"><b class="k n"><i>10</i></b><b class="k n"><i>10</i></b><b class="k n"><i>10</i></b></span><span class="why">trío mayor</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="8"></b></span><span class="why">individual</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Q"></b></span><span class="why">dama, la más alta</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="6"></b><b class="k" data-c="6"></b><b class="k" data-c="6"></b></span><span class="why">trío sobre dama sola</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="10"></b><b class="k" data-c="10"></b><b class="k" data-c="10"></b></span><span class="why">trío mayor</span></li>
       <li><span class="who">Ana</span><span style="font-weight:800">pasa</span><span class="why">Bru roba primero y abre</span></li>
     </ol>
     <div class="note">
@@ -890,7 +924,7 @@ tr:last-child td{border-bottom:0}
       <h3>Cartas a repartir</h3>
       <ul class="rlist">
         <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>13 cartas</strong></span></li>
-        <li><span class="lbl">Abre la partida</span><span class="seq"><b class="k"><i>3</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b></span></li>
+        <li><span class="lbl">Abre la partida</span><span class="seq"><b class="k" data-c="3s"></b></span></li>
       </ul>
       <p class="sub" style="margin-top:10px">Y su primera jugada tiene que incluir esa carta. No hay mazo: se reparte todo.</p>
     </div>
@@ -898,10 +932,10 @@ tr:last-child td{border-bottom:0}
     <div class="rblock">
       <h3>Jugadas válidas</h3>
       <ul class="rlist">
-        <li><span class="lbl">Individual</span><span class="seq"><b class="k r"><i>9</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b></span></li>
-        <li><span class="lbl">Pareja</span><span class="seq"><b class="k"><i>K</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b><b class="k r"><i>K</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b></span></li>
-        <li><span class="lbl">Trío</span><span class="seq"><b class="k"><i>7</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b><b class="k"><i>7</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b><b class="k r"><i>7</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b></span></li>
-        <li><span class="lbl">Escalera</span><span class="seq"><b class="k"><i>6</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b><b class="k r"><i>7</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b><b class="k"><i>8</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b></span></li>
+        <li><span class="lbl">Individual</span><span class="seq"><b class="k" data-c="9h"></b></span></li>
+        <li><span class="lbl">Pareja</span><span class="seq"><b class="k" data-c="Ks"></b><b class="k" data-c="Kd"></b></span></li>
+        <li><span class="lbl">Trío</span><span class="seq"><b class="k" data-c="7s"></b><b class="k" data-c="7c"></b><b class="k" data-c="7h"></b></span></li>
+        <li><span class="lbl">Escalera</span><span class="seq"><b class="k" data-c="6c"></b><b class="k" data-c="7d"></b><b class="k" data-c="8s"></b></span></li>
       </ul>
       <p class="sub" style="margin-top:10px">También póker (4 iguales) y escalera de parejas (3+ parejas seguidas). Responder pide mismo tipo, misma longitud y rango mayor.</p>
     </div>
@@ -930,13 +964,13 @@ tr:last-child td{border-bottom:0}
     <h4>Y el palo desempata</h4>
     <div class="seq" style="gap:8px; margin:.8em 0; align-items:center">
       <em class="t" style="font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase">menor</em>
-      <b class="k big"><i>7</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b>
-      <b class="k big"><i>7</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b>
-      <b class="k big r"><i>7</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b>
-      <b class="k big r"><i>7</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b>
+      <b class="k big" data-c="7s"></b>
+      <b class="k big" data-c="7c"></b>
+      <b class="k big" data-c="7d"></b>
+      <b class="k big" data-c="7h"></b>
       <em class="t" style="font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase">mayor</em>
     </div>
-    <p>Entre dos cartas del mismo número gana la del palo más alto. La carta más fuerte de la baraja es el <span class="seq"><b class="k r"><i>2</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b></span> y la más débil el <span class="seq"><b class="k"><i>3</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b></span>.</p>
+    <p>Entre dos cartas del mismo número gana la del palo más alto. La carta más fuerte de la baraja es el <span class="seq"><b class="k" data-c="2h"></b></span> y la más débil el <span class="seq"><b class="k" data-c="3s"></b></span>.</p>
   </section>
 
   <section id="tl-prep">
@@ -958,12 +992,12 @@ tr:last-child td{border-bottom:0}
       <table>
         <thead><tr><th>Jugada</th><th>Qué es</th><th>Ejemplo</th></tr></thead>
         <tbody>
-          <tr><td><strong>Individual</strong></td><td>Una carta</td><td><span class="seq"><b class="k r"><i>9</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b></span></td></tr>
-          <tr><td><strong>Pareja</strong></td><td>2 del mismo número</td><td><span class="seq"><b class="k"><i>K</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b><b class="k r"><i>K</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b></span></td></tr>
-          <tr><td><strong>Trío</strong></td><td>3 del mismo número</td><td><span class="seq"><b class="k"><i>7</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b><b class="k"><i>7</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b><b class="k r"><i>7</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b></span></td></tr>
-          <tr><td><strong>Póker</strong></td><td>4 del mismo número</td><td><span class="seq"><b class="k"><i>5</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b><b class="k"><i>5</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b><b class="k r"><i>5</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b><b class="k r"><i>5</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b></span></td></tr>
-          <tr><td><strong>Escalera</strong></td><td>3 o más seguidas, palos libres</td><td><span class="seq"><b class="k"><i>6</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b><b class="k r"><i>7</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b><b class="k"><i>8</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b></span></td></tr>
-          <tr><td><strong>Escalera de parejas</strong></td><td>3 o más parejas seguidas</td><td><span class="seq"><b class="k"><i>4</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b><b class="k"><i>4</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b><b class="k"><i>5</i><svg viewBox="0 0 100 100"><use href="#cl"/></svg></b><b class="k r"><i>5</i><svg viewBox="0 0 100 100"><use href="#he"/></svg></b><b class="k"><i>6</i><svg viewBox="0 0 100 100"><use href="#sp"/></svg></b><b class="k r"><i>6</i><svg viewBox="0 0 100 100"><use href="#di"/></svg></b></span></td></tr>
+          <tr><td><strong>Individual</strong></td><td>Una carta</td><td><span class="seq"><b class="k" data-c="9h"></b></span></td></tr>
+          <tr><td><strong>Pareja</strong></td><td>2 del mismo número</td><td><span class="seq"><b class="k" data-c="Ks"></b><b class="k" data-c="Kd"></b></span></td></tr>
+          <tr><td><strong>Trío</strong></td><td>3 del mismo número</td><td><span class="seq"><b class="k" data-c="7s"></b><b class="k" data-c="7c"></b><b class="k" data-c="7h"></b></span></td></tr>
+          <tr><td><strong>Póker</strong></td><td>4 del mismo número</td><td><span class="seq"><b class="k" data-c="5s"></b><b class="k" data-c="5c"></b><b class="k" data-c="5d"></b><b class="k" data-c="5h"></b></span></td></tr>
+          <tr><td><strong>Escalera</strong></td><td>3 o más seguidas, palos libres</td><td><span class="seq"><b class="k" data-c="6c"></b><b class="k" data-c="7d"></b><b class="k" data-c="8s"></b></span></td></tr>
+          <tr><td><strong>Escalera de parejas</strong></td><td>3 o más parejas seguidas</td><td><span class="seq"><b class="k" data-c="4s"></b><b class="k" data-c="4c"></b><b class="k" data-c="5c"></b><b class="k" data-c="5h"></b><b class="k" data-c="6s"></b><b class="k" data-c="6d"></b></span></td></tr>
         </tbody>
       </table>
     </div>
@@ -1035,6 +1069,54 @@ tr:last-child td{border-bottom:0}
     } catch (e) {}
     return null;
   }
+
+
+  /* ---- caras de carta ---- */
+  var SUIT = {s:"sp", h:"he", d:"di", c:"cl", o:"oro", p:"copa", e:"esp", b:"bas"};
+  var PIPC = {s:"#1a1a1a", h:"#bd262d", d:"#bd262d", c:"#1a1a1a",
+              o:"#b8860b", p:"#bd262d", e:"#2f5fa8", b:"#1f7a4d"};
+  var PIPS = {
+    "2":[[50,14],[50,86]],
+    "3":[[50,14],[50,50],[50,86]],
+    "4":[[18,14],[82,14],[18,86],[82,86]],
+    "5":[[18,14],[82,14],[50,50],[18,86],[82,86]],
+    "6":[[18,14],[82,14],[18,50],[82,50],[18,86],[82,86]],
+    "7":[[18,14],[82,14],[50,32],[18,50],[82,50],[18,86],[82,86]],
+    "8":[[18,14],[82,14],[50,32],[18,50],[82,50],[50,68],[18,86],[82,86]],
+    "9":[[18,12],[82,12],[18,38],[82,38],[50,50],[18,62],[82,62],[18,88],[82,88]],
+    "10":[[18,12],[82,12],[50,26],[18,38],[82,38],[18,62],[82,62],[50,74],[18,88],[82,88]]
+  };
+  function pipSvg(sym, cls){
+    return '<svg class="' + cls + '" viewBox="0 0 100 100" aria-hidden="true"><use href="#' + sym + '"/></svg>';
+  }
+  function drawCard(el){
+    var code = el.getAttribute("data-c");
+    if (!code) return;
+    var m = /^(10|[2-9AJQKSCR])([shdcopeb])?$/.exec(code);
+    if (!m) return;
+    var rank = m[1], suit = m[2] || "";
+    var sym = suit ? SUIT[suit] : "";
+    var ink = (suit === "h" || suit === "d") ? "#bd262d" : "#1a1a1a";
+    el.style.setProperty("--ink-c", ink);
+    el.style.setProperty("--pip-c", suit ? PIPC[suit] : ink);
+
+    var corner = '<span class="kc k1"><i>' + rank + '</i>' + (sym ? pipSvg(sym, "") : "") + '</span>';
+    var corner2 = corner.replace("k1", "k2");
+    var middle;
+    if (sym && el.classList.contains("face") && PIPS[rank]) {
+      middle = '<span class="kf">' + PIPS[rank].map(function(pt){
+        return '<svg viewBox="0 0 100 100" aria-hidden="true" style="--x:' + pt[0] + '%;--y:' + pt[1] +
+               '%;--rot:' + (pt[1] > 50 ? 180 : 0) + 'deg"><use href="#' + sym + '"/></svg>';
+      }).join("") + '</span>';
+    } else if (sym) {
+      middle = pipSvg(sym, "kp");
+    } else {
+      middle = '<span class="kl">' + rank + '</span>';
+    }
+    el.innerHTML = corner + middle + corner2;
+    el.setAttribute("aria-hidden", "true");
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".k[data-c]"), drawCard);
 
   /* ---- theme ---- */
   var saved = store("juegos-theme");

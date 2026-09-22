@@ -63,6 +63,31 @@ real, mejor las opciones 1 o 2.
 3. Ábrela una vez con datos o wifi para que se descargue entera.
 4. A partir de ahí funciona en avión, en el metro y sin cobertura.
 
+## Volver a la versión anterior
+
+El proyecto es un repositorio git con dos versiones etiquetadas:
+
+| Etiqueta | Cómo es |
+|---|---|
+| `sobria` | Cartas simples (número + palo), sin guirnalda, títulos planos |
+| `festiva` | Cartas realistas con índices en las dos esquinas, guirnalda, toldo en el RESUMEN |
+
+Para volver a la sobria:
+
+```bash
+cd "/Users/carloscarmona/1_APPS/REGLAS JUEGOS" && git checkout sobria -- index.html
+```
+
+Y para recuperar la festiva:
+
+```bash
+cd "/Users/carloscarmona/1_APPS/REGLAS JUEGOS" && git checkout festiva -- index.html
+```
+
+Solo cambia `index.html`; fuentes, iconos y service worker valen para las dos.
+Después de cambiar, sube la versión de caché en `sw.js` si ya la tenías instalada
+en el móvil.
+
 ## Editar el contenido
 
 Las reglas están en `index.html`, un bloque `<div class="wrap gv" id="g-...">` por
@@ -79,6 +104,24 @@ el sprite SVG del principio del fichero (`#sp #he #di #cl` y `#oro #copa #esp #b
 **Importante:** cada vez que cambies cualquier fichero, sube la versión de la caché
 en `sw.js` (`const CACHE = "juegos-v3"`) o los móviles que ya la tengan instalada
 seguirán viendo la versión vieja.
+
+### Cómo se escriben las cartas
+
+Cada carta es un `<b class="k" data-c="...">` vacío; el script del final del
+fichero le dibuja la cara. El código son rango + palo:
+
+```
+data-c="Kh"    rey de corazones        data-c="7o"   siete de oros
+data-c="10s"   diez de picas           data-c="Rb"   rey de bastos
+data-c="9"     nueve sin palo (Crisps)
+```
+
+Palos: `s` picas · `h` corazones · `d` diamantes · `c` tréboles ·
+`o` oros · `p` copas · `e` espadas · `b` bastos.
+Rangos: `A 2…10 J Q K` y `S` sota, `C` caballo, `R` rey.
+
+Modificadores: `class="k big"` la hace más grande, `class="k face"` dibuja los
+pips repartidos como en una carta de verdad (se usa en el abanico de portada).
 
 ## Sobre las reglas
 
