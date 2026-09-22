@@ -469,13 +469,13 @@ tr:last-child td{border-bottom:0}
         <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
       </button>
     </li>
-    <li data-k="hearts a 2 dos jugadores corazones pareja variante mazo robar robo 26 bazas dama de picas luna youtube">
+    <li data-k="hearts a 2 dos jugadores corazones pareja variante baraja recortada 28 cartas triunfo trump cartas muertas dead card dama de picas luna 20 puntos gamerules riffle shuffle roll youtube">
       <button class="tile" type="button" data-go="hearts2" style="--ac:var(--hearts2)">
         <span class="art" aria-hidden="true">
-          <b class="k" data-c="2c" style="--r:-8deg"></b>
-          <b class="k" data-c="Jh" style="--r:8deg"></b>
+          <b class="k" data-c="Qs" style="--r:-8deg"></b>
+          <b class="k" data-c="2h" style="--r:8deg"></b>
         </span>
-        <span><span class="nm">Hearts a 2</span><span class="meta">2 jugadores &middot; con mazo para robar</span></span>
+        <span><span class="nm">Hearts a 2</span><span class="meta">2 jugadores &middot; 28 cartas</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
       </button>
     </li>
@@ -1400,7 +1400,7 @@ tr:last-child td{border-bottom:0}
     </div>
     <div class="note">
       <b>¿Solo dos?</b>
-      <p>Hay una variante de dos jugadores con mazo para robar, con su propia ficha: <a href="#/hearts2"><strong>Hearts a 2 jugadores</strong></a>.</p>
+      <p>Hay una variante de dos jugadores con su propia ficha: <a href="#/hearts2"><strong>Hearts a 2 jugadores</strong></a>. Cambia bastante — baraja recortada de 28 cartas y <strong>corazones al triunfo</strong> — así que no la juegues de memoria.</p>
     </div>
   </section>
 
@@ -1550,143 +1550,196 @@ tr:last-child td{border-bottom:0}
 
 <!-- ================= HEARTS A 2 ================= -->
 <div class="wrap gv" id="g-hearts2" hidden style="--ac:var(--hearts2)">
-  <p class="kicker">Variante &middot; Hearts con mazo para robar</p>
+  <p class="kicker">Variante &middot; baraja de 28 y corazones al triunfo</p>
   <h2>Hearts a 2</h2>
-  <ul class="chips"><li>2 jugadores</li><li>52 cartas</li><li>13 en mano</li><li>26 bazas</li><li>20 min</li></ul>
+  <ul class="chips"><li>2 jugadores</li><li>28 cartas</li><li>13 cada uno</li><li>13 bazas</li><li>20 puntos por mano</li><li>15 min</li></ul>
 
   <div class="resumen">
     <div class="rband">Resumen<span class="dots"><span></span><span></span><span></span></span></div>
 
     <div class="rblock">
+      <h3>La baraja: quita seis rangos</h3>
+      <p>Fuera <strong>3, 5, 7, 9, J y K de todos los palos</strong>. Quedan <strong>28 cartas</strong>:</p>
+      <div class="order" style="margin:.5em 0 0">
+        <span>2</span><span>4</span><span>6</span><span>8</span><span>10</span><span>Q</span><span class="hi">A</span>
+      </div>
+      <p class="sub" style="margin-top:10px">Ojo a lo que eso hace: en cada palo la <strong>dama es la segunda más alta</strong>, solo por debajo del as.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Los corazones son triunfo</h3>
+      <p>No es el Hearts de siempre: aquí <strong>un corazón gana cualquier baza</strong> en la que se juegue. Y como los corazones son los que pintan puntos, cortar con uno significa <strong>ganar la baza y comerte el punto</strong>.</p>
+    </div>
+
+    <div class="rblock">
       <h3>Cartas a repartir</h3>
       <ul class="rlist">
-        <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>13 cartas</strong></span></li>
-        <li><span class="lbl">Las otras 26</span><span style="margin-left:auto">mazo boca abajo, en el centro</span></li>
-        <li><span class="lbl">Abre la mano</span><span class="seq"><b class="k" data-c="2c"></b></span></li>
+        <li><span class="lbl">Primero, a un lado</span><span style="margin-left:auto"><strong>1 carta muerta</strong></span></li>
+        <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>13 cartas</strong>, de una en una</span></li>
+        <li><span class="lbl">La que sobra</span><span style="margin-left:auto"><strong>también muerta</strong></span></li>
+        <li><span class="lbl">Abre la mano</span><span class="seq" style="margin-left:auto"><b class="k" data-c="2c"></b></span></li>
       </ul>
-      <p class="sub" style="margin-top:10px">No hay pase de cartas: con dos jugadores sería regalarle la mano al rival.</p>
-    </div>
-
-    <div class="rblock">
-      <h3>El robo, la clave de la variante</h3>
-      <p>Después de cada baza roba <strong>primero quien la ha ganado</strong> y luego el otro. Los dos vuelven a <strong>13 cartas</strong> y se sigue. Así se juegan las <strong>13 primeras bazas</strong>.</p>
-    </div>
-
-    <div class="rblock">
-      <h3>Y cuando se acaba el mazo</h3>
-      <p>Quedan <strong>13 bazas más</strong> sin robar, con las manos cerradas. Ahí ya sabes casi todo lo que le queda al rival: es la parte que se juega de verdad.</p>
+      <p class="sub" style="margin-top:10px">Dos cartas muertas que nadie ve. Sin pase y sin mazo para robar: 13 bazas y se cuenta.</p>
     </div>
 
     <div class="rblock">
       <h3>Puntos</h3>
       <ul class="rlist">
-        <li><span class="lbl">Cada corazón</span><span style="margin-left:auto"><strong>1 punto</strong></span><span class="seq" style="margin-left:12px"><b class="k" data-c="Ah"></b></span></li>
+        <li><span class="lbl">Cada corazón <em class="t">hay 7</em></span><span style="margin-left:auto"><strong>1 punto</strong></span><span class="seq" style="margin-left:12px"><b class="k" data-c="Ah"></b></span></li>
         <li><span class="lbl">Dama de picas</span><span style="margin-left:auto"><strong>13 puntos</strong></span><span class="seq" style="margin-left:12px"><b class="k" data-c="Qs"></b></span></li>
       </ul>
-      <p class="sub" style="margin-top:10px">Los <strong>26 puntos</strong> de la baraja se reparten entre los dos. Se juega a 50 o a 100 y <strong>gana quien menos sume</strong>.</p>
+      <p class="sub" style="margin-top:10px">Total: <strong>20 puntos</strong> por mano. <strong>Pierde el primero que llega a 100</strong>; gana el que menos tenga.</p>
     </div>
   </div>
 
   <nav class="snav" aria-label="Secciones"><ul>
-    <li><a href="#h2-prep">Preparación</a></li>
+    <li><a href="#h2-baraja">La baraja</a></li>
+    <li><a href="#h2-prep">Reparto</a></li>
+    <li><a href="#h2-triunfo">Triunfo</a></li>
     <li><a href="#h2-baza">La baza</a></li>
-    <li><a href="#h2-robo">El robo</a></li>
     <li><a href="#h2-punt">Puntos</a></li>
+    <li><a href="#h2-fin">Fin</a></li>
     <li><a href="#h2-dif">Diferencias</a></li>
-    <li><a href="#h2-var">Variantes</a></li>
     <li><a href="#h2-tacticas">Tácticas</a></li>
   </ul></nav>
 
-  <section id="h2-prep">
-    <h3 class="sec">Preparación</h3>
-    <p class="sub">La idea es sencilla: el Hearts normal se queda corto con dos porque se ven demasiadas cartas, así que se esconde media baraja en un mazo del que se roba baza a baza.</p>
-    <ol class="steps">
-      <li>Baraja de <strong>52 cartas</strong>, orden normal en cada palo: <strong>2 la más baja, as la más alta</strong>. Sin triunfo.</li>
-      <li>Reparte <strong>13 cartas a cada uno</strong>. Las <strong>26 restantes</strong> se dejan boca abajo en el centro como mazo.</li>
-      <li><strong>No hay pase</strong> de tres cartas.</li>
-      <li>Abre quien tenga el <strong>2 de tréboles</strong>, y tiene que jugarlo en la primera baza.</li>
-    </ol>
-    <div class="note">
-      <b>Si el 2 de tréboles está en el mazo</b>
-      <p>Pasa en la mitad de las manos. Entonces abre <strong>el trébol más bajo que alguien tenga en la mano</strong>; si ninguno tiene tréboles, abre el que no ha repartido con la carta que quiera (que no pinte puntos).</p>
+  <section id="h2-baraja">
+    <h3 class="sec">La baraja recortada</h3>
+    <p>Coge una baraja francesa de 52 y <strong>quita el 3, el 5, el 7, el 9, la J y la K de los cuatro palos</strong>. Te quedan <strong>28 cartas</strong>: siete rangos por palo.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Se quedan</th><th>Se van</th></tr></thead>
+        <tbody>
+          <tr><td><strong>2 · 4 · 6 · 8 · 10 · Q · A</strong><br><em class="t">7 de cada palo, 28 en total</em></td><td>3 · 5 · 7 · 9 · J · K<br><em class="t">24 cartas fuera</em></td></tr>
+        </tbody>
+      </table>
     </div>
+    <h4>El orden dentro de cada palo</h4>
+    <div class="order">
+      <i>bajo</i><span>2</span><span>4</span><span>6</span><span>8</span><span>10</span><span>Q</span><span class="hi">A</span><i>alto</i>
+    </div>
+    <div class="note warn">
+      <b>La dama sube de golpe</b>
+      <p>Sin J ni K, <strong>la dama es la segunda carta más alta de su palo</strong>. A la <span class="seq"><b class="k" data-c="Qs"></b></span> solo la mata el <span class="seq"><b class="k" data-c="As"></b></span>: si sacas picas y el rival tiene la dama, se la va a llevar él… y si la tienes tú, es casi imposible soltarla sirviendo el palo.</p>
+    </div>
+    <p class="sub">Y quedan <strong>7 corazones</strong> (2, 4, 6, 8, 10, Q y A), que son los 7 puntos sueltos de la mano.</p>
+  </section>
+
+  <section id="h2-prep">
+    <h3 class="sec">El reparto</h3>
+    <ol class="steps">
+      <li>Con la baraja de 28, <strong>da una carta a un lado boca abajo</strong>: es una <strong>carta muerta</strong> y no se usa en esa mano.</li>
+      <li>Reparte <strong>13 cartas a cada jugador</strong>, de una en una.</li>
+      <li>Sobra una carta: <strong>también muerta</strong>, al lado de la otra. En total <strong>2 cartas muertas</strong> que ninguno de los dos ve.</li>
+      <li><strong>No hay pase</strong> de cartas y <strong>no hay mazo</strong> para robar. Se juegan las <strong>13 bazas</strong> y se cuenta.</li>
+    </ol>
+    <h4>Quién abre</h4>
+    <p>Abre quien tenga el <strong>2 de tréboles</strong>, y está obligado a jugarlo en la primera baza. Si está muerto, se baja por la escalera de tréboles:</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Abre con</th><th>Cuándo</th></tr></thead>
+        <tbody>
+          <tr><td><span class="seq"><b class="k" data-c="2c"></b></span> <strong>2 de tréboles</strong></td><td>Lo normal</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="4c"></b></span> <strong>4 de tréboles</strong></td><td>Si el 2 es una de las cartas muertas</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="6c"></b></span> <strong>6 de tréboles</strong></td><td>Si el 2 <em class="t">y</em> el 4 están muertos. Rarísimo, pero puede pasar</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="h2-triunfo">
+    <h3 class="sec">Los corazones son triunfo</h3>
+    <p class="sub">Esta es la diferencia grande con el Hearts normal, y la que hay que tener clara antes de empezar.</p>
+    <p>Gana la baza <strong>el corazón más alto</strong>; si no se ha jugado ningún corazón, gana <strong>la carta más alta del palo de salida</strong>. Un corazón, por bajo que sea, <strong>corta cualquier otro palo</strong>.</p>
+    <div class="note warn">
+      <b>Cortar te da la baza y el punto</b>
+      <p>Los corazones son a la vez <strong>el triunfo y los puntos</strong>. Si cortas con un corazón ganas la baza, sí, pero ese corazón cae en tu montón y <strong>vale 1 punto en tu contra</strong>. Ganar bazas con triunfo aquí es pagar por ellas.</p>
+    </div>
+    <h4>Cuándo se pueden jugar</h4>
+    <p>De entrada <strong>no se puede jugar ningún corazón hasta que el palo esté «roto»</strong>. Se rompen cuando un jugador <strong>no puede servir el palo de salida</strong>, o cuando <strong>solo le quedan picas en la mano</strong>. A partir de ese momento, los corazones están libres.</p>
+    <div class="note">
+      <b>Cómo se rompe en la práctica</b>
+      <p>Casi siempre por la primera vía: alguien se queda <strong>fallo</strong> del palo que se ha jugado, y en ese mismo momento ya puede cortar con corazón. Fíjate en que la restricción es más dura que en el Hearts de cuatro: allí solo prohíbe <em class="t">abrir</em> con corazones, aquí prohíbe <strong>jugarlos</strong>.</p>
+    </div>
+    <p>La <strong>dama de picas es la excepción</strong>: se puede jugar <strong>en cualquier momento</strong>, desde la primera baza y sin que nada tenga que estar roto.</p>
   </section>
 
   <section id="h2-baza">
     <h3 class="sec">La baza</h3>
-    <p>Dos cartas por baza, <strong>26 bazas</strong> en total. Las reglas son las del Hearts de siempre:</p>
     <ol class="steps">
-      <li>Uno abre y <strong>ese es el palo de la baza</strong>.</li>
-      <li>El otro <strong>sirve ese palo si lo tiene</strong>, con la carta que quiera. Si no lo tiene, <strong>descarta lo que le convenga</strong>.</li>
-      <li>Gana <strong>la carta más alta del palo de salida</strong>, se lleva las dos cartas y <strong>abre la siguiente baza</strong>.</li>
-      <li>En la <strong>primera baza</strong> no se tiran corazones ni la dama de picas.</li>
-      <li>No se <strong>abre</strong> con corazones hasta que estén <strong>rotos</strong>, salvo que solo te queden corazones.</li>
+      <li>Uno abre con una carta: <strong>ese es el palo de la baza</strong>.</li>
+      <li>El otro <strong>tiene que servir ese palo si lo tiene</strong>, con la carta del palo que quiera.</li>
+      <li>Si <strong>no tiene el palo</strong>, juega <strong>la carta que quiera</strong>: ahí es donde se corta con corazón o se suelta la dama.</li>
+      <li>Gana <strong>el corazón más alto</strong> jugado, o si no hay corazones, <strong>la carta más alta del palo de salida</strong>.</li>
+      <li>Quien gana la baza <strong>abre la siguiente</strong>. Se juega así hasta agotar las <strong>13 cartas</strong>.</li>
     </ol>
     <ol class="play">
       <li class="hd">Baza 1 · abre el 2 de tréboles</li>
       <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="2c"></b></span><span class="why">salida obligada</span></li>
-      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Jc"></b></span><span class="why">sirve y gana la baza</span></li>
-      <li class="hd">Roba Bru y después Ana · los dos vuelven a 13</li>
-      <li class="hd">Baza 2 · abre Bru</li>
-      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="4s"></b></span><span class="why">pica baja, a buscar la dama</span></li>
-      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="Qs"></b></span><span class="why">solo le quedaban picas altas</span></li>
-      <li class="hd">Ana gana la baza… y sus propios 13 puntos</li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="6c"></b></span><span class="why">sirve tréboles y gana</span></li>
+      <li class="hd">Baza limpia: 0 puntos. Abre Bru</li>
     </ol>
-    <p class="sub">Con dos jugadores la dama cae mucho antes que en una mesa de cuatro: hay la mitad de cartas para esconderla.</p>
-  </section>
-
-  <section id="h2-robo">
-    <h3 class="sec">El robo</h3>
-    <ol class="steps">
-      <li>Acabada la baza, <strong>quien la ha ganado roba la carta de arriba</strong> del mazo.</li>
-      <li>Después roba <strong>el que la ha perdido</strong>.</li>
-      <li>Los dos vuelven a tener <strong>13 cartas</strong> y se juega la siguiente baza.</li>
+    <ol class="play">
+      <li class="hd">Bru abre con el as de tréboles</li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Ac"></b></span><span class="why">la más alta del palo</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="2h"></b></span><span class="why">sin tréboles: corta con corazón</span></li>
+      <li class="hd">Ana gana la baza con un 2… y se lleva 1 punto</li>
     </ol>
-    <div class="scrollx">
-      <table>
-        <thead><tr><th>Bazas</th><th>Mazo</th><th>Cómo se juega</th></tr></thead>
-        <tbody>
-          <tr><td><strong>1 a 13</strong></td><td>26 → 0 cartas</td><td>Se roba tras cada baza; la mano se renueva sola</td></tr>
-          <tr><td><strong>14 a 26</strong></td><td>vacío</td><td>Ya no se roba: las 13 cartas que tengas son las que juegas</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="note">
-      <b>Por qué gana primero el que gana la baza</b>
-      <p>Llevarse una baza tiene un premio —eliges antes— y un castigo —te comes los puntos—. Es lo que impide jugar toda la mano a perder sin más.</p>
-    </div>
-    <div class="note warn">
-      <b>La segunda mitad es otra partida</b>
-      <p>Mientras hay mazo casi todo es azar: la mano cambia cada baza. En cuanto se agota, <strong>las 26 cartas están repartidas y a la vista de quien haya contado</strong>. Ahí se decide la mano, y ahí es donde duele no poder fallar un palo.</p>
-    </div>
+    <ol class="play">
+      <li class="hd">Ana abre con el as de diamantes</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="Ad"></b></span><span class="why">va ganando</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Qs"></b></span><span class="why">sin diamantes: le suelta la dama</span></li>
+      <li class="hd">La pica no gana nada: Ana se lleva la baza y sus 13 puntos</li>
+    </ol>
+    <p class="sub">Ese último ejemplo es el corazón del juego: la dama de picas <strong>no gana bazas</strong>, así que se regala descartándola en una baza que va a ganar el rival.</p>
   </section>
 
   <section id="h2-punt">
     <h3 class="sec">Puntos</h3>
     <div class="scrollx">
       <table>
-        <thead><tr><th>Carta</th><th class="num">Puntos</th></tr></thead>
+        <thead><tr><th>Carta</th><th class="num">Cuántas</th><th class="num">Puntos</th></tr></thead>
         <tbody>
-          <tr><td><span class="seq"><b class="k" data-c="Ah"></b></span> <strong>Cada corazón</strong> (hay 13)</td><td class="num">1</td></tr>
-          <tr><td><span class="seq"><b class="k" data-c="Qs"></b></span> <strong>Dama de picas</strong></td><td class="num">13</td></tr>
-          <tr><td><strong>Total de la mano</strong></td><td class="num"><strong>26</strong></td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Ah"></b></span> <strong>Cada corazón</strong></td><td class="num">7</td><td class="num">1 cada uno</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Qs"></b></span> <strong>Dama de picas</strong></td><td class="num">1</td><td class="num">13</td></tr>
+          <tr><td><strong>Total de la mano</strong></td><td class="num">8</td><td class="num"><strong>20</strong></td></tr>
         </tbody>
       </table>
     </div>
-    <p>Como se juega la baraja entera, en cada mano se reparten los <strong>26 puntos</strong> completos entre los dos. Se suman mano a mano hasta que alguien <strong>llega a 100</strong> (o a 50 si queréis partida corta) y <strong>gana el que menos tenga</strong>.</p>
+    <p>Cada jugador cuenta los corazones que tenga en sus bazas y suma 13 si se llevó la dama. Los puntos se <strong>acumulan</strong> mano a mano.</p>
+    <div class="note warn">
+      <b>La dama vale más que todos los corazones juntos</b>
+      <p>13 contra 7. Toda la mano gira alrededor de quién se come la <span class="seq"><b class="k" data-c="Qs"></b></span>; los corazones son calderilla en comparación.</p>
+    </div>
+    <h4>Cartas muertas</h4>
+    <p>Las dos cartas apartadas pueden ser <strong>corazones o la propia dama de picas</strong>, así que hay manos en las que <strong>no están los 20 puntos en juego</strong>. Nadie sabe cuáles faltan hasta que la mano termina y no cuadran las cuentas.</p>
     <h4>La luna</h4>
-    <p>Si te llevas <strong>los 26 puntos</strong> tú solo, has hecho la luna: <strong>26 al rival</strong> y cero para ti (o <strong>−26</strong> para ti, si jugáis así). Con dos jugadores la luna es mucho más factible que con cuatro, así que conviene tenerla siempre en la cabeza: tanto para intentarla como para cortarla cogiendo una baza suelta a tiempo.</p>
+    <p>Si un jugador se lleva <strong>todos los corazones y la dama de picas</strong>, ha hecho la luna: <strong>0 puntos para él y 20 para el rival</strong>.</p>
+    <div class="note">
+      <b>La luna con cartas muertas</b>
+      <p>Si algún corazón o la dama están muertos, hacer la luna es llevarse <strong>todas las cartas de punto que sí estaban en juego</strong>. No hace falta lo que no se repartió.</p>
+    </div>
     <div class="scrollx">
       <table>
         <thead><tr><th>Mano</th><th class="num">Ana</th><th class="num">Bru</th></tr></thead>
         <tbody>
-          <tr><td>1</td><td class="num">9</td><td class="num">17</td></tr>
-          <tr><td>2</td><td class="num">22</td><td class="num">4</td></tr>
-          <tr><td>3 <em class="t">luna de Bru</em></td><td class="num">26</td><td class="num">0</td></tr>
-          <tr><td><strong>Total</strong></td><td class="num"><strong>57</strong></td><td class="num"><strong>21</strong></td></tr>
+          <tr><td>1</td><td class="num">13</td><td class="num">7</td></tr>
+          <tr><td>2</td><td class="num">4</td><td class="num">16</td></tr>
+          <tr><td>3 <em class="t">luna de Bru</em></td><td class="num">20</td><td class="num">0</td></tr>
+          <tr><td><strong>Total</strong></td><td class="num"><strong>37</strong></td><td class="num"><strong>23</strong></td></tr>
         </tbody>
       </table>
     </div>
+  </section>
+
+  <section id="h2-fin">
+    <h3 class="sec">Fin de la partida</h3>
+    <p>Se juegan manos hasta que <strong>un jugador llega a 100 puntos</strong>. Ese <strong>pierde</strong>: gana <strong>el que tenga menos</strong>.</p>
+    <div class="note">
+      <b>Si los dos pasan de 100 a la vez</b>
+      <p>Puede ocurrir con una luna. En ese caso <strong>se sigue jugando manos hasta deshacer el empate</strong>.</p>
+    </div>
+    <p class="sub">A 20 puntos por mano, una partida completa son unas diez manos. Si queréis algo más corto, bajad el límite a 50.</p>
   </section>
 
   <section id="h2-dif">
@@ -1695,49 +1748,43 @@ tr:last-child td{border-bottom:0}
       <table>
         <thead><tr><th></th><th>Hearts de 4</th><th>Hearts a 2</th></tr></thead>
         <tbody>
-          <tr><td><strong>Cartas en mano</strong></td><td>13, y bajando</td><td>13 fijas mientras haya mazo</td></tr>
-          <tr><td><strong>Bazas por mano</strong></td><td class="num">13</td><td class="num">26</td></tr>
+          <tr><td><strong>Baraja</strong></td><td>52 completas</td><td>28: fuera 3, 5, 7, 9, J y K</td></tr>
+          <tr><td><strong>Triunfo</strong></td><td>No hay</td><td><strong>Los corazones</strong></td></tr>
+          <tr><td><strong>Cartas sin repartir</strong></td><td>Ninguna</td><td>2 muertas, nadie las ve</td></tr>
           <tr><td><strong>Pase de 3 cartas</strong></td><td>Sí, rotando</td><td>No</td></tr>
-          <tr><td><strong>Cartas que no ves</strong></td><td>39, todas en manos</td><td>13 en su mano + 26 en el mazo</td></tr>
-          <tr><td><strong>Puntos por mano</strong></td><td class="num">26</td><td class="num">26</td></tr>
-          <tr><td><strong>La luna</strong></td><td>Difícil: tres rivales</td><td>Bastante viable</td></tr>
-          <tr><td><strong>Dónde está el juego</strong></td><td>En el pase y en cargarle al vecino</td><td>En las 13 últimas bazas</td></tr>
+          <tr><td><strong>Bazas por mano</strong></td><td class="num">13</td><td class="num">13</td></tr>
+          <tr><td><strong>Puntos por mano</strong></td><td class="num">26</td><td class="num">20 <em class="t">(7 + 13)</em></td></tr>
+          <tr><td><strong>Corazones cerrados</strong></td><td>Solo prohíbe <em class="t">abrir</em></td><td>Prohíbe <strong>jugarlos</strong></td></tr>
+          <tr><td><strong>Primera baza</strong></td><td>Sin puntos</td><td>La dama se puede tirar ya</td></tr>
+          <tr><td><strong>La luna</strong></td><td>26 a cada rival</td><td>20 al rival</td></tr>
+          <tr><td><strong>Fin</strong></td><td>Alguien llega a 100</td><td>Igual: el que llega, pierde</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="sub">Todo lo demás —seguir el palo, corazones cerrados, primera baza limpia, el recuento— es idéntico. Si te sabes el de cuatro, ya te sabes este.</p>
-    <p>Las reglas completas del juego base están en la ficha de <a href="#/hearts"><strong>Hearts</strong></a>.</p>
-  </section>
-
-  <section id="h2-var">
-    <h3 class="sec">Variantes</h3>
-    <div class="note warn">
-      <b>No hay versión oficial</b>
-      <p>El Hearts de dos es una adaptación de la casa y <strong>cada sitio la cuenta un poco distinta</strong>. Si aprendiste una versión concreta en un vídeo, mira esta lista: lo que cambia suele ser una de estas cosas, y basta con pactarla antes de repartir.</p>
+    <p>Las reglas del juego base están en la ficha de <a href="#/hearts"><strong>Hearts</strong></a>.</p>
+    <div class="note">
+      <b>Hay otra versión por ahí</b>
+      <p>Circula un Hearts de dos distinto, con la <strong>baraja entera</strong>: 13 cartas a cada uno, las otras 26 en un mazo y se roba una carta tras cada baza. No es la de esta ficha; si alguien te la propone, pactad cuál jugáis antes de repartir.</p>
     </div>
-    <ul class="bul">
-      <li><strong>Quién roba primero.</strong> Lo más extendido es que robe el que gana la baza; hay versiones en que roba primero el que la pierde, como consuelo.</li>
-      <li><strong>Sin mazo.</strong> Se reparten 13 a cada uno y las otras 26 se apartan <strong>sin mirarlas</strong>: una mano de 13 bazas y los puntos que estuvieran fuera simplemente no cuentan. Más corta y más azarosa.</li>
-      <li><strong>Baraja recortada.</strong> Se quitan cartas hasta dejar 26 en juego (por ejemplo, todos los 2, 3, 4, 5, 6 y 7 salvo los de corazones y la dama de picas) y se juegan 13 bazas sin mazo.</li>
-      <li><strong>Con pase.</strong> Cada uno le pasa <strong>3 cartas boca abajo</strong> al otro antes de empezar, como en el de cuatro.</li>
-      <li><strong>Corazones libres.</strong> Se quita la regla de los corazones cerrados: con dos jugadores aporta poco y alarga la mano.</li>
-      <li><strong>Primera baza sin restricción.</strong> Se permite tirar puntos desde la primera baza, ya que la mano se renueva enseguida.</li>
-      <li><strong>Mazo a la vista.</strong> Se juega con la carta de arriba del mazo <strong>destapada</strong>, así se sabe qué roba el ganador de la baza. Cambia bastante: pasa a ser un juego de información.</li>
-    </ul>
   </section>
 
   <section id="h2-tacticas">
     <h3 class="sec">Tácticas</h3>
     <ul class="bul">
-      <li><strong>Cuenta el mazo, no solo su mano.</strong> Trece bazas con robo y ya sabes que las 26 cartas están repartidas: lo que no has visto lo tiene él.</li>
-      <li><strong>Mientras haya mazo, suelta lo caro.</strong> Corazones altos y picas altas se van mejor en la primera mitad, cuando aún puedes reponer.</li>
-      <li><strong>Llega fallo a la segunda mitad.</strong> Un palo del que no tengas nada vale oro en las 13 últimas bazas: es tu papelera.</li>
-      <li><strong>Guarda una carta muy baja.</strong> Para las últimas bazas, tener un 2 o un 3 de un palo largo es la diferencia entre ceder la baza y comerte cuatro corazones.</li>
-      <li><strong>Vigila la luna.</strong> Con un solo rival, si lleva ocho o diez corazones y ninguno te ha tocado, está yendo a por ella. Coge una baza aunque duela.</li>
+      <li><strong>El as de picas es un peligro, no un seguro.</strong> Si abres con él y el rival sirve la dama, <strong>ganas la baza y te comes los 13</strong>. Mejor quitárselo de encima o quedarse picas pequeñas.</li>
+      <li><strong>Saca picas bajas.</strong> Es la forma de forzar la dama: si al rival le quedan pocas picas y tiene que servir, la suelta y <strong>gana su propia baza de 13 puntos</strong>.</li>
+      <li><strong>Si la dama te toca a ti, fuera cuanto antes.</strong> Espera una baza de otro palo en la que vayas a fallar y suéltala ahí: al no ganar bazas, se la lleva quien gane la baza. Cuanto más esperes, más riesgo de que te obliguen a servirla en picas.</li>
+      <li><strong>Cortar sale caro.</strong> Cada corazón con el que ganas una baza es un punto tuyo. A veces lo mejor es servir el palo y perder la baza a propósito.</li>
+      <li><strong>Guarda corazones bajos.</strong> Si tienes que cortar, mejor con el 2 que con el as: mismo efecto en la baza, y te evita quedarte con el corazón más alto para el final.</li>
+      <li><strong>Cuenta las ocho cartas de punto.</strong> Siete corazones y la dama. Si acaba la mano y no aparecen todas, estaban en las dos muertas.</li>
+      <li><strong>La luna es viable.</strong> Solo hay un rival y ocho cartas de punto. Y le da la vuelta al as de picas: lo que el resto de la mano es un lastre, yendo a por la luna es justo lo que necesitas para capturar la dama. Por lo mismo, si ves que el rival va limpio, córtale quedándote una baza de punto.</li>
     </ul>
+    <div class="note">
+      <b>De dónde salen estas reglas</b>
+      <p>Resumen de la versión de <em class="t">2 Player Hearts</em> de gamerules.com, la del vídeo de <em class="t">Riffle Shuffle &amp; Roll</em>.</p>
+    </div>
   </section>
 </div>
-
 </main>
 
 <script>

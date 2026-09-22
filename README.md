@@ -118,11 +118,12 @@ señalado en la propia app.
 Crisps! es un juego reciente con *living rulebook*: conviene confirmar la versión
 antes de jugar con gente de fuera.
 
-**Hearts a 2 jugadores** no tiene versión oficial: es una adaptación de la casa y cada
-sitio (y cada vídeo) la cuenta un poco distinta. La ficha describe la versión con mazo
-para robar, que es la más extendida, y lista aparte las variantes que más circulan —
-quién roba primero, jugar sin mazo, con baraja recortada o con pase de tres cartas.
-Conviene pactarlas antes de repartir.
+**Hearts a 2 jugadores** sigue la versión de *2 Player Hearts* de gamerules.com (la del
+vídeo de *Riffle Shuffle & Roll*): baraja recortada a 28 cartas quitando 3, 5, 7, 9, J y K,
+**los corazones son triunfo**, dos cartas muertas que nadie ve, 13 bazas y 20 puntos por
+mano (7 corazones + 13 de la dama de picas). No es el Hearts de cuatro con dos personas:
+si alguien propone la otra versión que circula —baraja entera, 13 cartas cada uno y un mazo
+de 26 del que se roba tras cada baza— hay que pactar cuál se juega antes de repartir.
 
 El **Golf** de la ficha es el de rejilla de 6 cartas; no confundir con el solitario
 del mismo nombre. Las variantes de 4 y de 9 cartas están en su última sección.
