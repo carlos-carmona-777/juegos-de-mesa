@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Juegos de Mesa</title>
-<meta name="description" content="Resumen offline de las reglas de Scopa, Solitario Pirámide, Crisps! y Tien Len.">
+<meta name="description" content="Resumen offline de las reglas de Scopa, Solitario Pirámide, Crisps!, Tien Len, Golf, Hearts y Hearts a 2 jugadores.">
 <meta name="theme-color" content="#10362a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -26,6 +26,7 @@
   --sans:'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   --emboss:rgba(27,92,70,.13);
   --scopa:#966709; --piramide:#2b5796; --crisps:#b04f14; --tienlen:#ad2130;
+  --golf:#4a6b16; --hearts:#a01236; --hearts2:#74306b;
   --maxw:46rem;
   color-scheme:light;
 }
@@ -41,6 +42,7 @@
     --emboss:rgba(0,0,0,.45);
     --emboss:rgba(0,0,0,.45);
   --scopa:#e6ba52; --piramide:#8ab0ec; --crisps:#f09a52; --tienlen:#f0767e;
+  --golf:#b4cf63; --hearts:#f58aa6; --hearts2:#dfa0d6;
     color-scheme:dark;
   }
 }
@@ -53,6 +55,7 @@
   --lattice:rgba(240,236,220,.06); --glow:rgba(90,190,150,.16);
   --shadow:0 2px 0 rgba(0,0,0,.25), 0 12px 30px -16px rgba(0,0,0,.85);
   --scopa:#e6ba52; --piramide:#8ab0ec; --crisps:#f09a52; --tienlen:#f0767e;
+  --golf:#b4cf63; --hearts:#f58aa6; --hearts2:#dfa0d6;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -337,6 +340,22 @@ tr:last-child td{border-bottom:0}
 .pyr b.free{border:2px solid var(--ac); box-shadow:0 0 0 2px color-mix(in srgb, var(--ac) 25%, transparent)}
 .pyr .cap{font-size:.76rem; color:var(--ink-2); margin-top:10px; text-align:center; font-weight:600}
 
+/* golf grid */
+.grid6{
+  display:flex; flex-direction:column; align-items:center; gap:6px; margin:1.2em 0;
+  padding:18px 8px 14px; background:var(--surface-2); border:2px solid var(--line-soft); border-radius:16px;
+}
+.grid6 .row{display:flex; gap:6px}
+.grid6 .dn{
+  width:34px; height:47.6px; border-radius:4px; flex:none;
+  background:
+    repeating-linear-gradient(45deg, color-mix(in srgb, var(--ac) 55%, transparent) 0 2px, transparent 2px 6px),
+    linear-gradient(158deg, #fffdf7 0%, #f6f1e2 100%);
+  border:1px solid rgba(22,40,31,.3);
+  box-shadow:0 1px 2px rgba(0,0,0,.22);
+}
+.grid6 .cap{font-size:.76rem; color:var(--ink-2); margin:10px 0 0; text-align:center; font-weight:600}
+
 /* play-by-play example */
 .play{list-style:none; margin:1em 0; padding:0; border:2px solid var(--line-soft); border-radius:14px; overflow:hidden}
 .play li{display:flex; gap:10px; align-items:center; padding:9px 13px; font-size:.9rem; background:var(--surface); border-top:1px solid var(--line-soft)}
@@ -427,6 +446,36 @@ tr:last-child td{border-bottom:0}
           <b class="k" data-c="2h" style="--r:8deg"></b>
         </span>
         <span><span class="nm">Tien Len</span><span class="meta">2–4 jugadores &middot; 52 cartas</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
+      </button>
+    </li>
+    <li data-k="golf seis cartas 6 columnas rejilla nueve hoyos rondas rey cero dos menos puntos descarte mazo destapar parejas polish polka">
+      <button class="tile" type="button" data-go="golf" style="--ac:var(--golf)">
+        <span class="art" aria-hidden="true">
+          <b class="k" data-c="Kh" style="--r:-8deg"></b>
+          <b class="k" data-c="2s" style="--r:8deg"></b>
+        </span>
+        <span><span class="nm">Golf</span><span class="meta">2–6 jugadores &middot; 52 cartas</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
+      </button>
+    </li>
+    <li data-k="hearts corazones dama de picas reina queen of spades bazas pase tres cartas luna shoot the moon 26 100 puntos dos de treboles palo primera baza">
+      <button class="tile" type="button" data-go="hearts" style="--ac:var(--hearts)">
+        <span class="art" aria-hidden="true">
+          <b class="k" data-c="Qs" style="--r:-8deg"></b>
+          <b class="k" data-c="Ah" style="--r:8deg"></b>
+        </span>
+        <span><span class="nm">Hearts</span><span class="meta">3–6 jugadores &middot; 52 cartas</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
+      </button>
+    </li>
+    <li data-k="hearts a 2 dos jugadores corazones pareja variante mazo robar robo 26 bazas dama de picas luna youtube">
+      <button class="tile" type="button" data-go="hearts2" style="--ac:var(--hearts2)">
+        <span class="art" aria-hidden="true">
+          <b class="k" data-c="2c" style="--r:-8deg"></b>
+          <b class="k" data-c="Jh" style="--r:8deg"></b>
+        </span>
+        <span><span class="nm">Hearts a 2</span><span class="meta">2 jugadores &middot; con mazo para robar</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
       </button>
     </li>
@@ -1050,13 +1099,610 @@ tr:last-child td{border-bottom:0}
   </section>
 </div>
 
+
+<!-- ================= GOLF ================= -->
+<div class="wrap gv" id="g-golf" hidden style="--ac:var(--golf)">
+  <p class="kicker">Estados Unidos &middot; nueve hoyos con cartas</p>
+  <h2>Golf</h2>
+  <ul class="chips"><li>2–6 jugadores</li><li>52 cartas</li><li>6 cartas cada uno</li><li>9 rondas</li><li>30 min</li></ul>
+
+  <div class="resumen">
+    <div class="rband">Resumen<span class="dots"><span></span><span></span><span></span></span></div>
+
+    <div class="rblock">
+      <h3>Cartas a repartir</h3>
+      <ul class="rlist">
+        <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>6 boca abajo, en 2 × 3</strong></span></li>
+        <li><span class="lbl">Antes de empezar</span><span style="margin-left:auto"><strong>cada uno destapa 2</strong></span></li>
+        <li><span class="lbl">El resto</span><span style="margin-left:auto">mazo, y una carta al descarte</span></li>
+      </ul>
+      <p class="sub" style="margin-top:10px">Las cuatro que siguen tapadas no se miran: no sabes lo que tienes hasta que las cambias o las destapas.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Lo que vale cada carta</h3>
+      <div class="order" style="margin:.2em 0 0">
+        <span class="hi">K<em>0</em></span><span class="hi">2<em>−2</em></span><span>A<em>1</em></span><span>3–10<em>su número</em></span><span>J Q<em>10</em></span>
+      </div>
+      <p class="sub" style="margin-top:10px">Y dos cartas del mismo número en <strong>la misma columna se anulan</strong>: cero las dos.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Tu turno</h3>
+      <p>Roba <strong>la tapada del mazo</strong> o <strong>la de arriba del descarte</strong>, y cámbiala por cualquiera de tus seis: la que sacas se va al descarte boca arriba. Si la robaste del mazo puedes también tirarla sin usarla y <strong>destapar una de las tuyas</strong>.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Cómo se gana</h3>
+      <p>La ronda acaba cuando alguien tiene <strong>las seis boca arriba</strong>; los demás juegan un último turno. Se juegan <strong>9 rondas</strong> («hoyos») y gana quien <strong>menos suma</strong>, como en el golf de verdad.</p>
+    </div>
+  </div>
+
+  <nav class="snav" aria-label="Secciones"><ul>
+    <li><a href="#gf-prep">Preparación</a></li>
+    <li><a href="#gf-val">Valores</a></li>
+    <li><a href="#gf-turno">El turno</a></li>
+    <li><a href="#gf-cierre">Cierre</a></li>
+    <li><a href="#gf-punt">Recuento</a></li>
+    <li><a href="#gf-var">Variantes</a></li>
+  </ul></nav>
+
+  <section id="gf-prep">
+    <h3 class="sec">Preparación</h3>
+    <p class="sub">Con 2–4 jugadores basta una baraja de 52. De 5 en adelante, junta dos barajas.</p>
+    <ol class="steps">
+      <li>Reparte <strong>6 cartas boca abajo</strong> a cada uno. Cada jugador las coloca delante en <strong>dos filas de tres</strong>, sin mirarlas.</li>
+      <li>El resto de la baraja va al centro boca abajo (el <strong>mazo</strong>) y se voltea la primera carta al lado para abrir el <strong>descarte</strong>.</li>
+      <li>Cada jugador <strong>destapa dos</strong> de sus seis, las que quiera, y las deja boca arriba en su sitio.</li>
+      <li>Empieza el jugador a la izquierda del que reparte y se sigue en el sentido de las agujas del reloj.</li>
+    </ol>
+    <div class="grid6">
+      <div class="row"><b class="k" data-c="Kd"></b><b class="dn"></b><b class="dn"></b></div>
+      <div class="row"><b class="dn"></b><b class="dn"></b><b class="k" data-c="2c"></b></div>
+      <p class="cap">Dos destapadas al principio y cuatro por descubrir. Lo que se anula son las <strong>columnas</strong>, no las filas.</p>
+    </div>
+    <div class="note">
+      <b>Las cartas no se mueven de sitio</b>
+      <p>Cada hueco de la rejilla es fijo. Cuando cambias una carta, la nueva entra <strong>en el mismo hueco</strong> boca arriba: por eso conviene mirar en qué columna la metes.</p>
+    </div>
+  </section>
+
+  <section id="gf-val">
+    <h3 class="sec">Valores y columnas</h3>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Carta</th><th class="num">Puntos</th><th>Detalle</th></tr></thead>
+        <tbody>
+          <tr><td><span class="seq"><b class="k" data-c="Ks"></b></span> <strong>Rey</strong></td><td class="num"><strong>0</strong></td><td>La mejor carta del juego</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="2h"></b></span> <strong>Dos</strong></td><td class="num"><strong>−2</strong></td><td>Resta; mejor aún si te salen dos</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Ad"></b></span> <strong>As</strong></td><td class="num">1</td><td></td></tr>
+          <tr><td><strong>3 al 10</strong></td><td class="num">3–10</td><td>Su propio número</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Jc"></b></span> <strong>J y Q</strong></td><td class="num">10</td><td>Las peores, junto al 10</td></tr>
+          <tr><td><strong>Comodín</strong></td><td class="num">−2</td><td>Solo si jugáis con comodines</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Parejas en columna</h4>
+    <p>Si las <strong>dos cartas de una misma columna</strong> tienen el mismo número, la columna vale <strong>cero</strong>: las dos se anulan, valgan lo que valgan por separado.</p>
+    <div class="grid6">
+      <div class="row"><b class="k" data-c="7h"></b><b class="k" data-c="Ks"></b><b class="k" data-c="2d"></b></div>
+      <div class="row"><b class="k" data-c="7s"></b><b class="k" data-c="9c"></b><b class="k" data-c="Qs"></b></div>
+      <p class="cap">Columna 1: <strong>7 + 7 = 0</strong> &middot; columna 2: <strong>0 + 9 = 9</strong> &middot; columna 3: <strong>−2 + 10 = 8</strong>. Total de la ronda: <strong>17</strong>.</p>
+    </div>
+    <div class="note warn">
+      <b>Dos reyes no valen −0</b>
+      <p>Una pareja de reyes ya sumaba cero, así que anularla no gana nada. Y una pareja de doses <strong>pierde</strong> los −4: si te salen dos doses, ponlos en columnas distintas.</p>
+    </div>
+  </section>
+
+  <section id="gf-turno">
+    <h3 class="sec">El turno</h3>
+    <p class="sub">En tu turno haces una sola cosa, y siempre acaba con una carta boca arriba en el descarte.</p>
+    <ol class="steps">
+      <li><strong>Roba una carta</strong>: la tapada de arriba del mazo o la de arriba del descarte.</li>
+      <li><strong>Cámbiala</strong> por cualquiera de tus seis cartas, tapada o destapada. La carta que sacas de tu rejilla se va al descarte boca arriba, y la nueva se queda en ese hueco boca arriba.</li>
+      <li><strong>O tírala</strong>, si la robaste del mazo: la pones en el descarte y, en vez de cambiar nada, <strong>destapas una de tus cartas tapadas</strong>.</li>
+    </ol>
+    <div class="note warn">
+      <b>Del descarte, obligado a usarla</b>
+      <p>La carta del descarte <strong>no se puede tirar de vuelta</strong>. Si la coges, tienes que meterla en tu rejilla. Tirar y destapar solo vale con la carta del mazo.</p>
+    </div>
+    <ol class="play">
+      <li class="hd">Turno de Ana</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="Kh"></b></span><span class="why">roba del mazo</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="Qs"></b></span><span class="why">saca su dama y tapa el hueco con el rey</span></li>
+      <li class="hd">Turno de Bru · la dama está arriba del descarte</li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Qd"></b></span><span class="why">ya tiene una Q: la coge y hace columna</span></li>
+      <li class="hd">La columna de damas de Bru vale 0</li>
+    </ol>
+    <div class="note">
+      <b>Si se acaba el mazo</b>
+      <p>Coge el descarte menos su carta de arriba, barájalo y forma un mazo nuevo. La carta de arriba se queda como descarte.</p>
+    </div>
+  </section>
+
+  <section id="gf-cierre">
+    <h3 class="sec">Cierre de la ronda</h3>
+    <ol class="steps">
+      <li>En cuanto un jugador tiene <strong>las seis cartas boca arriba</strong>, la ronda entra en su último giro.</li>
+      <li><strong>Cada uno de los demás juega un turno más</strong>, uno solo.</li>
+      <li>Después todo el mundo <strong>destapa lo que le quede tapado</strong> y se cuenta.</li>
+    </ol>
+    <div class="note warn">
+      <b>Cerrar rápido es un riesgo</b>
+      <p>Quien cierra corta el juego de los demás, pero también <strong>se queda con lo que tenga</strong>: si cierras con un 10 y una J a la vista, los demás tienen un turno para arreglar su rejilla y tú ninguno.</p>
+    </div>
+    <p>Hay mesas que juegan una variante más dura: quien cierra <strong>tiene que ir en cabeza</strong> o le doblan sus puntos de la ronda. Se pacta antes de la primera.</p>
+  </section>
+
+  <section id="gf-punt">
+    <h3 class="sec">Recuento y las nueve rondas</h3>
+    <p>Cada jugador suma sus seis cartas columna por columna, anulando las parejas. Se apunta en una tabla de <strong>nueve rondas</strong>, igual que la tarjeta de un campo de golf.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Hoyo</th><th class="num">Ana</th><th class="num">Bru</th><th class="num">Cris</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="num">17</td><td class="num">4</td><td class="num">−2</td></tr>
+          <tr><td>2</td><td class="num">8</td><td class="num">21</td><td class="num">12</td></tr>
+          <tr><td>3</td><td class="num">0</td><td class="num">9</td><td class="num">14</td></tr>
+          <tr><td><strong>…tras 9</strong></td><td class="num"><strong>61</strong></td><td class="num"><strong>73</strong></td><td class="num"><strong>58</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Gana el total <strong>más bajo</strong> de los nueve hoyos. Se pueden jugar 18 si hay tiempo, o cortar en 9 sin más.</p>
+    <div class="note">
+      <b>Empates</b>
+      <p>Si dos jugadores acaban igualados, se juega un hoyo de desempate solo entre ellos.</p>
+    </div>
+  </section>
+
+  <section id="gf-var">
+    <h3 class="sec">Variantes</h3>
+    <p class="sub">El Golf se juega con 4, 6 o 9 cartas. El motor es el mismo; cambia la rejilla y lo que se anula.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Versión</th><th>Rejilla</th><th>Qué se anula</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Golf de 4</strong></td><td>2 × 2, se destapa 1</td><td>Dos iguales en columna, o las cuatro iguales</td></tr>
+          <tr><td><strong>Golf de 6</strong><br><em class="t">la versión de esta ficha</em></td><td>2 × 3, se destapan 2</td><td>Dos iguales en columna</td></tr>
+          <tr><td><strong>Golf de 9</strong></td><td>3 × 3, se destapan 3</td><td>Tres iguales en fila, columna o diagonal</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Otras reglas de la casa</h4>
+    <ul class="bul">
+      <li><strong>Comodines a −2.</strong> Se añaden dos comodines a la baraja y valen −2, como el dos.</li>
+      <li><strong>Reyes a −1.</strong> Algunas mesas les dan −1 en vez de 0, para premiar al que los guarda.</li>
+      <li><strong>Sin tirar y destapar.</strong> Versión estricta: la carta robada siempre entra en la rejilla; nunca se destapa a pelo.</li>
+      <li><strong>Filas además de columnas.</strong> En el de 6, tres iguales en una fila también valen cero.</li>
+    </ul>
+    <div class="note">
+      <b>Ojo, hay otro «Golf»</b>
+      <p>Existe además un <strong>solitario</strong> llamado Golf, de un solo jugador, que no tiene nada que ver con esto. Estas reglas son las del juego de rejilla, el que se juega en mesa con varios.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= HEARTS ================= -->
+<div class="wrap gv" id="g-hearts" hidden style="--ac:var(--hearts)">
+  <p class="kicker">Estados Unidos &middot; bazas que nadie quiere</p>
+  <h2>Hearts</h2>
+  <ul class="chips"><li>3–6 jugadores</li><li>4 es lo ideal</li><li>52 cartas</li><li>13 cartas cada uno</li><li>30 min</li></ul>
+
+  <div class="resumen">
+    <div class="rband">Resumen<span class="dots"><span></span><span></span><span></span></span></div>
+
+    <div class="rblock">
+      <h3>Cartas a repartir</h3>
+      <ul class="rlist">
+        <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>13 cartas</strong> (con 4 jugadores)</span></li>
+        <li><span class="lbl">Abre la mano</span><span class="seq"><b class="k" data-c="2c"></b></span></li>
+      </ul>
+      <p class="sub" style="margin-top:10px">No hay mazo ni triunfo: se reparte todo y el as es la carta alta de cada palo.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Lo que pinta puntos</h3>
+      <ul class="rlist">
+        <li><span class="lbl">Cada corazón</span><span style="margin-left:auto"><strong>1 punto</strong></span><span class="seq" style="margin-left:12px"><b class="k" data-c="Ah"></b></span></li>
+        <li><span class="lbl">La dama de picas</span><span style="margin-left:auto"><strong>13 puntos</strong></span><span class="seq" style="margin-left:12px"><b class="k" data-c="Qs"></b></span></li>
+      </ul>
+      <p class="sub" style="margin-top:10px">En cada mano se reparten exactamente <strong>26 puntos</strong>. Y los puntos son malos: se trata de no cargar con ellos.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Las tres reglas de la baza</h3>
+      <p><strong>1.</strong> Si tienes el palo de salida, <strong>tienes que servirlo</strong>.<br>
+         <strong>2.</strong> En la <strong>primera baza</strong> no se tiran corazones ni la dama de picas.<br>
+         <strong>3.</strong> No se puede <strong>abrir con corazones</strong> hasta que alguien los haya «roto» descartando uno.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Cómo se gana</h3>
+      <p>La partida acaba cuando alguien llega a <strong>100 puntos</strong>, y gana quien <strong>menos tenga</strong> en ese momento. Salvo que hagas la <strong>luna</strong>: si te llevas los 26 puntos de la mano, se los comen los demás.</p>
+    </div>
+  </div>
+
+  <nav class="snav" aria-label="Secciones"><ul>
+    <li><a href="#hr-prep">Preparación</a></li>
+    <li><a href="#hr-pase">El pase</a></li>
+    <li><a href="#hr-baza">La baza</a></li>
+    <li><a href="#hr-punt">Puntos</a></li>
+    <li><a href="#hr-luna">La luna</a></li>
+    <li><a href="#hr-fin">Fin y variantes</a></li>
+    <li><a href="#hr-tacticas">Tácticas</a></li>
+  </ul></nav>
+
+  <section id="hr-prep">
+    <h3 class="sec">Preparación</h3>
+    <p class="sub">Cada jugador va por su cuenta: no hay parejas ni equipos, aunque medio juego consista en pasarle el marrón a otro.</p>
+    <ol class="steps">
+      <li>Baraja de <strong>52 cartas</strong>. En cada palo el orden es el normal: <strong>2 la más baja, as la más alta</strong>.</li>
+      <li>Reparte de una en una hasta acabar la baraja. Con cuatro jugadores salen <strong>13 cartas</strong> a cada uno.</li>
+      <li>Antes de jugar, cada uno <strong>pasa tres cartas</strong> a otro jugador (mano siguiente).</li>
+      <li>Abre quien tenga el <strong>2 de tréboles</strong> y está obligado a jugarlo en la primera baza.</li>
+    </ol>
+    <h4>Si no sois cuatro</h4>
+    <p>Se quitan cartas de la baraja para que todos tengan las mismas, y abre el trébol más bajo que quede en juego.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th class="num">Jugadores</th><th>Cartas fuera</th><th class="num">En mano</th><th>Abre</th></tr></thead>
+        <tbody>
+          <tr><td class="num">3</td><td><span class="seq"><b class="k" data-c="2d"></b></span></td><td class="num">17</td><td><span class="seq"><b class="k" data-c="2c"></b></span></td></tr>
+          <tr><td class="num"><strong>4</strong></td><td>ninguna</td><td class="num"><strong>13</strong></td><td><span class="seq"><b class="k" data-c="2c"></b></span></td></tr>
+          <tr><td class="num">5</td><td><span class="seq"><b class="k" data-c="2c"></b><b class="k" data-c="2d"></b></span></td><td class="num">10</td><td><span class="seq"><b class="k" data-c="3c"></b></span></td></tr>
+          <tr><td class="num">6</td><td><span class="seq"><b class="k" data-c="2c"></b><b class="k" data-c="3c"></b><b class="k" data-c="2d"></b><b class="k" data-c="3d"></b></span></td><td class="num">8</td><td><span class="seq"><b class="k" data-c="4c"></b></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <b>¿Solo dos?</b>
+      <p>Hay una variante de dos jugadores con mazo para robar, con su propia ficha: <a href="#/hearts2"><strong>Hearts a 2 jugadores</strong></a>.</p>
+    </div>
+  </section>
+
+  <section id="hr-pase">
+    <h3 class="sec">El pase de tres cartas</h3>
+    <p>Antes de la primera baza, cada jugador elige <strong>tres cartas de su mano</strong> y las pasa boca abajo. La dirección <strong>rota mano a mano</strong>:</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Mano</th><th>Pase</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1.ª</strong></td><td>Tres cartas <strong>a la izquierda</strong></td></tr>
+          <tr><td><strong>2.ª</strong></td><td>Tres cartas <strong>a la derecha</strong></td></tr>
+          <tr><td><strong>3.ª</strong></td><td>Tres cartas <strong>al de enfrente</strong></td></tr>
+          <tr><td><strong>4.ª</strong></td><td><strong>Sin pase</strong>: se juega la mano tal cual</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Y a partir de la quinta se vuelve a empezar por la izquierda. Con tres o cinco jugadores se alterna izquierda, derecha y sin pase.</p>
+    <div class="note warn">
+      <b>Primero se da, después se coge</b>
+      <p>Todos pasan <strong>a la vez y boca abajo</strong>, y nadie mira lo que recibe hasta haber entregado lo suyo. Si no, el último en pasar jugaría con ventaja.</p>
+    </div>
+    <h4>Qué se pasa</h4>
+    <ul class="bul">
+      <li><strong>La dama de picas</strong>, si no tienes picas bajas con las que protegerla.</li>
+      <li><strong>Los corazones altos</strong>: A, K, Q de corazones se llevan bazas que no quieres.</li>
+      <li><strong>Un palo entero</strong>, si te quedan dos o tres cartas de él: quedarte «fallo» te deja descartar basura toda la mano.</li>
+    </ul>
+  </section>
+
+  <section id="hr-baza">
+    <h3 class="sec">La baza</h3>
+    <ol class="steps">
+      <li>Quien abre pone una carta y <strong>ese es el palo de la baza</strong>.</li>
+      <li>Los demás, por turno y en el sentido de las agujas del reloj, <strong>sirven ese palo si lo tienen</strong>. Sin obligación de subir: vale cualquier carta del palo.</li>
+      <li>El que no tenga el palo <strong>descarta lo que quiera</strong>, y ahí es donde se sueltan los corazones y la dama.</li>
+      <li>Gana la baza <strong>la carta más alta del palo de salida</strong>. Se lleva las cuatro cartas boca abajo y <strong>abre la siguiente</strong>.</li>
+    </ol>
+    <p class="sub">No hay triunfo: un 2 de picas no gana nunca a un 3 de corazones si el palo de salida son corazones. Solo cuenta el palo con el que se abrió.</p>
+    <ol class="play">
+      <li class="hd">Primera baza · abre el 2 de tréboles</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="2c"></b></span><span class="why">salida obligada</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Kc"></b></span><span class="why">sirve el palo</span></li>
+      <li><span class="who">Cris</span><span class="seq"><b class="k" data-c="9c"></b></span><span class="why">sirve el palo</span></li>
+      <li><span class="who">Dani</span><span class="seq"><b class="k" data-c="4d"></b></span><span class="why">sin tréboles: descarta</span></li>
+      <li class="hd">Gana Bru con el rey · 0 puntos en la baza</li>
+    </ol>
+    <ol class="play">
+      <li class="hd">Más adelante · abre Bru con diamantes</li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Ad"></b></span><span class="why">va ganando</span></li>
+      <li><span class="who">Cris</span><span class="seq"><b class="k" data-c="3d"></b></span><span class="why">sirve</span></li>
+      <li><span class="who">Dani</span><span class="seq"><b class="k" data-c="Qs"></b></span><span class="why">sin diamantes: le suelta la dama</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="7d"></b></span><span class="why">sirve</span></li>
+      <li class="hd">Bru se lleva la baza y sus 13 puntos</li>
+    </ol>
+    <h4>Las dos prohibiciones</h4>
+    <div class="note warn">
+      <b>Primera baza limpia</b>
+      <p>En la primera baza <strong>no se puede tirar ningún corazón ni la dama de picas</strong>, ni siquiera descartando. Si tu mano es toda corazones y la dama, entonces sí: se permite.</p>
+    </div>
+    <div class="note warn">
+      <b>Corazones cerrados</b>
+      <p>No se puede <strong>abrir</strong> una baza con corazones hasta que estén <strong>rotos</strong>, es decir, hasta que alguien haya tirado un corazón descartando en una baza anterior. Excepción: si solo te quedan corazones en la mano, abres con corazones.</p>
+      <p>Servir corazones cuando corazones es el palo de salida siempre se puede, obviamente.</p>
+    </div>
+    <p>La dama de picas <strong>no cierra nada</strong>: se puede abrir con picas desde la primera baza y, de hecho, sacar picas bajas es la forma clásica de obligar a que la dama salga.</p>
+  </section>
+
+  <section id="hr-punt">
+    <h3 class="sec">Puntos</h3>
+    <p>Acabada la mano, cada jugador mira las bazas que se ha llevado y cuenta:</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Carta</th><th class="num">Puntos</th><th class="num">En la baraja</th></tr></thead>
+        <tbody>
+          <tr><td><span class="seq"><b class="k" data-c="Ah"></b></span> <strong>Cada corazón</strong></td><td class="num">1</td><td class="num">13</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Qs"></b></span> <strong>Dama de picas</strong></td><td class="num">13</td><td class="num">1</td></tr>
+          <tr><td>Todo lo demás</td><td class="num">0</td><td class="num">38</td></tr>
+          <tr><td><strong>Total por mano</strong></td><td class="num"><strong>26</strong></td><td class="num">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">Da igual cuántas bazas ganes: ganar diez bazas limpias vale cero. Lo único que cuenta son los corazones y la dama que te queden dentro.</p>
+    <h4>Cómo se apunta</h4>
+    <p>Los puntos de cada mano se <strong>suman</strong> al total de cada jugador y se sigue jugando manos hasta que alguien pase del límite. Una anotación típica de cuatro manos:</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Mano</th><th class="num">Ana</th><th class="num">Bru</th><th class="num">Cris</th><th class="num">Dani</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="num">3</td><td class="num">13</td><td class="num">10</td><td class="num">0</td></tr>
+          <tr><td>2</td><td class="num">0</td><td class="num">4</td><td class="num">8</td><td class="num">14</td></tr>
+          <tr><td>3 <em class="t">luna de Cris</em></td><td class="num">26</td><td class="num">26</td><td class="num">0</td><td class="num">26</td></tr>
+          <tr><td><strong>Total</strong></td><td class="num"><strong>29</strong></td><td class="num"><strong>43</strong></td><td class="num"><strong>18</strong></td><td class="num"><strong>40</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="hr-luna">
+    <h3 class="sec">La luna</h3>
+    <p>Si un jugador se lleva <strong>los 26 puntos de la mano</strong> —los trece corazones <em class="t">y</em> la dama de picas— ha hecho la <strong>luna</strong> (<em class="t">shooting the moon</em>) y la puntuación se le da la vuelta:</p>
+    <ul class="bul">
+      <li><strong>26 puntos a cada uno de los demás</strong>, y cero para él. Es la forma habitual.</li>
+      <li>O, si lo preferís, <strong>−26 para él</strong> y cero a los demás. Elegid una antes de empezar; cambia mucho cuando alguien va muy adelantado.</li>
+    </ul>
+    <div class="note warn">
+      <b>Todos o nada</b>
+      <p>La luna es <strong>26 o nada</strong>. Si intentas llevarte todo y se te escapa un solo corazón al final, te comes los 25 puntos que sí has cogido. Es la jugada que decide las partidas, en los dos sentidos.</p>
+    </div>
+    <p>Para cortarle la luna a alguien basta con <strong>quedarte una baza</strong>: si ves que va limpio y con todas las bazas, coge una aunque te lleves puntos.</p>
+    <h4>Variante: el sol</h4>
+    <p>Algunas mesas premian llevarse <strong>las trece bazas</strong> (no solo los 26 puntos) con <strong>52</strong> en vez de 26. Es opcional y poco frecuente.</p>
+  </section>
+
+  <section id="hr-fin">
+    <h3 class="sec">Fin de la partida y variantes</h3>
+    <p>Se juegan manos hasta que <strong>un jugador llega o pasa de 100 puntos</strong>. En ese momento la partida acaba y <strong>gana quien tenga menos</strong>: el que llega a 100 solo es el que cierra, no necesariamente el que pierde... aunque casi siempre lo es.</p>
+    <ul class="bul">
+      <li><strong>Partida corta.</strong> A 50 en vez de 100, para una ronda rápida.</li>
+      <li><strong>Empate arriba.</strong> Si al cerrar hay dos empatados en el mínimo, se juega una mano más solo entre ellos.</li>
+      <li><strong>Jota de diamantes.</strong> La <span class="seq"><b class="k" data-c="Jd"></b></span> vale <strong>−10</strong>. Se llama la variante <em class="t">ómnibus</em> y hace que haya una baza que sí quieres ganar.</li>
+      <li><strong>Cien exactos se borran.</strong> Regla de la casa muy extendida: si tu total cae <strong>justo en 100</strong>, se te resta 100 y sigues. Acaba partidas de dos horas.</li>
+      <li><strong>Sin pase.</strong> Se juega la mano tal como sale. Más rápido y más azaroso.</li>
+      <li><strong>Dama de picas cierra picas.</strong> Variante: no se puede abrir con picas hasta que la dama haya salido.</li>
+    </ul>
+    <div class="note">
+      <b>Lo que hay que pactar antes de repartir</b>
+      <p>Luna a 26 o a −26 &middot; límite a 50 o a 100 &middot; jota de diamantes sí o no &middot; qué pasa con los 100 exactos. Todo lo demás es estándar.</p>
+    </div>
+  </section>
+
+  <section id="hr-tacticas">
+    <h3 class="sec">Tácticas</h3>
+    <ul class="bul">
+      <li><strong>Guarda tréboles y diamantes bajos.</strong> Son tus cartas de salir sin arriesgar nada.</li>
+      <li><strong>Quédate fallo de un palo.</strong> Un palo del que no tengas nada es una papelera: cada vez que sale, sueltas un corazón o la dama.</li>
+      <li><strong>Cuenta las picas.</strong> Si tienes A o K de picas sin picas bajas de escolta, vas a comerte la dama. Con cuatro o cinco picas pequeñas, en cambio, puedes atacar tú.</li>
+      <li><strong>Al final no ganes bazas.</strong> Las últimas bazas son las que traen corazones. Guarda alguna carta baja para no tener que llevártelas.</li>
+      <li><strong>Mira si alguien va a por la luna.</strong> Un jugador que gana baza tras baza sin recoger nada es el que te va a meter 26. Córtale a tiempo.</li>
+    </ul>
+    <div class="note">
+      <b>Resumen de una frase</b>
+      <p>Gana el que sabe <strong>perder bazas a propósito</strong>.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= HEARTS A 2 ================= -->
+<div class="wrap gv" id="g-hearts2" hidden style="--ac:var(--hearts2)">
+  <p class="kicker">Variante &middot; Hearts con mazo para robar</p>
+  <h2>Hearts a 2</h2>
+  <ul class="chips"><li>2 jugadores</li><li>52 cartas</li><li>13 en mano</li><li>26 bazas</li><li>20 min</li></ul>
+
+  <div class="resumen">
+    <div class="rband">Resumen<span class="dots"><span></span><span></span><span></span></span></div>
+
+    <div class="rblock">
+      <h3>Cartas a repartir</h3>
+      <ul class="rlist">
+        <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>13 cartas</strong></span></li>
+        <li><span class="lbl">Las otras 26</span><span style="margin-left:auto">mazo boca abajo, en el centro</span></li>
+        <li><span class="lbl">Abre la mano</span><span class="seq"><b class="k" data-c="2c"></b></span></li>
+      </ul>
+      <p class="sub" style="margin-top:10px">No hay pase de cartas: con dos jugadores sería regalarle la mano al rival.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>El robo, la clave de la variante</h3>
+      <p>Después de cada baza roba <strong>primero quien la ha ganado</strong> y luego el otro. Los dos vuelven a <strong>13 cartas</strong> y se sigue. Así se juegan las <strong>13 primeras bazas</strong>.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Y cuando se acaba el mazo</h3>
+      <p>Quedan <strong>13 bazas más</strong> sin robar, con las manos cerradas. Ahí ya sabes casi todo lo que le queda al rival: es la parte que se juega de verdad.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Puntos</h3>
+      <ul class="rlist">
+        <li><span class="lbl">Cada corazón</span><span style="margin-left:auto"><strong>1 punto</strong></span><span class="seq" style="margin-left:12px"><b class="k" data-c="Ah"></b></span></li>
+        <li><span class="lbl">Dama de picas</span><span style="margin-left:auto"><strong>13 puntos</strong></span><span class="seq" style="margin-left:12px"><b class="k" data-c="Qs"></b></span></li>
+      </ul>
+      <p class="sub" style="margin-top:10px">Los <strong>26 puntos</strong> de la baraja se reparten entre los dos. Se juega a 50 o a 100 y <strong>gana quien menos sume</strong>.</p>
+    </div>
+  </div>
+
+  <nav class="snav" aria-label="Secciones"><ul>
+    <li><a href="#h2-prep">Preparación</a></li>
+    <li><a href="#h2-baza">La baza</a></li>
+    <li><a href="#h2-robo">El robo</a></li>
+    <li><a href="#h2-punt">Puntos</a></li>
+    <li><a href="#h2-dif">Diferencias</a></li>
+    <li><a href="#h2-var">Variantes</a></li>
+    <li><a href="#h2-tacticas">Tácticas</a></li>
+  </ul></nav>
+
+  <section id="h2-prep">
+    <h3 class="sec">Preparación</h3>
+    <p class="sub">La idea es sencilla: el Hearts normal se queda corto con dos porque se ven demasiadas cartas, así que se esconde media baraja en un mazo del que se roba baza a baza.</p>
+    <ol class="steps">
+      <li>Baraja de <strong>52 cartas</strong>, orden normal en cada palo: <strong>2 la más baja, as la más alta</strong>. Sin triunfo.</li>
+      <li>Reparte <strong>13 cartas a cada uno</strong>. Las <strong>26 restantes</strong> se dejan boca abajo en el centro como mazo.</li>
+      <li><strong>No hay pase</strong> de tres cartas.</li>
+      <li>Abre quien tenga el <strong>2 de tréboles</strong>, y tiene que jugarlo en la primera baza.</li>
+    </ol>
+    <div class="note">
+      <b>Si el 2 de tréboles está en el mazo</b>
+      <p>Pasa en la mitad de las manos. Entonces abre <strong>el trébol más bajo que alguien tenga en la mano</strong>; si ninguno tiene tréboles, abre el que no ha repartido con la carta que quiera (que no pinte puntos).</p>
+    </div>
+  </section>
+
+  <section id="h2-baza">
+    <h3 class="sec">La baza</h3>
+    <p>Dos cartas por baza, <strong>26 bazas</strong> en total. Las reglas son las del Hearts de siempre:</p>
+    <ol class="steps">
+      <li>Uno abre y <strong>ese es el palo de la baza</strong>.</li>
+      <li>El otro <strong>sirve ese palo si lo tiene</strong>, con la carta que quiera. Si no lo tiene, <strong>descarta lo que le convenga</strong>.</li>
+      <li>Gana <strong>la carta más alta del palo de salida</strong>, se lleva las dos cartas y <strong>abre la siguiente baza</strong>.</li>
+      <li>En la <strong>primera baza</strong> no se tiran corazones ni la dama de picas.</li>
+      <li>No se <strong>abre</strong> con corazones hasta que estén <strong>rotos</strong>, salvo que solo te queden corazones.</li>
+    </ol>
+    <ol class="play">
+      <li class="hd">Baza 1 · abre el 2 de tréboles</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="2c"></b></span><span class="why">salida obligada</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Jc"></b></span><span class="why">sirve y gana la baza</span></li>
+      <li class="hd">Roba Bru y después Ana · los dos vuelven a 13</li>
+      <li class="hd">Baza 2 · abre Bru</li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="4s"></b></span><span class="why">pica baja, a buscar la dama</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="Qs"></b></span><span class="why">solo le quedaban picas altas</span></li>
+      <li class="hd">Ana gana la baza… y sus propios 13 puntos</li>
+    </ol>
+    <p class="sub">Con dos jugadores la dama cae mucho antes que en una mesa de cuatro: hay la mitad de cartas para esconderla.</p>
+  </section>
+
+  <section id="h2-robo">
+    <h3 class="sec">El robo</h3>
+    <ol class="steps">
+      <li>Acabada la baza, <strong>quien la ha ganado roba la carta de arriba</strong> del mazo.</li>
+      <li>Después roba <strong>el que la ha perdido</strong>.</li>
+      <li>Los dos vuelven a tener <strong>13 cartas</strong> y se juega la siguiente baza.</li>
+    </ol>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Bazas</th><th>Mazo</th><th>Cómo se juega</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 a 13</strong></td><td>26 → 0 cartas</td><td>Se roba tras cada baza; la mano se renueva sola</td></tr>
+          <tr><td><strong>14 a 26</strong></td><td>vacío</td><td>Ya no se roba: las 13 cartas que tengas son las que juegas</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <b>Por qué gana primero el que gana la baza</b>
+      <p>Llevarse una baza tiene un premio —eliges antes— y un castigo —te comes los puntos—. Es lo que impide jugar toda la mano a perder sin más.</p>
+    </div>
+    <div class="note warn">
+      <b>La segunda mitad es otra partida</b>
+      <p>Mientras hay mazo casi todo es azar: la mano cambia cada baza. En cuanto se agota, <strong>las 26 cartas están repartidas y a la vista de quien haya contado</strong>. Ahí se decide la mano, y ahí es donde duele no poder fallar un palo.</p>
+    </div>
+  </section>
+
+  <section id="h2-punt">
+    <h3 class="sec">Puntos</h3>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Carta</th><th class="num">Puntos</th></tr></thead>
+        <tbody>
+          <tr><td><span class="seq"><b class="k" data-c="Ah"></b></span> <strong>Cada corazón</strong> (hay 13)</td><td class="num">1</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Qs"></b></span> <strong>Dama de picas</strong></td><td class="num">13</td></tr>
+          <tr><td><strong>Total de la mano</strong></td><td class="num"><strong>26</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Como se juega la baraja entera, en cada mano se reparten los <strong>26 puntos</strong> completos entre los dos. Se suman mano a mano hasta que alguien <strong>llega a 100</strong> (o a 50 si queréis partida corta) y <strong>gana el que menos tenga</strong>.</p>
+    <h4>La luna</h4>
+    <p>Si te llevas <strong>los 26 puntos</strong> tú solo, has hecho la luna: <strong>26 al rival</strong> y cero para ti (o <strong>−26</strong> para ti, si jugáis así). Con dos jugadores la luna es mucho más factible que con cuatro, así que conviene tenerla siempre en la cabeza: tanto para intentarla como para cortarla cogiendo una baza suelta a tiempo.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Mano</th><th class="num">Ana</th><th class="num">Bru</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="num">9</td><td class="num">17</td></tr>
+          <tr><td>2</td><td class="num">22</td><td class="num">4</td></tr>
+          <tr><td>3 <em class="t">luna de Bru</em></td><td class="num">26</td><td class="num">0</td></tr>
+          <tr><td><strong>Total</strong></td><td class="num"><strong>57</strong></td><td class="num"><strong>21</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="h2-dif">
+    <h3 class="sec">Diferencias con el Hearts de cuatro</h3>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th></th><th>Hearts de 4</th><th>Hearts a 2</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cartas en mano</strong></td><td>13, y bajando</td><td>13 fijas mientras haya mazo</td></tr>
+          <tr><td><strong>Bazas por mano</strong></td><td class="num">13</td><td class="num">26</td></tr>
+          <tr><td><strong>Pase de 3 cartas</strong></td><td>Sí, rotando</td><td>No</td></tr>
+          <tr><td><strong>Cartas que no ves</strong></td><td>39, todas en manos</td><td>13 en su mano + 26 en el mazo</td></tr>
+          <tr><td><strong>Puntos por mano</strong></td><td class="num">26</td><td class="num">26</td></tr>
+          <tr><td><strong>La luna</strong></td><td>Difícil: tres rivales</td><td>Bastante viable</td></tr>
+          <tr><td><strong>Dónde está el juego</strong></td><td>En el pase y en cargarle al vecino</td><td>En las 13 últimas bazas</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">Todo lo demás —seguir el palo, corazones cerrados, primera baza limpia, el recuento— es idéntico. Si te sabes el de cuatro, ya te sabes este.</p>
+    <p>Las reglas completas del juego base están en la ficha de <a href="#/hearts"><strong>Hearts</strong></a>.</p>
+  </section>
+
+  <section id="h2-var">
+    <h3 class="sec">Variantes</h3>
+    <div class="note warn">
+      <b>No hay versión oficial</b>
+      <p>El Hearts de dos es una adaptación de la casa y <strong>cada sitio la cuenta un poco distinta</strong>. Si aprendiste una versión concreta en un vídeo, mira esta lista: lo que cambia suele ser una de estas cosas, y basta con pactarla antes de repartir.</p>
+    </div>
+    <ul class="bul">
+      <li><strong>Quién roba primero.</strong> Lo más extendido es que robe el que gana la baza; hay versiones en que roba primero el que la pierde, como consuelo.</li>
+      <li><strong>Sin mazo.</strong> Se reparten 13 a cada uno y las otras 26 se apartan <strong>sin mirarlas</strong>: una mano de 13 bazas y los puntos que estuvieran fuera simplemente no cuentan. Más corta y más azarosa.</li>
+      <li><strong>Baraja recortada.</strong> Se quitan cartas hasta dejar 26 en juego (por ejemplo, todos los 2, 3, 4, 5, 6 y 7 salvo los de corazones y la dama de picas) y se juegan 13 bazas sin mazo.</li>
+      <li><strong>Con pase.</strong> Cada uno le pasa <strong>3 cartas boca abajo</strong> al otro antes de empezar, como en el de cuatro.</li>
+      <li><strong>Corazones libres.</strong> Se quita la regla de los corazones cerrados: con dos jugadores aporta poco y alarga la mano.</li>
+      <li><strong>Primera baza sin restricción.</strong> Se permite tirar puntos desde la primera baza, ya que la mano se renueva enseguida.</li>
+      <li><strong>Mazo a la vista.</strong> Se juega con la carta de arriba del mazo <strong>destapada</strong>, así se sabe qué roba el ganador de la baza. Cambia bastante: pasa a ser un juego de información.</li>
+    </ul>
+  </section>
+
+  <section id="h2-tacticas">
+    <h3 class="sec">Tácticas</h3>
+    <ul class="bul">
+      <li><strong>Cuenta el mazo, no solo su mano.</strong> Trece bazas con robo y ya sabes que las 26 cartas están repartidas: lo que no has visto lo tiene él.</li>
+      <li><strong>Mientras haya mazo, suelta lo caro.</strong> Corazones altos y picas altas se van mejor en la primera mitad, cuando aún puedes reponer.</li>
+      <li><strong>Llega fallo a la segunda mitad.</strong> Un palo del que no tengas nada vale oro en las 13 últimas bazas: es tu papelera.</li>
+      <li><strong>Guarda una carta muy baja.</strong> Para las últimas bazas, tener un 2 o un 3 de un palo largo es la diferencia entre ceder la baza y comerte cuatro corazones.</li>
+      <li><strong>Vigila la luna.</strong> Con un solo rival, si lleva ocho o diez corazones y ninguno te ha tocado, está yendo a por ella. Coge una baza aunque duela.</li>
+    </ul>
+  </section>
+</div>
+
 </main>
 
 <script>
 (function(){
   "use strict";
-  var GAMES = ["scopa","piramide","crisps","tienlen"];
-  var TITLES = {scopa:"Scopa", piramide:"Solitario Pirámide", crisps:"Crisps!", tienlen:"Tien Len"};
+  var GAMES = ["scopa","piramide","crisps","tienlen","golf","hearts","hearts2"];
+  var TITLES = {scopa:"Scopa", piramide:"Solitario Pirámide", crisps:"Crisps!", tienlen:"Tien Len",
+                golf:"Golf", hearts:"Hearts", hearts2:"Hearts a 2 jugadores"};
   var home = document.getElementById("home");
   var back = document.getElementById("back");
   var brand = document.getElementById("brand");

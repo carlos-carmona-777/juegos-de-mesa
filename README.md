@@ -1,6 +1,7 @@
 # Juegos de Mesa
 
-App web (PWA) con el resumen de reglas de **Scopa**, **Solitario Pirámide**, **Crisps!** y **Tien Len**.
+App web (PWA) con el resumen de reglas de **Scopa**, **Solitario Pirámide**, **Crisps!**,
+**Tien Len**, **Golf**, **Hearts** y **Hearts a 2 jugadores**.
 Se instala en la pantalla de inicio del iPhone y funciona **sin conexión**.
 
 **En línea: https://carlos-carmona-777.github.io/juegos-de-mesa/**
@@ -47,7 +48,7 @@ cd "/Users/carloscarmona/1_APPS/REGLAS JUEGOS" && git add -A && git commit -m ".
 
 GitHub Pages reconstruye solo, en un minuto más o menos.
 
-**Antes de subir, sube la versión de la caché en `sw.js`** (`const CACHE = "juegos-v3"`).
+**Antes de subir, sube la versión de la caché en `sw.js`** (ahora mismo `const CACHE = "juegos-v3"`).
 Si no lo haces, los móviles que ya tengan la app instalada seguirán viendo la
 versión vieja para siempre: el service worker sirve desde caché y nunca vuelve
 a pedir los ficheros.
@@ -82,7 +83,7 @@ en el móvil.
 Las reglas están en `index.html`, un bloque `<div class="wrap gv" id="g-...">` por
 juego, cada uno con su panel `.resumen` arriba y las secciones de detalle debajo.
 Las cartas se escriben con el componente `<b class="k">`, que dibuja el palo desde
-el sprite SVG del principio del fichero (`#sp #he #di #cl` y `#oro #copa #esp #bas`). Para añadir un quinto juego:
+el sprite SVG del principio del fichero (`#sp #he #di #cl` y `#oro #copa #esp #bas`). Para añadir un juego nuevo:
 
 1. Duplica uno de esos bloques y cámbiale el `id` (`g-loquesea`).
 2. Añade un `<li>` en la lista `#list` con `data-go="loquesea"` y sus `data-k`
@@ -116,3 +117,12 @@ señalado en la propia app.
 
 Crisps! es un juego reciente con *living rulebook*: conviene confirmar la versión
 antes de jugar con gente de fuera.
+
+**Hearts a 2 jugadores** no tiene versión oficial: es una adaptación de la casa y cada
+sitio (y cada vídeo) la cuenta un poco distinta. La ficha describe la versión con mazo
+para robar, que es la más extendida, y lista aparte las variantes que más circulan —
+quién roba primero, jugar sin mazo, con baraja recortada o con pase de tres cartas.
+Conviene pactarlas antes de repartir.
+
+El **Golf** de la ficha es el de rejilla de 6 cartas; no confundir con el solitario
+del mismo nombre. Las variantes de 4 y de 9 cartas están en su última sección.

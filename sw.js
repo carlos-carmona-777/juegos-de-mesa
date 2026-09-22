@@ -2,7 +2,7 @@
    Precarga todo en la instalación y luego sirve siempre desde caché.
    Sube CACHE cada vez que cambies cualquier fichero del listado. */
 
-const CACHE = "juegos-v2";
+const CACHE = "juegos-v3";
 
 const ASSETS = [
   "./",
