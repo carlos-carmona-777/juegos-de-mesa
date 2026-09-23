@@ -89,6 +89,23 @@ Solo cambia `index.html`; fuentes, iconos y service worker valen para las dos.
 Después de cambiar solo hay que hacer commit y push: al abrir la app con red, el
 móvil se trae la versión que haya publicada.
 
+## Fondo y tema
+
+El botón de la paleta, arriba a la derecha, abre el panel de aspecto: **cuatro fondos**
+(Tapete, Madera, Burdeos y Marino) y el **tema** (Automático, Claro u Oscuro). La elección
+se guarda en el propio móvil, en `localStorage` (`juegos-bg` y `juegos-theme`), y un
+script diminuto en el `<head>` la aplica antes de pintar para que no parpadee el verde.
+
+Cada fondo es una paleta en el `<style>`: redefine solo los neutros (`--bg`, `--surface`,
+`--ink`, `--line`…) y su textura en `--pat`, en claro y en oscuro. Los colores de acento de
+cada juego son los mismos en todos los fondos. Para añadir un quinto fondo:
+
+1. Copia los tres bloques de uno existente (claro, oscuro del sistema y oscuro forzado) y
+   cámbiale el nombre y los colores. El selector `.bgv[data-bg="…"]` de cada bloque es el
+   que pinta su muestra en el panel.
+2. Añade su botón en el panel `#lookp`.
+3. Añade el nombre a `BGS` en el script y a la lista que valida el script del `<head>`.
+
 ## Editar el contenido
 
 Las reglas están en `index.html`, un bloque `<div class="wrap gv" id="g-...">` por
