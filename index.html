@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Juegos de Mesa</title>
-<meta name="description" content="Resumen offline de las reglas de Scopa, Solitario Pirámide, Crisps!, Tien Len, Golf, Hearts, Hearts a 2 jugadores, Duck Soup, Bugami, Bravado y Dracula.">
+<meta name="description" content="Resumen offline de las reglas de Scopa, Solitario Pirámide, Crisps!, Tien Len, Golf, Hearts, Hearts a 2 jugadores, Duck Soup, Bugami, Bravado, Dracula y Mate.">
 <meta name="theme-color" content="#10362a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -28,6 +28,7 @@
   --scopa:#966709; --piramide:#2b5796; --crisps:#b04f14; --tienlen:#ad2130;
   --golf:#4a6b16; --hearts:#a01236; --hearts2:#74306b;
   --ducksoup:#1d6e74; --bugami:#4d3fa0; --bravado:#3d6282; --dracula:#2f2a36;
+  --mate:#7a4b25;
   --maxw:46rem;
   color-scheme:light;
 }
@@ -45,6 +46,7 @@
   --scopa:#e6ba52; --piramide:#8ab0ec; --crisps:#f09a52; --tienlen:#f0767e;
   --golf:#b4cf63; --hearts:#f58aa6; --hearts2:#dfa0d6;
   --ducksoup:#6cc6cc; --bugami:#aca2f2; --bravado:#9ec1de; --dracula:#cfc6dc;
+  --mate:#dcae7e;
     color-scheme:dark;
   }
 }
@@ -59,6 +61,7 @@
   --scopa:#e6ba52; --piramide:#8ab0ec; --crisps:#f09a52; --tienlen:#f0767e;
   --golf:#b4cf63; --hearts:#f58aa6; --hearts2:#dfa0d6;
   --ducksoup:#6cc6cc; --bugami:#aca2f2; --bravado:#9ec1de; --dracula:#cfc6dc;
+  --mate:#dcae7e;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -521,6 +524,16 @@ tr:last-child td{border-bottom:0}
           <b class="k" data-c="Qh" style="--r:8deg"></b>
         </span>
         <span><span class="nm">Dracula</span><span class="meta">2 jugadores &middot; 54 cartas</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
+      </button>
+    </li>
+    <li data-k="mate capellen sackson gamut of games ajedrez jaque mate informacion perfecta dos jugadores 20 cartas aleman foreplace apartar overmate sobremate privilegio del rey jugada libre">
+      <button class="tile" type="button" data-go="mate" style="--ac:var(--mate)">
+        <span class="art" aria-hidden="true">
+          <b class="k" data-c="Ac" style="--r:-8deg"></b>
+          <b class="k" data-c="7d" style="--r:8deg"></b>
+        </span>
+        <span><span class="nm">Mate</span><span class="meta">2 jugadores &middot; 20 cartas</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
       </button>
     </li>
@@ -2546,16 +2559,238 @@ tr:last-child td{border-bottom:0}
   </section>
 </div>
 
+
+<!-- ================= MATE ================= -->
+<div class="wrap gv" id="g-mate" hidden style="--ac:var(--mate)">
+  <p class="kicker">Alemania, 1915 &middot; cartas que se juegan como un ajedrez</p>
+  <h2>Mate</h2>
+  <ul class="chips"><li>2 jugadores</li><li>20 cartas</li><li>10 cada uno</li><li>4 manos</li><li>Información perfecta</li></ul>
+
+  <div class="resumen">
+    <div class="rband">Resumen<span class="dots"><span></span><span></span><span></span></span></div>
+
+    <div class="rblock">
+      <h3>Cartas a repartir</h3>
+      <ul class="rlist">
+        <li><span class="lbl">La baraja</span><span style="margin-left:auto"><strong>A, 10, K, Q y 7</strong> de cada palo</span></li>
+        <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>10 cartas</strong>, de 5 en 5</span></li>
+      </ul>
+      <p class="sub" style="margin-top:10px">Se reparten las 20, así que sabiendo tu mano sabes exactamente la del rival. No hay azar después del reparto.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Orden</h3>
+      <div class="order" style="margin:.2em 0 .5em">
+        <i>cartas</i><span class="hi">A</span><span>10</span><span>K</span><span>Q</span><span>7</span>
+      </div>
+      <div class="order" style="margin:0">
+        <i>palos</i><span class="hi">♣</span><span>♠</span><span style="color:var(--red)">♥</span><span style="color:var(--red)">♦</span>
+      </div>
+    </div>
+
+    <div class="rblock">
+      <h3>La jugada</h3>
+      <p>Sale quien reparte. El otro <strong>sirve el palo</strong>; si no tiene, <strong>sirve el número</strong>. Gana la carta más alta, o el palo más alto si se sirvió por número, y quien gana sale.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Mate</h3>
+      <p>Si sales con una carta que el otro <strong>no puede servir ni de palo ni de número</strong>, es mate y la mano acaba. Puntúas <strong>el valor de esa carta × el número de jugada</strong>.</p>
+      <div class="order" style="margin:.6em 0 0">
+        <span>A<em>11</em></span><span>10<em>10</em></span><span>7<em>7</em></span><span>K<em>4</em></span><span>Q<em>3</em></span>
+      </div>
+    </div>
+
+    <div class="rblock">
+      <h3>Cómo se gana</h3>
+      <p>Una partida son <strong>4 manos</strong>. En la segunda y la cuarta <strong>os intercambiáis las manos</strong>, sin barajar. Gana quien más sume.</p>
+    </div>
+  </div>
+
+  <nav class="snav" aria-label="Secciones"><ul>
+    <li><a href="#mt-cartas">Cartas</a></li>
+    <li><a href="#mt-partida">Las 4 manos</a></li>
+    <li><a href="#mt-jugada">La jugada</a></li>
+    <li><a href="#mt-mate">El mate</a></li>
+    <li><a href="#mt-ej">Ejemplo</a></li>
+    <li><a href="#mt-apartar">Apartar</a></li>
+    <li><a href="#mt-var">Variantes</a></li>
+  </ul></nav>
+
+  <section id="mt-cartas">
+    <h3 class="sec">Cartas y orden</h3>
+    <p class="sub">Un juego de cartas raro: <strong>de información perfecta</strong>. Como se reparte toda la baraja, cada jugador sabe desde el principio dónde está cada carta. Se juega pensando, como un ajedrez.</p>
+    <p>Se usan <strong>20 cartas</strong> de una baraja francesa: el <strong>as, el 10, el rey, la dama y el 7</strong> de cada palo.</p>
+    <h4>Dentro de cada palo</h4>
+    <div class="order">
+      <i>alta</i><span class="hi">A</span><span>10</span><span>K</span><span>Q</span><span>7</span><i>baja</i>
+    </div>
+    <h4>Los palos, para desempatar</h4>
+    <div class="seq" style="gap:8px; margin:.8em 0; align-items:center">
+      <em class="t" style="font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase">mayor</em>
+      <b class="k big" data-c="Ac"></b>
+      <b class="k big" data-c="As"></b>
+      <b class="k big" data-c="Ah"></b>
+      <b class="k big" data-c="Ad"></b>
+      <em class="t" style="font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase">menor</em>
+    </div>
+    <p class="sub">Tréboles, picas, corazones, diamantes. Quien haya jugado al Skat o al 66 reconocerá el 10 entre el as y el rey, y los valores 11, 10, 4 y 3.</p>
+  </section>
+
+  <section id="mt-partida">
+    <h3 class="sec">Las cuatro manos</h3>
+    <p>Una partida son <strong>4 manos</strong>, agrupadas en dos rondas. El truco está en que cada reparto <strong>se juega dos veces</strong>: una con cada mano.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Mano</th><th>Sale</th><th>Cartas</th></tr></thead>
+        <tbody>
+          <tr><td class="num"><strong>1</strong></td><td>Ana</td><td>Ana baraja y reparte 10 a cada uno, en dos tandas de 5</td></tr>
+          <tr><td class="num"><strong>2</strong></td><td>Bru</td><td><strong>Se intercambian las manos</strong>, sin barajar</td></tr>
+          <tr><td class="num"><strong>3</strong></td><td>Bru</td><td>Bru recoge todo, baraja y reparte de nuevo</td></tr>
+          <tr><td class="num"><strong>4</strong></td><td>Ana</td><td><strong>Se intercambian las manos</strong>, sin barajar</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">En cada mano sale el que reparte. En la 2.ª y la 4.ª, «el que reparte» es el que no repartió la anterior, aunque no haya barajado.</p>
+    <div class="note">
+      <b>Cada uno deja sus cartas delante</b>
+      <p>Las cartas jugadas no se mezclan: cada jugador las va dejando <strong>delante de sí</strong>. Así, al acabar la mano, cada uno recoge exactamente las diez suyas para intercambiarlas.</p>
+    </div>
+  </section>
+
+  <section id="mt-jugada">
+    <h3 class="sec">La jugada</h3>
+    <p class="sub">Aquí no se habla de bazas sino de <strong>jugadas</strong>, igual que en un juego de tablero: una carta de salida y la respuesta del otro.</p>
+    <ol class="steps">
+      <li>El que sale juega <strong>la carta que quiera</strong>.</li>
+      <li>El otro tiene que <strong>servir el palo</strong> si tiene alguna carta de ese palo.</li>
+      <li>Si no tiene el palo, tiene que <strong>servir el número</strong>: una carta del mismo rango.</li>
+      <li>Si se sirvió el palo, gana <strong>la carta más alta</strong>. Si se sirvió el número, gana <strong>el palo más alto</strong>.</li>
+      <li>Quien gana la jugada <strong>sale a la siguiente</strong>.</li>
+    </ol>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Sale</th><th>Responde</th><th>Cómo</th><th>Gana</th></tr></thead>
+        <tbody>
+          <tr><td><span class="seq"><b class="k" data-c="Kh"></b></span></td><td><span class="seq"><b class="k" data-c="Ah"></b></span></td><td>Palo</td><td>Responde: <strong>A</strong> sobre K</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="10c"></b></span></td><td><span class="seq"><b class="k" data-c="Qc"></b></span></td><td>Palo</td><td>Sale: <strong>10</strong> sobre Q</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="10d"></b></span></td><td><span class="seq"><b class="k" data-c="10s"></b></span></td><td>Número</td><td>Responde: <strong>♠</strong> sobre ♦</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="7c"></b></span></td><td><span class="seq"><b class="k" data-c="7h"></b></span></td><td>Número</td><td>Sale: <strong>♣</strong> sobre ♥</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="mt-mate">
+    <h3 class="sec">El mate</h3>
+    <p>Si sales con una carta que el otro <strong>no puede servir</strong> —no le queda ninguna de ese palo <em class="t">ni</em> ninguna de ese número—, le das <strong>mate</strong> y la mano termina ahí.</p>
+    <p>Puntúas <strong>el valor de la carta con la que das mate, multiplicado por el número de la jugada</strong>:</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Carta</th><th class="num">Valor</th></tr></thead>
+        <tbody>
+          <tr><td><span class="seq"><b class="k" data-c="Ac"></b></span> <strong>As</strong></td><td class="num">11</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="10c"></b></span> <strong>Diez</strong></td><td class="num">10</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="7c"></b></span> <strong>Siete</strong></td><td class="num">7</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Kc"></b></span> <strong>Rey</strong></td><td class="num">4</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Qc"></b></span> <strong>Dama</strong></td><td class="num">3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">Un mate con as en la tercera jugada vale 11 × 3 = 33.</p>
+    <div class="note warn">
+      <b>El 7 manda poco pero puntúa mucho</b>
+      <p>Es la carta más baja de su palo, pero un mate con un 7 vale <strong>7</strong>: más que con rey (4) o con dama (3).</p>
+    </div>
+    <div class="note">
+      <b>Mate tarde vale más</b>
+      <p>Cuanto más avanzada la jugada, más multiplica. Un mate con dama en la jugada 10 (30) vale casi lo mismo que uno con as en la tercera (33).</p>
+    </div>
+    <p>Si se juegan todas las cartas <strong>sin mate</strong>, la mano queda en <strong>tablas</strong> y nadie puntúa.</p>
+  </section>
+
+  <section id="mt-ej">
+    <h3 class="sec">Ejemplo de una mano</h3>
+    <div class="scrollx">
+      <table>
+        <tbody>
+          <tr><td><strong>Ana</strong><br><em class="t">reparte y sale</em></td><td><span class="seq"><b class="k" data-c="Ac"></b><b class="k" data-c="10c"></b><b class="k" data-c="As"></b><b class="k" data-c="7s"></b><b class="k" data-c="Kh"></b><b class="k" data-c="Qh"></b><b class="k" data-c="7h"></b><b class="k" data-c="10d"></b><b class="k" data-c="Kd"></b><b class="k" data-c="Qd"></b></span></td></tr>
+          <tr><td><strong>Bru</strong></td><td><span class="seq"><b class="k" data-c="Kc"></b><b class="k" data-c="Qc"></b><b class="k" data-c="7c"></b><b class="k" data-c="10s"></b><b class="k" data-c="Ks"></b><b class="k" data-c="Qs"></b><b class="k" data-c="Ah"></b><b class="k" data-c="10h"></b><b class="k" data-c="Ad"></b><b class="k" data-c="7d"></b></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ol class="play">
+      <li class="hd">Jugada 1</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="Ac"></b></span><span class="why">sale</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Kc"></b></span><span class="why">palo · gana Ana</span></li>
+      <li class="hd">Jugada 2</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="10c"></b></span><span class="why">sale</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Qc"></b></span><span class="why">palo · gana Ana</span></li>
+      <li class="hd">Jugada 3</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="As"></b></span><span class="why">sale</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Ks"></b></span><span class="why">palo · gana Ana</span></li>
+      <li class="hd">Jugada 4</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="10d"></b></span><span class="why">sale</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Ad"></b></span><span class="why">palo · gana Bru</span></li>
+      <li class="hd">Jugada 5</li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="7c"></b></span><span class="why">sale</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="7s"></b></span><span class="why">sin tréboles: número · ♣ gana a ♠</span></li>
+      <li class="hd">Jugada 6</li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="10s"></b></span><span class="why">Ana no tiene picas ni dieces</span></li>
+      <li class="hd">¡Mate! 10 × 6 = 60 puntos para Bru</li>
+    </ol>
+    <div class="note warn">
+      <b>Dónde se equivocó Ana</b>
+      <p>En la jugada 5 podía servir el número con el <strong>7♥</strong> en vez del 7♠. Perdía la jugada igual, pero se quedaba con una pica, y el 10♠ de Bru ya no le daba mate. Quedarte sin un palo <em class="t">y</em> sin un número a la vez es exactamente lo que el rival busca.</p>
+    </div>
+  </section>
+
+  <section id="mt-apartar">
+    <h3 class="sec">Apartar una carta</h3>
+    <p class="sub">En el original, <em class="t">foreplace</em>. Una apuesta al empezar cada mano: te quitas una carta a cambio de puntuar más si ganas.</p>
+    <ol class="steps">
+      <li>Antes de la primera jugada, por turno y <strong>empezando por el que va a salir</strong>, cada jugador puede <strong>apartar una carta</strong>: la saca de la mano y la deja boca arriba en la mesa, fuera de juego.</li>
+      <li>Si el primero aparta una carta, el segundo <strong>no puede apartar una del mismo número ni del mismo palo</strong>.</li>
+      <li>Si gana la mano <strong>quien apartó</strong>, puntúa el valor de la carta de mate × <strong>(jugadas + 1)</strong>.</li>
+      <li>Si apartan <strong>los dos</strong>, la mano dura solo <strong>9 jugadas</strong>.</li>
+      <li>Si aparta <strong>solo uno</strong> y no hay mate en 9 jugadas, para la décima <strong>vuelve a usar la carta que jugó en la novena</strong>.</li>
+    </ol>
+    <div class="note">
+      <b>Sobremate</b>
+      <p>Si quien apartó da mate en esa décima jugada, con la carta repetida, su puntuación <strong>se dobla</strong>: el valor de la carta × 22. En el original, <em class="t">overmate</em>.</p>
+    </div>
+  </section>
+
+  <section id="mt-var">
+    <h3 class="sec">Variantes</h3>
+    <h4>Jugada libre</h4>
+    <p>Una vez por mano, un jugador puede anunciar <strong>«jugada libre»</strong> y servir <strong>por número</strong> aunque tenga cartas del palo. Una vez usada, ya no la tiene ninguno de los dos hasta la mano siguiente.</p>
+    <h4>Privilegio del rey</h4>
+    <p>Si alguien sale con un <strong>rey</strong>, el otro tiene que responder <strong>con un rey</strong> si le queda alguno. Solo si no tiene reyes sirve el palo.</p>
+    <h4>Privilegio de las figuras</h4>
+    <p>Igual que el del rey, pero vale también para las <strong>damas</strong>.</p>
+    <h4>Jugada libre con privilegio</h4>
+    <p>Si se usa la jugada libre para responder a un rey (o a una dama, con el privilegio de figuras), se puede servir <strong>otra carta del mismo palo</strong> aunque se tenga un rey (o una dama).</p>
+    <h4>Baraja doble</h4>
+    <p>Una baraja especial de 20 cartas <strong>sin damas</strong>, con una copia más del <strong>A♦, 10♥, K♠ y 7♣</strong>. Si en una jugada salen dos cartas idénticas, <strong>vuelve a salir el mismo</strong> que salió.</p>
+    <div class="note">
+      <b>De dónde sale este juego</b>
+      <p>Lo publicó G. Capellen en Alemania en 1915, en un folleto titulado «¡Dos nuevos juegos de guerra!», junto con una variante del ajedrez. Pasó casi desapercibido hasta que Sid Sackson lo incluyó en <em class="t">A Gamut of Games</em> (1969). Resumen de las reglas de pagat.com, de John McLeod, basadas en una contribución de Doran Gaston.</p>
+    </div>
+  </section>
+</div>
+
 </main>
 
 <script>
 (function(){
   "use strict";
   var GAMES = ["scopa","piramide","crisps","tienlen","golf","hearts","hearts2",
-               "ducksoup","bugami","bravado","dracula"];
+               "ducksoup","bugami","bravado","dracula","mate"];
   var TITLES = {scopa:"Scopa", piramide:"Solitario Pirámide", crisps:"Crisps!", tienlen:"Tien Len",
                 golf:"Golf", hearts:"Hearts", hearts2:"Hearts a 2 jugadores",
-                ducksoup:"Duck Soup", bugami:"Bugami", bravado:"Bravado", dracula:"Dracula"};
+                ducksoup:"Duck Soup", bugami:"Bugami", bravado:"Bravado", dracula:"Dracula",
+                mate:"Mate"};
   var home = document.getElementById("home");
   var back = document.getElementById("back");
   var brand = document.getElementById("brand");

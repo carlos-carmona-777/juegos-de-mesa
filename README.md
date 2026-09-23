@@ -2,7 +2,8 @@
 
 App web (PWA) con el resumen de reglas de **Scopa**, **Solitario Pirámide**, **Crisps!**,
 **Tien Len**, **Golf**, **Hearts**, **Hearts a 2 jugadores**, y cuatro juegos originales de
-David Parlett: **Duck Soup**, **Bugami**, **Bravado** y **Dracula**.
+David Parlett: **Duck Soup**, **Bugami**, **Bravado** y **Dracula**, más **Mate**, un juego
+alemán de 1915 de información perfecta.
 Se instala en la pantalla de inicio del iPhone y funciona **sin conexión**.
 
 **En línea: https://carlos-carmona-777.github.io/juegos-de-mesa/**
@@ -140,6 +141,10 @@ Los cuatro juegos de **David Parlett** (Duck Soup, Bugami, Bravado y Dracula) es
 resumidos de sus reglamentos originales en <https://www.parlettgames.uk/oricards/>. Donde
 el reglamento deja algo abierto y la ficha lo concreta, lo dice: por ejemplo, que en Dracula
 los multiplicadores no se acumulan, que se deduce de sus propios ejemplos.
+
+**Mate** está resumido de las reglas de pagat.com
+(<https://www.pagat.com/misc/mate.html>), incluida la regla de apartar una carta
+(*foreplace*) y sus variantes.
 
 El **Golf** de la ficha es el de rejilla de 6 cartas; no confundir con el solitario
 del mismo nombre. Las variantes de 4 y de 9 cartas están en su última sección.
