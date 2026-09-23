@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Juegos de Mesa</title>
-<meta name="description" content="Resumen offline de las reglas de Scopa, Solitario Pirámide, Crisps!, Tien Len, Golf, Hearts y Hearts a 2 jugadores.">
+<meta name="description" content="Resumen offline de las reglas de Scopa, Solitario Pirámide, Crisps!, Tien Len, Golf, Hearts, Hearts a 2 jugadores, Duck Soup, Bugami, Bravado y Dracula.">
 <meta name="theme-color" content="#10362a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -27,6 +27,7 @@
   --emboss:rgba(27,92,70,.13);
   --scopa:#966709; --piramide:#2b5796; --crisps:#b04f14; --tienlen:#ad2130;
   --golf:#4a6b16; --hearts:#a01236; --hearts2:#74306b;
+  --ducksoup:#1d6e74; --bugami:#4d3fa0; --bravado:#3d6282; --dracula:#2f2a36;
   --maxw:46rem;
   color-scheme:light;
 }
@@ -43,6 +44,7 @@
     --emboss:rgba(0,0,0,.45);
   --scopa:#e6ba52; --piramide:#8ab0ec; --crisps:#f09a52; --tienlen:#f0767e;
   --golf:#b4cf63; --hearts:#f58aa6; --hearts2:#dfa0d6;
+  --ducksoup:#6cc6cc; --bugami:#aca2f2; --bravado:#9ec1de; --dracula:#cfc6dc;
     color-scheme:dark;
   }
 }
@@ -56,6 +58,7 @@
   --shadow:0 2px 0 rgba(0,0,0,.25), 0 12px 30px -16px rgba(0,0,0,.85);
   --scopa:#e6ba52; --piramide:#8ab0ec; --crisps:#f09a52; --tienlen:#f0767e;
   --golf:#b4cf63; --hearts:#f58aa6; --hearts2:#dfa0d6;
+  --ducksoup:#6cc6cc; --bugami:#aca2f2; --bravado:#9ec1de; --dracula:#cfc6dc;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -354,6 +357,8 @@ tr:last-child td{border-bottom:0}
   border:1px solid rgba(22,40,31,.3);
   box-shadow:0 1px 2px rgba(0,0,0,.22);
 }
+.grid6 .em{width:34px; height:47.6px; border-radius:4px; flex:none; border:2px dashed var(--line)}
+.grid6 .em.ok{border-color:var(--ac); background:color-mix(in srgb, var(--ac) 14%, transparent)}
 .grid6 .cap{font-size:.76rem; color:var(--ink-2); margin:10px 0 0; text-align:center; font-weight:600}
 
 /* play-by-play example */
@@ -476,6 +481,46 @@ tr:last-child td{border-bottom:0}
           <b class="k" data-c="2h" style="--r:8deg"></b>
         </span>
         <span><span class="nm">Hearts a 2</span><span class="meta">2 jugadores &middot; 28 cartas</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
+      </button>
+    </li>
+    <li data-k="duck soup parlett dos jugadores bazas quack pato sopa mazo robar dos platos multiplicar 250 in the pond in the soup trebleduck doubleduck">
+      <button class="tile" type="button" data-go="ducksoup" style="--ac:var(--ducksoup)">
+        <span class="art" aria-hidden="true">
+          <b class="k" data-c="7s" style="--r:-8deg"></b>
+          <b class="k" data-c="7h" style="--r:8deg"></b>
+        </span>
+        <span><span class="nm">Duck Soup</span><span class="meta">2 jugadores &middot; 52 cartas</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
+      </button>
+    </li>
+    <li data-k="bugami parlett bleeding hearts bug suit palo bicho misere bazas puja cartas de puja trigami shotgun wedding comodin">
+      <button class="tile" type="button" data-go="bugami" style="--ac:var(--bugami)">
+        <span class="art" aria-hidden="true">
+          <b class="k" data-c="Ks" style="--r:-8deg"></b>
+          <b class="k" data-c="8c" style="--r:8deg"></b>
+        </span>
+        <span><span class="nm">Bugami</span><span class="meta">3–7 jugadores &middot; 52 cartas</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
+      </button>
+    </li>
+    <li data-k="bravado parlett chicken out rajarse pasarse 21 veintiuno descarte shedding comodin rey dama jota rojas restan">
+      <button class="tile" type="button" data-go="bravado" style="--ac:var(--bravado)">
+        <span class="art" aria-hidden="true">
+          <b class="k" data-c="Ks" style="--r:-8deg"></b>
+          <b class="k" data-c="Ah" style="--r:8deg"></b>
+        </span>
+        <span><span class="nm">Bravado</span><span class="meta">2–6 jugadores &middot; 52 cartas</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
+      </button>
+    </li>
+    <li data-k="dracula parlett vampiro comodin ataud clavo 3x3 tres en raya filas columnas dama rey multiplicadores aritmetico">
+      <button class="tile" type="button" data-go="dracula" style="--ac:var(--dracula)">
+        <span class="art" aria-hidden="true">
+          <b class="k" data-c="X" style="--r:-8deg"></b>
+          <b class="k" data-c="Qh" style="--r:8deg"></b>
+        </span>
+        <span><span class="nm">Dracula</span><span class="meta">2 jugadores &middot; 54 cartas</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
       </button>
     </li>
@@ -1785,14 +1830,732 @@ tr:last-child td{border-bottom:0}
     </div>
   </section>
 </div>
+
+<!-- ================= DUCK SOUP ================= -->
+<div class="wrap gv" id="g-ducksoup" hidden style="--ac:var(--ducksoup)">
+  <p class="kicker">David Parlett &middot; bazas para dos, en dos platos</p>
+  <h2>Duck Soup</h2>
+  <ul class="chips"><li>2 jugadores</li><li>52 cartas</li><li>13 cada uno</li><li>A 250 puntos</li></ul>
+
+  <div class="resumen">
+    <div class="rband">Resumen<span class="dots"><span></span><span></span><span></span></span></div>
+
+    <div class="rblock">
+      <h3>Cartas a repartir</h3>
+      <ul class="rlist">
+        <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>13 cartas</strong>, de una en una</span></li>
+        <li><span class="lbl">El resto</span><span style="margin-left:auto">mazo boca abajo</span></li>
+        <li><span class="lbl">Del mazo</span><span style="margin-left:auto"><strong>la de arriba, boca arriba</strong></span></li>
+      </ul>
+      <p class="sub" style="margin-top:10px">Sale el que no reparte. El reparto se alterna.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Dos platos</h3>
+      <p><strong>Duck</strong>, mientras hay mazo: tras cada baza se roba, y gana <strong>la carta más baja</strong> del palo de salida. El as es la más baja.</p>
+      <p><strong>Soup</strong>, sin mazo: se juegan las manos hasta el final, y gana <strong>la más alta</strong>. El as es la más alta.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>La baza</h3>
+      <p><strong>No hay que servir</strong> y no hay triunfo. Si el otro juega de otro palo, gana el que salió. Una baza de <strong>un solo palo vale 1</strong>; una de <strong>dos palos vale 2</strong>.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>¡Quack!</h3>
+      <p>Responder con <strong>el mismo número</strong> que la carta de salida te da la baza, y doble. Hay que decir «Quack!»: si no, la gana el otro.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Cómo se gana</h3>
+      <p>Los puntos del reparto son <strong>Duck × Soup</strong>: se multiplican. Se juega <strong>a 250</strong>, que suelen ser dos repartos.</p>
+    </div>
+  </div>
+
+  <nav class="snav" aria-label="Secciones"><ul>
+    <li><a href="#ds-prep">Reparto</a></li>
+    <li><a href="#ds-platos">Los platos</a></li>
+    <li><a href="#ds-baza">La baza</a></li>
+    <li><a href="#ds-quack">Quack</a></li>
+    <li><a href="#ds-punt">Puntos</a></li>
+    <li><a href="#ds-fin">La partida</a></li>
+  </ul></nav>
+
+  <section id="ds-prep">
+    <h3 class="sec">Cartas y reparto</h3>
+    <p class="sub">Baraja francesa completa, 52 cartas, en su orden normal. Lo único raro es el as, que cambia de sitio según el plato.</p>
+    <ol class="steps">
+      <li>Reparte <strong>13 cartas a cada uno</strong>, de una en una. Los repartos se alternan.</li>
+      <li>El resto va al centro boca abajo: es el <strong>mazo</strong>.</li>
+      <li>Da la vuelta a <strong>la carta de arriba del mazo</strong> y déjala boca arriba encima.</li>
+      <li>Sale a la primera baza <strong>el que no ha repartido</strong>.</li>
+    </ol>
+    <div class="note">
+      <b>La carta de arriba, a la vista</b>
+      <p>Así se sabe qué se va a llevar el que gane la baza. La idea es de un jugador en BoardGameGeek y Parlett la incorporó a las reglas: según él, «mejora el juego». Además nadie se olvida de robar.</p>
+    </div>
+  </section>
+
+  <section id="ds-platos">
+    <h3 class="sec">Los dos platos</h3>
+    <h4>Duck · el primer plato, con mazo</h4>
+    <p>Tras cada baza, <strong>el que la gana roba primero</strong> la carta de arriba del mazo, luego roba el otro, y el ganador <strong>destapa la siguiente</strong> antes de salir. Así los dos vuelven a tener 13.</p>
+    <p>Gana la baza <strong>la carta más baja del palo de salida</strong>, y el as cuenta como la más baja:</p>
+    <div class="order">
+      <i>gana</i><span class="hi">A</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>J</span><span>Q</span><span>K</span><i>pierde</i>
+    </div>
+    <p>El mazo tiene 26 cartas y se roban dos por baza: el Duck dura <strong>13 bazas</strong>.</p>
+    <div class="note warn">
+      <b>Se apunta al robar la última</b>
+      <p>En cuanto se roba la última carta del mazo, <strong>antes de salir a la siguiente baza</strong>, cada uno cuenta los puntos que lleva. Esas bazas se apartan: no se pueden mezclar con las del Soup.</p>
+    </div>
+    <h4>Soup · el segundo plato, sin mazo</h4>
+    <p>Se juegan las 13 cartas que quedan en la mano, sin robar. Ahora gana <strong>la más alta del palo de salida</strong>, y el as pasa a ser la más alta:</p>
+    <div class="order">
+      <i>pierde</i><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>J</span><span>Q</span><span>K</span><span class="hi">A</span><i>gana</i>
+    </div>
+  </section>
+
+  <section id="ds-baza">
+    <h3 class="sec">La baza</h3>
+    <ol class="steps">
+      <li>Sale uno. Después, sale siempre <strong>quien ha ganado la baza anterior</strong>.</li>
+      <li>El otro juega <strong>la carta que quiera</strong>: no hay obligación de servir y no hay triunfo.</li>
+      <li>Si juega <strong>del palo de salida</strong>, se comparan: en el Duck gana la más baja; en el Soup, la más alta.</li>
+      <li>Si juega <strong>de otro palo</strong>, gana el que salió. (Salvo que sea el mismo número: eso es un <a href="#ds-quack"><strong>Quack</strong></a>.)</li>
+    </ol>
+    <h4>Cuánto vale cada baza</h4>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>La baza tiene</th><th>Se guarda</th><th class="num">Vale</th></tr></thead>
+        <tbody>
+          <tr><td><span class="seq"><b class="k" data-c="9s"></b><b class="k" data-c="4s"></b></span> dos cartas <strong>del mismo palo</strong></td><td>Boca abajo</td><td class="num">1</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="6d"></b><b class="k" data-c="Qc"></b></span> dos cartas <strong>de palos distintos</strong></td><td>Boca arriba</td><td class="num"><strong>2</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note warn">
+      <b>No servir le regala una baza doble al otro</b>
+      <p>Si respondes con otro palo, el que salió se lleva la baza <strong>y encima vale 2</strong>, porque tiene dos palos. Descartarte cuesta más de lo que parece.</p>
+    </div>
+    <ol class="play">
+      <li class="hd">Duck · sale Ana</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="9s"></b></span><span class="why">sale</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="4s"></b></span><span class="why">sirve más baja: gana</span></li>
+      <li class="hd">Bru gana · un palo: 1 punto, boca abajo · roba Bru, luego Ana</li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="6d"></b></span><span class="why">sale</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="Qc"></b></span><span class="why">otro palo: no le disputa la baza</span></li>
+      <li class="hd">Bru gana · dos palos: 2 puntos, boca arriba</li>
+    </ol>
+  </section>
+
+  <section id="ds-quack">
+    <h3 class="sec">Quack</h3>
+    <p class="sub">No hay palo de triunfo, pero se puede «fallar» una carta con otra <strong>del mismo número</strong>: un as a un as, un siete a un siete, una dama a una dama.</p>
+    <ol class="steps">
+      <li>Sale uno y el otro responde con <strong>el mismo número</strong>. Al hacerlo tiene que decir <strong>«Quack!»</strong>. Si no lo dice, el que salió gana la baza automáticamente, y vale doble.</li>
+      <li>Si el que salió no puede, o no quiere, jugar un tercero del mismo número, dice <strong>«Duck»</strong>. El del Quack gana la baza, y vale 2.</li>
+      <li>Si juega un tercero, dice <strong>«Quack-quack»</strong>, y el otro juega una cuarta carta:
+        <ul class="bul">
+          <li>Si es <strong>el cuarto del mismo número</strong>, dice <strong>«Duck soup!»</strong> y gana <strong>las dos bazas</strong>, las dos a 2 puntos.</li>
+          <li>Si no, <strong>el que salió gana las dos bazas</strong>. La primera vale 2; la segunda vale 1 si la cuarta carta es del palo de la tercera, y 2 si no.</li>
+        </ul>
+      </li>
+      <li>Después de un «Quack-quack» cada uno <strong>roba dos cartas</strong> en vez de una, si quedan bastantes. Si no quedan, el Soup tendrá 12 bazas en vez de 13.</li>
+    </ol>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Cómo acaba</th><th>Gana</th><th class="num">Vale</th></tr></thead>
+        <tbody>
+          <tr><td>«Quack!» … «Duck»</td><td>El del Quack</td><td class="num">2</td></tr>
+          <tr><td>«Quack-quack» … «Duck soup!»</td><td>El del Quack</td><td class="num">2 + 2</td></tr>
+          <tr><td>«Quack-quack», la cuarta no iguala y es del palo de la tercera</td><td>El que salió</td><td class="num">2 + 1</td></tr>
+          <tr><td>«Quack-quack», la cuarta no iguala y es de otro palo</td><td>El que salió</td><td class="num">2 + 2</td></tr>
+          <tr><td>Iguala el número pero se olvida de decir «Quack!»</td><td>El que salió</td><td class="num">2</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ol class="play">
+      <li class="hd">Sale Ana</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="7s"></b></span><span class="why">sale</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="7h"></b></span><span class="why">«Quack!»</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="7d"></b></span><span class="why">«Quack-quack»</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="3d"></b></span><span class="why">no tiene el cuarto siete</span></li>
+      <li class="hd">Ana gana las dos: 2 + 1, porque el 3♦ es del palo del 7♦</li>
+    </ol>
+  </section>
+
+  <section id="ds-punt">
+    <h3 class="sec">Puntuación</h3>
+    <p>Cada plato se cuenta por separado: <strong>1 punto por baza boca abajo y 2 por baza boca arriba</strong>. Los del Duck se apuntan al robar la última carta del mazo; los del Soup, al acabar la mano.</p>
+    <p>Y la puntuación del reparto es <strong>la del Duck multiplicada por la del Soup</strong>.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th></th><th class="num">Bazas</th><th class="num">Puntos</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Duck</strong></td><td class="num">6</td><td class="num">7</td></tr>
+          <tr><td><strong>Soup</strong></td><td class="num">5</td><td class="num">8</td></tr>
+          <tr><td><strong>Reparto</strong></td><td class="num">—</td><td class="num"><strong>7 × 8 = 56</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note warn">
+      <b>Un cero en un plato es un cero en el reparto</b>
+      <p>Al multiplicar, no sirve arrasar en un plato y hundirte en el otro. El consejo del propio Parlett: <strong>rinde más ganar un número medio de bazas en los dos platos</strong> que muchas en uno y pocas en el otro. Con los mismos 14 puntos, 7 × 7 son 49; 12 × 2 son 24.</p>
+    </div>
+  </section>
+
+  <section id="ds-fin">
+    <h3 class="sec">La partida</h3>
+    <p>Se juega <strong>a 250 puntos</strong>, en los repartos que hagan falta (suelen ser dos), alternando quién reparte.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Caso</th><th>Qué pasa</th></tr></thead>
+        <tbody>
+          <tr><td><strong>«In the soup»</strong></td><td>Pierdes <strong>sin haber llegado a 125</strong> en total: pierdes una partida doble.</td></tr>
+          <tr><td><strong>«In the pond»</strong></td><td>Haces <strong>125 o más en un solo reparto</strong>: ganas una partida doble, sin jugar más.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <b>Para más jugadores</b>
+      <p>Parlett tiene dos versiones más: <strong>Trebleduck</strong>, para tres, y <strong>Doubleduck</strong>, para cuatro por parejas.</p>
+    </div>
+    <div class="note">
+      <b>De dónde salen estas reglas</b>
+      <p>Resumen del reglamento original de David Parlett, en parlettgames.uk. «Duck soup» es una expresión inglesa que significa «pan comido».</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= BUGAMI ================= -->
+<div class="wrap gv" id="g-bugami" hidden style="--ac:var(--bugami)">
+  <p class="kicker">David Parlett &middot; el Hearts del palo que eliges tú</p>
+  <h2>Bugami</h2>
+  <ul class="chips"><li>3–7 jugadores</li><li>52 cartas</li><li>Bazas</li><li>A 250 puntos</li></ul>
+
+  <div class="resumen">
+    <div class="rband">Resumen<span class="dots"><span></span><span></span><span></span></span></div>
+
+    <div class="rblock">
+      <h3>Cartas a repartir</h3>
+      <p>Todas, de una en una, <strong>hasta que todos tengan las mismas</strong>. Las que sobren, boca abajo a un lado: se las lleva quien gane la última baza.</p>
+      <p class="sub">Cada jugador necesita además <strong>4 cartas de puja</strong>, una de cada palo, de una baraja vieja.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Tu palo bicho</h3>
+      <p>Mira tu mano y elige el palo del que <strong>no quieres llevarte ninguna carta</strong>: tu <em class="t">bug suit</em>. Todos enseñan su carta de puja a la vez. O pide <strong>misère</strong> (no ganar ninguna baza) dejando las cuatro boca abajo.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>La baza</h3>
+      <p>Sin triunfo. <strong>Hay que servir</strong> si se puede; si no, cualquier carta. Gana <strong>la más alta del palo de salida</strong>. Sale el de la izquierda del que reparte.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Puntos</h3>
+      <p><strong>10 por baza ganada</strong>, dividido entre los bichos que contengan, sin decimales. Si no hay ningún bicho: <strong>20 por baza</strong>.</p>
+      <p class="sub" style="margin-top:6px">Todas las bazas: 100. Ninguna: 30. Misère cumplida: 100.</p>
+    </div>
+  </div>
+
+  <nav class="snav" aria-label="Secciones"><ul>
+    <li><a href="#bg-prep">Preparación</a></li>
+    <li><a href="#bg-puja">El palo bicho</a></li>
+    <li><a href="#bg-baza">La baza</a></li>
+    <li><a href="#bg-punt">Puntos</a></li>
+    <li><a href="#bg-esp">Especiales</a></li>
+    <li><a href="#bg-var">Variantes</a></li>
+    <li><a href="#bg-tacticas">Tácticas</a></li>
+  </ul></nav>
+
+  <section id="bg-prep">
+    <h3 class="sec">Preparación</h3>
+    <p class="sub">Parecido al Hearts, con una diferencia que lo cambia todo: el palo que penaliza no está fijado de antemano. Cada jugador elige el suyo, y la gracia está en colarle a cada uno su palo en las bazas que gana. También se conoce como <em class="t">Bleeding Hearts</em>.</p>
+    <ol class="steps">
+      <li>Baraja de <strong>52 cartas</strong>, orden normal: <strong>el as es la más alta</strong> y el 2 la más baja.</li>
+      <li>Cada jugador tiene además <strong>4 cartas de puja</strong>, una de cada palo, sacadas de una baraja vieja o incompleta.</li>
+      <li>Reparte todas las cartas de una en una, <strong>hasta que todos tengan el mismo número</strong>. Las que sobren van boca abajo a un lado.</li>
+    </ol>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th class="num">Jugadores</th><th class="num">Cartas cada uno</th><th class="num">Sobran</th></tr></thead>
+        <tbody>
+          <tr><td class="num">3</td><td class="num">17</td><td class="num">1</td></tr>
+          <tr><td class="num">4</td><td class="num">13</td><td class="num">—</td></tr>
+          <tr><td class="num">5</td><td class="num">10</td><td class="num">2</td></tr>
+          <tr><td class="num">6</td><td class="num">8</td><td class="num">4</td></tr>
+          <tr><td class="num">7</td><td class="num">7</td><td class="num">3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <b>Si no tenéis otra baraja</b>
+      <p>Cualquier forma de elegir <strong>a la vez y en secreto</strong> sirve: un papel doblado con el palo apuntado, por ejemplo. Esto es un apaño nuestro, no del reglamento.</p>
+    </div>
+    <div class="note">
+      <b>Con tres jugadores</b>
+      <p>Parlett ha desarrollado una versión propia para tres con reglas añadidas, que ahora publica aparte con el nombre de <strong>Trigami</strong>.</p>
+    </div>
+  </section>
+
+  <section id="bg-puja">
+    <h3 class="sec">El palo bicho</h3>
+    <ol class="steps">
+      <li>Cada uno mira su mano y decide cuál será su <strong>palo bicho</strong> (<em class="t">bug suit</em>): el palo del que intentará <strong>no llevarse ninguna carta</strong>.</li>
+      <li>Aparta la carta de puja de ese palo, boca abajo.</li>
+      <li>Cuando todos están listos, <strong>se dan la vuelta a la vez</strong> y se quedan boca arriba durante toda la mano: todo el mundo sabe el bicho de todo el mundo.</li>
+    </ol>
+    <p>Dos jugadores pueden elegir el mismo palo. Un palo solo es bicho <strong>para quien lo ha elegido</strong>: a los demás no les resta nada llevárselo.</p>
+    <h4>Misère</h4>
+    <p>Si dejas <strong>las cuatro cartas de puja boca abajo</strong>, pides misère: te comprometes a <strong>no ganar ninguna baza</strong>. No tienes palo bicho.</p>
+  </section>
+
+  <section id="bg-baza">
+    <h3 class="sec">La baza</h3>
+    <ol class="steps">
+      <li>Sale a la primera baza <strong>el de la izquierda del que reparte</strong>.</li>
+      <li>Se juega <strong>sin triunfo</strong>. Hay que <strong>servir el palo de salida</strong> si se puede; si no, se juega la carta que se quiera.</li>
+      <li>Gana <strong>la carta más alta del palo de salida</strong>, y quien gana sale a la siguiente.</li>
+      <li>Las cartas que sobraron del reparto se añaden a <strong>la última baza</strong>, y se las lleva quien la gane.</li>
+    </ol>
+    <ol class="play">
+      <li class="hd">Bichos: Ana ♥ · Bru ♣ · Cris ♠ · Dani ♦ · sale Ana</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="Qs"></b></span><span class="why">sale a picas</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Ks"></b></span><span class="why">sirve, y va ganando</span></li>
+      <li><span class="who">Cris</span><span class="seq"><b class="k" data-c="3s"></b></span><span class="why">sirve bajo</span></li>
+      <li><span class="who">Dani</span><span class="seq"><b class="k" data-c="8c"></b></span><span class="why">sin picas: le cuela a Bru su bicho</span></li>
+      <li class="hd">Bru gana la baza con 1 bicho: el 8♣</li>
+    </ol>
+    <p class="sub">A Cris las picas le son bicho, pero las de esta baza no cuentan para ella: la ha ganado Bru. Solo pesan los bichos <strong>de las bazas que ganas tú</strong>.</p>
+  </section>
+
+  <section id="bg-punt">
+    <h3 class="sec">Puntos</h3>
+    <p>Cada uno cuenta <strong>10 puntos por baza ganada</strong> y divide ese total entre <strong>el número de cartas de su palo bicho</strong> que haya en esas bazas. Las fracciones se ignoran.</p>
+    <p>Si <strong>no hay ningún bicho</strong> no se divide entre cero, que te vuelves loco: en su lugar, <strong>cada baza vale el doble, 20</strong>.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th class="num">Bazas</th><th class="num">Bichos</th><th>Cálculo</th><th class="num">Puntos</th></tr></thead>
+        <tbody>
+          <tr><td class="num">4</td><td class="num">0</td><td>4 × 20</td><td class="num"><strong>80</strong></td></tr>
+          <tr><td class="num">4</td><td class="num">1</td><td>40 ÷ 1</td><td class="num">40</td></tr>
+          <tr><td class="num">4</td><td class="num">2</td><td>40 ÷ 2</td><td class="num">20</td></tr>
+          <tr><td class="num">4</td><td class="num">3</td><td>40 ÷ 3</td><td class="num">13</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>La partida se juega hasta una cifra pactada; el reglamento propone <strong>250 puntos</strong>.</p>
+  </section>
+
+  <section id="bg-esp">
+    <h3 class="sec">Casos especiales</h3>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Si…</th><th>Puntos</th></tr></thead>
+        <tbody>
+          <tr><td>Ganas <strong>todas las bazas</strong></td><td><strong>100</strong>, tengan los bichos que tengan. Los demás <strong>0</strong>, salvo quien pidiera misère.</td></tr>
+          <tr><td><strong>No ganas ninguna</strong>, sin haber pedido misère</td><td><strong>30</strong></td></tr>
+          <tr><td>Pediste misère y <strong>no ganas ninguna</strong></td><td><strong>100</strong></td></tr>
+          <tr><td>Pediste misère y <strong>ganas alguna</strong></td><td><strong>0</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <b>Cero bazas no es cero puntos</b>
+      <p>Aunque no hayas pedido misère, quedarte sin bazas te da 30. Con una mano mala, a veces es la mejor salida.</p>
+    </div>
+  </section>
+
+  <section id="bg-var">
+    <h3 class="sec">Variantes</h3>
+    <h4>Con comodines</h4>
+    <ul class="bul">
+      <li>Se añaden <span class="seq"><b class="k" data-c="X"></b></span> uno o más comodines a la baraja. <strong>Cuentan como bicho</strong> para quien los gane en una baza.</li>
+      <li>Solo se puede descartar un comodín <strong>cuando no puedes servir</strong>.</li>
+      <li>Si <strong>sales con un comodín</strong>, ganas la baza, y los demás pueden jugar lo que quieran.</li>
+      <li>Las cartas que sobren del reparto van boca abajo y se las lleva quien gane la última baza.</li>
+    </ul>
+    <h4>«Shotgun wedding»</h4>
+    <p>Una versión con mala idea: si <strong>dos o más jugadores eligen el mismo palo</strong>, quedan emparejados a la fuerza. Juntan sus bazas y <strong>cada uno se apunta la puntuación de la pareja</strong>. No afecta a quien pida misère, que sigue jugando y puntuando solo.</p>
+  </section>
+
+  <section id="bg-tacticas">
+    <h3 class="sec">Tácticas</h3>
+    <ul class="bul">
+      <li><strong>Aquí las bazas son buenas.</strong> Al revés que en el Hearts: cada una vale 10, o 20 si va limpia. Lo que duele son los bichos, no las bazas.</li>
+      <li><strong>El primer bicho es el que más cuesta.</strong> Parte tu puntuación por la mitad: cuatro bazas limpias son 80, y con un bicho, 40.</li>
+      <li><strong>Tus propias cartas también cuentan.</strong> Si ganas una baza con una carta de tu palo bicho, esa carta ya es un bicho tuyo. Suele convenir elegir un palo del que tengas pocas cartas, o solo bajas.</li>
+      <li><strong>Los bichos de todos están a la vista.</strong> Cuando no puedas servir, suéltale su palo al que va ganando la baza.</li>
+    </ul>
+    <div class="note">
+      <b>De dónde salen estas reglas</b>
+      <p>Resumen del reglamento original de David Parlett, en parlettgames.uk.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= BRAVADO ================= -->
+<div class="wrap gv" id="g-bravado" hidden style="--ac:var(--bravado)">
+  <p class="kicker">David Parlett &middot; publicado como «Chicken Out!»</p>
+  <h2>Bravado</h2>
+  <ul class="chips"><li>2–6 jugadores</li><li>52 cartas</li><li>+ hasta 4 comodines</li><li>Descarte</li></ul>
+
+  <div class="resumen">
+    <div class="rband">Resumen<span class="dots"><span></span><span></span><span></span></span></div>
+
+    <div class="rblock">
+      <h3>Cartas a repartir</h3>
+      <p>Todas, boca abajo y de una en una. <strong>No mires tus cartas</strong>: se quedan en un montón boca abajo. Si alguien tiene una más, juega antes.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Tu turno</h3>
+      <p>Das la vuelta a <strong>la carta de arriba</strong> de tu montón y <strong>cantas el total</strong>. Quien abre una serie, lo hace con dos cartas.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Lo que vale cada carta</h3>
+      <ul class="rlist">
+        <li><span class="lbl">A y del 2 al 10</span><span style="margin-left:auto">suman su valor</span><span class="seq" style="margin-left:12px"><b class="k" data-c="7c"></b></span></li>
+        <li><span class="lbl">Jota</span><span style="margin-left:auto">copia la anterior</span><span class="seq" style="margin-left:12px"><b class="k" data-c="Jh"></b></span></li>
+        <li><span class="lbl">Dama</span><span style="margin-left:auto">suma 0</span><span class="seq" style="margin-left:12px"><b class="k" data-c="Qd"></b></span></li>
+        <li><span class="lbl">Rey</span><span style="margin-left:auto">el total pasa a <strong>20</strong></span><span class="seq" style="margin-left:12px"><b class="k" data-c="Ks"></b></span></li>
+        <li><span class="lbl">Comodín</span><span style="margin-left:auto">el total vuelve a <strong>0</strong></span><span class="seq" style="margin-left:12px"><b class="k" data-c="X"></b></span></li>
+      </ul>
+      <p class="sub" style="margin-top:10px">Una carta <strong>roja</strong> que te pasaría de 21 <strong>resta</strong> en vez de sumar.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Tres formas de acabar la serie</h3>
+      <p><strong>Pasarte</strong> de 21: te llevas todas las cartas de la mesa al fondo de tu montón. <strong>Rajarte</strong> (con 11 o más): también te las llevas, pero abres tú. <strong>Clavar 21</strong>: las cartas se retiran y sigues jugando las que quieras.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Cómo se gana</h3>
+      <p>De 3 en adelante, <strong>el primero que se queda sin cartas</strong>. A 2, <strong>quien más cartas se lleve</strong> haciendo 21.</p>
+    </div>
+  </div>
+
+  <nav class="snav" aria-label="Secciones"><ul>
+    <li><a href="#bv-prep">Reparto</a></li>
+    <li><a href="#bv-valores">Valores</a></li>
+    <li><a href="#bv-serie">La serie</a></li>
+    <li><a href="#bv-fin">Final</a></li>
+    <li><a href="#bv-ej">Ejemplo</a></li>
+    <li><a href="#bv-var">Variantes</a></li>
+  </ul></nav>
+
+  <section id="bv-prep">
+    <h3 class="sec">Reparto</h3>
+    <p class="sub">Un juego de puro nervio: la única decisión es si te atreves con la siguiente carta. Según Parlett, cuanto más rápido se juega, mejor sale.</p>
+    <ol class="steps">
+      <li>Baraja las <strong>52 cartas</strong>, y si queréis, <strong>hasta 4 comodines</strong>.</li>
+      <li>Repártelas todas, <strong>boca abajo y de una en una</strong>. No importa que a alguien le toque una más; eso sí, los que tengan más juegan antes que los que tengan menos.</li>
+      <li><strong>No mires tus cartas.</strong> Cada uno las deja en un montón boca abajo delante.</li>
+    </ol>
+  </section>
+
+  <section id="bv-valores">
+    <h3 class="sec">Lo que vale cada carta</h3>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Carta</th><th>Efecto en el total</th></tr></thead>
+        <tbody>
+          <tr><td><span class="seq"><b class="k" data-c="Ac"></b><b class="k" data-c="7c"></b></span> <strong>As a 10</strong></td><td>Suma su valor. El as vale 1.</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Jh"></b></span> <strong>Jota</strong></td><td>Vale <strong>exactamente lo mismo que la carta anterior</strong>, y toma también su color. Si la anterior es un rey, una dama o un comodín, la jota hace de eso. Si es la primera de la serie, vale 0.</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Qd"></b></span> <strong>Dama</strong></td><td>Vale 0: el total no cambia.</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Ks"></b></span> <strong>Rey</strong></td><td>El total <strong>pasa a ser 20</strong>, vengas de donde vengas.</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="X"></b></span> <strong>Comodín</strong></td><td>El total <strong>vuelve a 0</strong> y se empieza a contar de nuevo.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <b>Si jugáis sin comodines</b>
+      <p>El rey hace de las dos cosas: con un total de <strong>10 o menos lo baja a 0</strong>; con <strong>11 o más lo sube a 20</strong>.</p>
+    </div>
+    <h4>Las rojas no revientan</h4>
+    <p>Si juegas una carta <strong>roja</strong> que llevaría el total a <strong>22 o más</strong>, en vez de sumarla <strong>la restas</strong>. No se puede restar por gusto: si la carta cabe sumando sin pasarte, se suma. La jota tiene el color de la carta a la que copia.</p>
+    <ol class="play">
+      <li class="hd">El total va por 19 · tres cartas posibles</li>
+      <li><span class="who">+</span><span class="seq"><b class="k" data-c="7h"></b></span><span class="why">roja: 26 no vale, resta → 12</span></li>
+      <li><span class="who">+</span><span class="seq"><b class="k" data-c="7c"></b></span><span class="why">negra: 26, te pasas</span></li>
+      <li><span class="who">+</span><span class="seq"><b class="k" data-c="2h"></b></span><span class="why">roja, pero cabe: suma → 21</span></li>
+    </ol>
+  </section>
+
+  <section id="bv-serie">
+    <h3 class="sec">La serie</h3>
+    <ol class="steps">
+      <li>Empieza el de la izquierda del que reparte: saca <strong>las dos cartas de arriba</strong> de su montón boca arriba y va cantando el total («seis»… «catorce»).</li>
+      <li>Después, cada uno por turno saca <strong>una carta</strong> de arriba de su montón, la pone encima y <strong>canta el nuevo total</strong>.</li>
+      <li>La serie sigue hasta que alguien <strong>se pasa</strong>, <strong>se raja</strong> o <strong>clava 21</strong>.</li>
+    </ol>
+    <h4>Pasarse · 22 o más</h4>
+    <p>Te llevas <strong>todas las cartas de la serie</strong> y las metes <strong>debajo de tu montón</strong>. Se acaba tu turno, y el siguiente abre una serie nueva con dos cartas.</p>
+    <h4>Rajarse · con 11 o más</h4>
+    <p>Si el total es de <strong>11 o más</strong> y no te atreves a sacar, puedes rajarte: recoges las cartas de la mesa y las metes boca abajo <strong>debajo de tu montón</strong>. Luego <strong>abres tú</strong> una serie nueva con las dos cartas de arriba de tu montón, y sigues sacando hasta que te pases, pares o hagas 21.</p>
+    <h4>Clavar 21</h4>
+    <p>Si el total queda en <strong>exactamente 21</strong>, retiras todas las cartas de la serie: con 3 o más jugadores <strong>salen del juego</strong>; a 2, <strong>te las quedas</strong> como botín. Después abres una serie nueva sacando <strong>todas las cartas que quieras</strong>, hasta que te pases, pares o vuelvas a hacer 21.</p>
+    <div class="note warn">
+      <b>Rajarse no sale gratis</b>
+      <p>Te llevas las cartas de la mesa igual que si te pasaras, solo que sin la carta que habrías sacado. La diferencia está en el turno: al pasarte lo pierdes, y al rajarte <strong>abres tú</strong> la serie siguiente.</p>
+    </div>
+  </section>
+
+  <section id="bv-fin">
+    <h3 class="sec">Final</h3>
+    <p>La partida acaba cuando alguien <strong>juega su última carta sin pasarse</strong>.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Jugadores</th><th>Gana</th></tr></thead>
+        <tbody>
+          <tr><td><strong>3 o más</strong></td><td>El que se ha quedado sin cartas. El resto puede seguir para repartirse los puestos.</td></tr>
+          <tr><td><strong>2</strong></td><td>Quien haya capturado <strong>más cartas haciendo 21</strong>. Si empatan, o nadie ha capturado nada, gana el que se queda sin cartas.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="bv-ej">
+    <h3 class="sec">Ejemplo de una serie</h3>
+    <ol class="play">
+      <li class="hd">Abre Ana, con dos cartas</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="6c"></b></span><span class="why">«seis»</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="8d"></b></span><span class="why">«catorce»</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="5s"></b></span><span class="why">«diecinueve»</span></li>
+      <li><span class="who">Cris</span><span class="seq"><b class="k" data-c="9h"></b></span><span class="why">28 no, es roja: resta · «diez»</span></li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="Jc"></b></span><span class="why">copia el 9♥: +9 · «diecinueve»</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Ks"></b></span><span class="why">rey · «veinte»</span></li>
+      <li><span class="who">Cris</span><span class="seq"><b class="k" data-c="Ad"></b></span><span class="why">«¡veintiuno!»</span></li>
+      <li class="hd">Cris retira la serie y abre sacando las que quiera</li>
+    </ol>
+    <p class="sub">Con 20 en la mesa, a Cris solo la salvaban un as, una dama, un rey, una jota sobre ese rey, un comodín o una roja. Podía haberse rajado, pero habría cargado con las seis cartas de la mesa.</p>
+  </section>
+
+  <section id="bv-var">
+    <h3 class="sec">Variantes</h3>
+    <ul class="bul">
+      <li><strong>Carta repetida.</strong> Si pactáis esta regla: cuando juegas una carta del mismo valor que la anterior (un 7 sobre un 7, una jota sobre una jota), puedes, si quieres, sacar otra.</li>
+      <li><strong>Con 5 o más jugadores</strong> la partida puede ir demasiado rápida. Una opción es <strong>juntar dos barajas</strong>; si no salen cuentas iguales, los que tengan una más juegan antes.</li>
+      <li><strong>El 21 se pasa a la izquierda.</strong> Otra opción, que puede gustar incluso con menos jugadores: quien hace 21 no retira las cartas, sino que <strong>se las pasa al de su izquierda</strong>, que las mete debajo de su montón. Luego abre una serie nueva con las cartas que quiera.</li>
+    </ul>
+    <div class="note">
+      <b>De dónde salen estas reglas</b>
+      <p>Resumen del reglamento original de David Parlett, en parlettgames.uk, en su versión de 2025, que incorpora mejoras de <em class="t">Chicken Out!</em>, el juego publicado a partir de este.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= DRACULA ================= -->
+<div class="wrap gv" id="g-dracula" hidden style="--ac:var(--dracula)">
+  <p class="kicker">David Parlett &middot; cuentas en un ataúd de 3 × 3</p>
+  <h2>Dracula</h2>
+  <ul class="chips"><li>2 jugadores</li><li>52 cartas + 2 vampiros</li><li>6 repartos</li><li>Aritmético</li></ul>
+
+  <div class="resumen">
+    <div class="rband">Resumen<span class="dots"><span></span><span></span><span></span></span></div>
+
+    <div class="rblock">
+      <h3>Antes de empezar</h3>
+      <p>Cada uno recibe un <strong>vampiro</strong> (un comodín) y lo deja boca arriba delante: lo puede jugar <strong>una sola vez en toda la partida</strong>. El primero en repartir elige puntuar por <strong>filas</strong> (la Dama) o por <strong>columnas</strong> (el Rey); el otro, lo contrario.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Cartas a repartir</h3>
+      <ul class="rlist">
+        <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>4 cartas</strong>, boca abajo</span></li>
+        <li><span class="lbl">En el centro</span><span style="margin-left:auto"><strong>1 boca arriba</strong>: el primer clavo</span></li>
+        <li><span class="lbl">El resto</span><span style="margin-left:auto">mazo</span></li>
+      </ul>
+    </div>
+
+    <div class="rblock">
+      <h3>Tu turno</h3>
+      <p>Pon una carta en una casilla vacía del ataúd (3 × 3) que <strong>toque por un lado</strong> a otra ya puesta. En diagonal no vale. Hasta llenar las nueve.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Lo que vale una línea</h3>
+      <p>A–10 su número · J 0 · <strong>Q 10 en horizontal</strong> y 0 en vertical · <strong>K 10 en vertical</strong> y 0 en horizontal.</p>
+      <div class="order" style="margin:.6em 0 0">
+        <span>2 del mismo palo<em>×2</em></span><span>3 del mismo color<em>×3</em></span><span class="hi">3 del mismo palo<em>×5</em></span>
+      </div>
+      <p class="sub" style="margin-top:10px">El vampiro deja a 0 su fila y su columna.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Cómo se gana</h3>
+      <p>En cada reparto puntúas <strong>tu mejor línea</strong>. Tras <strong>6 repartos</strong> gana la suma más alta.</p>
+    </div>
+  </div>
+
+  <nav class="snav" aria-label="Secciones"><ul>
+    <li><a href="#dr-prep">Preparación</a></li>
+    <li><a href="#dr-ataud">El ataúd</a></li>
+    <li><a href="#dr-valor">Valores</a></li>
+    <li><a href="#dr-vamp">El vampiro</a></li>
+    <li><a href="#dr-punt">Puntuación</a></li>
+    <li><a href="#dr-fin">La partida</a></li>
+    <li><a href="#dr-avanzada">Avanzada</a></li>
+  </ul></nav>
+
+  <section id="dr-prep">
+    <h3 class="sec">Preparación</h3>
+    <p class="sub">Un juego de cálculo para dos, que Parlett inventó en un retiro en la costa de East Sussex. Dice que es entretenido incluso jugando uno solo con las dos manos.</p>
+    <ol class="steps">
+      <li>Baraja de <strong>54 cartas</strong>: las 52 más dos <strong>vampiros</strong>. Si no tenéis vampiros, sirven <strong>dos comodines</strong>.</li>
+      <li>Cada jugador recibe <strong>un vampiro</strong> y lo deja <strong>boca arriba delante</strong>. Puede jugarlo cuando quiera, pero <strong>una sola vez en toda la partida</strong>.</li>
+      <li>El que reparte primero anuncia, antes de repartir, cómo va a puntuar: <strong>a lo ancho, por filas</strong> (el camino de la Dama), o <strong>a lo alto, por columnas</strong> (el del Rey). Al otro le toca la dirección contraria… o negarse a jugar a algo tan absurdo, según el reglamento.</li>
+    </ol>
+  </section>
+
+  <section id="dr-ataud">
+    <h3 class="sec">El reparto y el ataúd</h3>
+    <ol class="steps">
+      <li>Reparte <strong>4 cartas a cada uno</strong>, boca abajo.</li>
+      <li>Pon la siguiente <strong>boca arriba en la mesa</strong>: es el centro de un cuadrado de nueve cartas, en tres filas y tres columnas, como un tres en raya. Ese cuadrado es el <strong>ataúd</strong>, y la primera carta, <strong>el primer clavo</strong>.</li>
+      <li>El resto, boca abajo: es el mazo.</li>
+      <li>Por turnos, empezando por el que no reparte, cada uno pone una carta boca arriba en una de las ocho casillas libres, <strong>pegada por un lado a una carta que ya esté puesta</strong>. Solo tocar por la esquina no vale.</li>
+      <li>Se sigue hasta <strong>llenar las nueve casillas</strong>: cuatro cartas cada uno.</li>
+    </ol>
+    <div class="grid6">
+      <div class="row"><b class="em"></b><b class="em ok"></b><b class="em"></b></div>
+      <div class="row"><b class="em ok"></b><b class="k" data-c="8h"></b><b class="em ok"></b></div>
+      <div class="row"><b class="em"></b><b class="em ok"></b><b class="em"></b></div>
+      <p class="cap">Al empezar solo hay cuatro casillas posibles: las que tocan al clavo por un lado. Las esquinas se abren cuando tienen una carta vecina.</p>
+    </div>
+  </section>
+
+  <section id="dr-valor">
+    <h3 class="sec">Lo que vale una línea</h3>
+    <p>Cada línea de tres cartas suma sus valores:</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Carta</th><th class="num">En horizontal</th><th class="num">En vertical</th></tr></thead>
+        <tbody>
+          <tr><td><strong>As a 10</strong></td><td class="num">1–10</td><td class="num">1–10</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Jc"></b></span> <strong>Jota</strong></td><td class="num">0</td><td class="num">0</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Qh"></b></span> <strong>Dama</strong></td><td class="num"><strong>10</strong></td><td class="num">0</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Ks"></b></span> <strong>Rey</strong></td><td class="num">0</td><td class="num"><strong>10</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">Es decir: la dama solo le sirve a quien puntúa por filas, y el rey solo a quien puntúa por columnas. Al otro le valen cero.</p>
+    <h4>Multiplicadores</h4>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>La línea tiene</th><th class="num">Total</th></tr></thead>
+        <tbody>
+          <tr><td>Dos cartas <strong>del mismo palo</strong></td><td class="num">×2</td></tr>
+          <tr><td>Tres cartas <strong>del mismo color</strong> (rojo o negro)</td><td class="num">×3</td></tr>
+          <tr><td>Tres cartas <strong>del mismo palo</strong></td><td class="num"><strong>×5</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Una jota, una dama o un rey que valgan 0 <strong>siguen contando por su palo y su color</strong> para multiplicar.</p>
+    <div class="note">
+      <b>No se acumulan: cuenta el mayor</b>
+      <p>Tres del mismo color siempre llevan dentro dos del mismo palo, así que una columna como 7♥ K♦ 9♦ cumple el ×2 y el ×3. Se aplica <strong>solo el ×3</strong>. No lo dice con esas palabras, pero se deduce del reglamento: su sistema de fichas da 1, 2, 3 o 5 por línea, nunca una combinación, y los ejemplos de la versión avanzada solo salen así.</p>
+    </div>
+  </section>
+
+  <section id="dr-vamp">
+    <h3 class="sec">El vampiro</h3>
+    <p>El vampiro <span class="seq"><b class="k" data-c="X"></b></span> se juega como cualquier otra carta: lo pones en una casilla libre en tu turno. Y <strong>chupa toda la puntuación de su fila y su columna</strong>: las dos líneas pasan a valer <strong>0 para los dos jugadores</strong>.</p>
+    <ul class="bul">
+      <li>Cada uno tiene uno, y solo puede jugarlo <strong>una vez en toda la partida</strong>, en el reparto que elija.</li>
+      <li>Si lo juegas, pones tres cartas normales en vez de cuatro, así que te sobra una. En el reparto siguiente te dan <strong>solo tres</strong>, para que vuelvas a tener cuatro.</li>
+    </ul>
+  </section>
+
+  <section id="dr-punt">
+    <h3 class="sec">Puntuación</h3>
+    <p>Al llenar el ataúd, cada uno puntúa <strong>su mejor línea</strong> en su dirección: la Dama su mejor fila, el Rey su mejor columna.</p>
+    <div class="grid6">
+      <div class="row"><b class="k" data-c="7h"></b><b class="k" data-c="3h"></b><b class="k" data-c="Qs"></b></div>
+      <div class="row"><b class="k" data-c="Kd"></b><b class="k" data-c="8h"></b><b class="k" data-c="5c"></b></div>
+      <div class="row"><b class="k" data-c="9d"></b><b class="k" data-c="2s"></b><b class="k" data-c="6h"></b></div>
+      <p class="cap">Un ataúd terminado. El 8♥ del centro fue el primer clavo.</p>
+    </div>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Línea</th><th>Cálculo</th><th class="num">Puntos</th></tr></thead>
+        <tbody>
+          <tr><td colspan="3"><strong>La Dama · filas</strong></td></tr>
+          <tr><td style="white-space:nowrap">Fila 1</td><td>7 + 3 + 10 (la dama) = 20 · dos corazones ×2</td><td class="num"><strong>40</strong></td></tr>
+          <tr><td style="white-space:nowrap">Fila 2</td><td>0 (el rey) + 8 + 5 = 13</td><td class="num">13</td></tr>
+          <tr><td style="white-space:nowrap">Fila 3</td><td>9 + 2 + 6 = 17</td><td class="num">17</td></tr>
+          <tr><td colspan="3"><strong>El Rey · columnas</strong></td></tr>
+          <tr><td style="white-space:nowrap">Columna 1</td><td>7 + 10 (el rey) + 9 = 26 · tres rojas ×3</td><td class="num"><strong>78</strong></td></tr>
+          <tr><td style="white-space:nowrap">Columna 2</td><td>3 + 8 + 2 = 13 · dos corazones ×2</td><td class="num">26</td></tr>
+          <tr><td style="white-space:nowrap">Columna 3</td><td>0 (la dama) + 5 + 6 = 11</td><td class="num">11</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>La Dama se apunta <strong>40</strong> y el Rey <strong>78</strong>.</p>
+    <div class="note">
+      <b>Y si hubiera caído un vampiro</b>
+      <p>Si la Dama hubiera jugado su vampiro en la esquina de abajo a la izquierda, en lugar del 9♦, la columna 1 valdría 0 y el Rey bajaría de 78 a <strong>26</strong>. A ella le costaría su fila 3, pero su mejor fila, la de 40, seguiría intacta.</p>
+    </div>
+    <h4>Si las mejores líneas empatan</h4>
+    <p>Si la mejor línea de los dos vale lo mismo, cada uno puntúa <strong>su segunda mejor</strong>. Si también empatan, <strong>la tercera</strong>, aunque vuelvan a empatar.</p>
+  </section>
+
+  <section id="dr-fin">
+    <h3 class="sec">La partida</h3>
+    <ol class="steps">
+      <li>Se juegan <strong>seis repartos</strong>, repartiendo por turnos.</li>
+      <li>En cada uno, el que reparte retira el ataúd, coge el mazo de cartas sin usar y reparte <strong>otras 4 a cada uno</strong> y una boca arriba como primer clavo del ataúd nuevo.</li>
+      <li>Gana quien sume <strong>más puntos en los seis repartos</strong>. Si empatan, gana quien más puntos hiciera <strong>en el sexto</strong>.</li>
+    </ol>
+  </section>
+
+  <section id="dr-avanzada">
+    <h3 class="sec">Versión avanzada</h3>
+    <p class="sub">Una variante desmesurada que añade dos combinaciones más, y en la que los multiplicadores <strong>sí se combinan</strong>.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>La línea tiene</th><th class="num">Total</th></tr></thead>
+        <tbody>
+          <tr><td>Dos del mismo palo, <strong>o dos del mismo número</strong></td><td class="num">×2 <em class="t">(×4 si las dos cosas)</em></td></tr>
+          <tr><td>Tres del mismo color, <strong>o tres seguidas</strong></td><td class="num">×3</td></tr>
+          <tr><td>Tres del mismo palo</td><td class="num">×5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Lo del palo y el color se combina con lo del número y la escalera; dentro de cada grupo cuenta el mayor. Los ejemplos del reglamento:</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Línea</th><th>Cálculo</th><th class="num">Puntos</th></tr></thead>
+        <tbody>
+          <tr><td><span class="seq"><b class="k" data-c="8h"></b><b class="k" data-c="3h"></b><b class="k" data-c="8s"></b></span></td><td>19 · pareja de ochos ×2 · dos corazones ×2</td><td class="num">76</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="8c"></b><b class="k" data-c="9h"></b><b class="k" data-c="10d"></b></span></td><td>27 · escalera ×3</td><td class="num">81</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="8h"></b><b class="k" data-c="9s"></b><b class="k" data-c="10h"></b></span></td><td>27 · escalera ×3 · dos corazones ×2</td><td class="num">162</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="8h"></b><b class="k" data-c="9d"></b><b class="k" data-c="10h"></b></span></td><td>27 · escalera ×3 · tres rojas ×3</td><td class="num">243</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="8h"></b><b class="k" data-c="9h"></b><b class="k" data-c="10h"></b></span></td><td>27 · escalera ×3 · tres corazones ×5</td><td class="num"><strong>405</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">En la práctica son casi imposibles: en cuanto hay dos cartas de la combinación puestas, el rival pone una tercera que la estropea.</p>
+    <div class="note">
+      <b>De dónde salen estas reglas</b>
+      <p>Resumen del reglamento original de David Parlett, en parlettgames.uk. El original tenía además un sistema de bonificaciones que el propio Parlett eliminó por complicado.</p>
+    </div>
+  </section>
+</div>
+
 </main>
 
 <script>
 (function(){
   "use strict";
-  var GAMES = ["scopa","piramide","crisps","tienlen","golf","hearts","hearts2"];
+  var GAMES = ["scopa","piramide","crisps","tienlen","golf","hearts","hearts2",
+               "ducksoup","bugami","bravado","dracula"];
   var TITLES = {scopa:"Scopa", piramide:"Solitario Pirámide", crisps:"Crisps!", tienlen:"Tien Len",
-                golf:"Golf", hearts:"Hearts", hearts2:"Hearts a 2 jugadores"};
+                golf:"Golf", hearts:"Hearts", hearts2:"Hearts a 2 jugadores",
+                ducksoup:"Duck Soup", bugami:"Bugami", bravado:"Bravado", dracula:"Dracula"};
   var home = document.getElementById("home");
   var back = document.getElementById("back");
   var brand = document.getElementById("brand");
@@ -1828,15 +2591,16 @@ tr:last-child td{border-bottom:0}
   function drawCard(el){
     var code = el.getAttribute("data-c");
     if (!code) return;
-    var m = /^(10|[2-9AJQKSCR])([shdcopeb])?$/.exec(code);
+    var m = /^(10|[2-9AJQKSCRX])([shdcopeb])?$/.exec(code);
     if (!m) return;
     var rank = m[1], suit = m[2] || "";
+    var face = rank === "X" ? "★" : rank;   /* X = comodín */
     var sym = suit ? SUIT[suit] : "";
     var ink = (suit === "h" || suit === "d") ? "#bd262d" : "#1a1a1a";
     el.style.setProperty("--ink-c", ink);
     el.style.setProperty("--pip-c", suit ? PIPC[suit] : ink);
 
-    var corner = '<span class="kc k1"><i>' + rank + '</i>' + (sym ? pipSvg(sym, "") : "") + '</span>';
+    var corner = '<span class="kc k1"><i>' + face + '</i>' + (sym ? pipSvg(sym, "") : "") + '</span>';
     var corner2 = corner.replace("k1", "k2");
     var middle;
     if (sym && el.classList.contains("face") && PIPS[rank]) {
@@ -1847,7 +2611,7 @@ tr:last-child td{border-bottom:0}
     } else if (sym) {
       middle = pipSvg(sym, "kp");
     } else {
-      middle = '<span class="kl">' + rank + '</span>';
+      middle = '<span class="kl">' + face + '</span>';
     }
     el.innerHTML = corner + middle + corner2;
     el.setAttribute("aria-hidden", "true");

@@ -4,7 +4,7 @@
    Sube CACHE si cambias FUENTES, ICONOS o el manifest (el contenido de
    index.html se refresca por su cuenta). */
 
-const CACHE = "juegos-v3";
+const CACHE = "juegos-v4";
 
 /* Cuánto esperamos a la red antes de servir la copia guardada.
    En el metro, con una barra de cobertura, no queremos pantalla en blanco. */

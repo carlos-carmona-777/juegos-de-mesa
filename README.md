@@ -1,7 +1,8 @@
 # Juegos de Mesa
 
 App web (PWA) con el resumen de reglas de **Scopa**, **Solitario Pirámide**, **Crisps!**,
-**Tien Len**, **Golf**, **Hearts** y **Hearts a 2 jugadores**.
+**Tien Len**, **Golf**, **Hearts**, **Hearts a 2 jugadores**, y cuatro juegos originales de
+David Parlett: **Duck Soup**, **Bugami**, **Bravado** y **Dracula**.
 Se instala en la pantalla de inicio del iPhone y funciona **sin conexión**.
 
 **En línea: https://carlos-carmona-777.github.io/juegos-de-mesa/**
@@ -114,6 +115,7 @@ data-c="9"     nueve sin palo (Crisps)
 Palos: `s` picas · `h` corazones · `d` diamantes · `c` tréboles ·
 `o` oros · `p` copas · `e` espadas · `b` bastos.
 Rangos: `A 2…10 J Q K` y `S` sota, `C` caballo, `R` rey.
+Comodín: `data-c="X"`, sin palo (dibuja una estrella; en Dracula hace de vampiro).
 
 Modificadores: `class="k big"` la hace más grande, `class="k face"` dibuja los
 pips repartidos como en una carta de verdad (se usa en el abanico de portada).
@@ -133,6 +135,11 @@ vídeo de *Riffle Shuffle & Roll*): baraja recortada a 28 cartas quitando 3, 5, 
 mano (7 corazones + 13 de la dama de picas). No es el Hearts de cuatro con dos personas:
 si alguien propone la otra versión que circula —baraja entera, 13 cartas cada uno y un mazo
 de 26 del que se roba tras cada baza— hay que pactar cuál se juega antes de repartir.
+
+Los cuatro juegos de **David Parlett** (Duck Soup, Bugami, Bravado y Dracula) están
+resumidos de sus reglamentos originales en <https://www.parlettgames.uk/oricards/>. Donde
+el reglamento deja algo abierto y la ficha lo concreta, lo dice: por ejemplo, que en Dracula
+los multiplicadores no se acumulan, que se deduce de sus propios ejemplos.
 
 El **Golf** de la ficha es el de rejilla de 6 cartas; no confundir con el solitario
 del mismo nombre. Las variantes de 4 y de 9 cartas están en su última sección.
