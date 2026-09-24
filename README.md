@@ -91,13 +91,16 @@ móvil se trae la versión que haya publicada.
 
 ## Fondo y tema
 
-El botón de la paleta, arriba a la derecha, abre el panel de aspecto: **cuatro fondos**
-(Tapete, Madera, Burdeos y Marino) y el **tema** (Automático, Claro u Oscuro). La elección
+El botón de la paleta, arriba a la derecha, abre el panel de aspecto: **seis fondos**
+(Tapete, Madera, Burdeos, Marino, Papel y Blanco) y el **tema** (Automático, Claro u Oscuro).
+Blanco es blanco puro y sin textura; en tema oscuro pasa a negro neutro. Para tenerlo
+siempre blanco, elige también Claro. La elección
 se guarda en el propio móvil, en `localStorage` (`juegos-bg` y `juegos-theme`), y un
 script diminuto en el `<head>` la aplica antes de pintar para que no parpadee el verde.
 
 Cada fondo es una paleta en el `<style>`: redefine solo los neutros (`--bg`, `--surface`,
-`--ink`, `--line`…) y su textura en `--pat`, en claro y en oscuro. Los colores de acento de
+`--ink`, `--line`…) y su textura en `--pat`, en claro y en oscuro. Las texturas son
+degradados CSS, salvo el grano del Papel, que es un filtro de ruido SVG incrustado. Los colores de acento de
 cada juego son los mismos en todos los fondos. Para añadir un quinto fondo:
 
 1. Copia los tres bloques de uno existente (claro, oscuro del sistema y oscuro forzado) y

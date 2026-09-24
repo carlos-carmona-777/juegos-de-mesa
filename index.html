@@ -19,7 +19,7 @@
     try {
       var d = document.documentElement, t = localStorage.getItem("juegos-theme"), b = localStorage.getItem("juegos-bg");
       if (t === "dark" || t === "light") d.setAttribute("data-theme", t);
-      if (b === "madera" || b === "burdeos" || b === "marino") d.setAttribute("data-bg", b);
+      if (/^(madera|burdeos|marino|papel|blanco)$/.test(b || "")) d.setAttribute("data-bg", b);
     } catch (e) {}
   })();
 </script>
@@ -51,7 +51,7 @@
   --mate:#dcae7e;
 }
 
-/* ---------- fondos: cuatro paletas, cada una en claro y oscuro ----------
+/* ---------- fondos: seis paletas, cada una en claro y oscuro ----------
    Cada fondo redefine solo los neutros (fondo, superficies, tinta, líneas) y su
    textura en --pat. Los acentos de cada juego son los mismos en todos.
    .bgv[data-bg] repite la paleta en pequeño para las muestras del panel. */
@@ -170,6 +170,69 @@
   --shadow:0 2px 0 rgba(0,0,0,.25), 0 12px 30px -16px rgba(0,0,0,.85); --on-ac:#0e1829;
   --pat:radial-gradient(circle, var(--lattice) 0 1.2px, transparent 1.7px);
   --pat-size:18px 18px; color-scheme:dark;
+}
+/* Papel: el grano es ruido SVG incrustado, sin ficheros aparte. Blanco: sin textura. */
+:root[data-bg="papel"], .bgv[data-bg="papel"]{
+  --bg:#f6f1e6; --surface:#fffdf8; --surface-2:#f7f2e7; --ink:#221f1a; --ink-2:#5e574c;
+  --ink-3:#8f877a; --line:#e3dccd; --line-soft:#ece6d9; --lattice:transparent;
+  --lat2:transparent; --glow:rgba(255,255,255,.55); --emboss:rgba(80,64,40,.12);
+  --shadow:0 2px 0 rgba(60,50,35,.05), 0 10px 26px -14px rgba(60,50,35,.45);
+  --on-ac:#fffdf8; color-scheme:light;
+  --pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.36  0 0 0 0 0.29  0 0 0 0 0.2  4 0 0 0 -1.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
+  --pat-size:200px 200px;
+}
+@media (prefers-color-scheme: dark){
+  :root[data-bg="papel"]:not([data-theme="light"]),
+  :root:not([data-theme="light"]) .bgv[data-bg="papel"]{
+    --bg:#22201c; --surface:#2d2a25; --surface-2:#35312b; --ink:#f1ece2; --ink-2:#c3baab;
+    --ink-3:#938a7c; --line:#4a453c; --line-soft:#3c3831; --lattice:transparent;
+    --lat2:transparent; --glow:rgba(255,240,210,.05); --emboss:rgba(0,0,0,.5);
+    --shadow:0 2px 0 rgba(0,0,0,.25), 0 12px 30px -16px rgba(0,0,0,.85); --on-ac:#22201c;
+    color-scheme:dark;
+    --pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 0.94  0 0 0 0 0.82  4 0 0 0 -1.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.085'/%3E%3C/svg%3E");
+    --pat-size:200px 200px;
+  }
+}
+:root[data-bg="papel"][data-theme="dark"],
+:root[data-theme="dark"] .bgv[data-bg="papel"]{
+  --bg:#22201c; --surface:#2d2a25; --surface-2:#35312b; --ink:#f1ece2; --ink-2:#c3baab;
+  --ink-3:#938a7c; --line:#4a453c; --line-soft:#3c3831; --lattice:transparent;
+  --lat2:transparent; --glow:rgba(255,240,210,.05); --emboss:rgba(0,0,0,.5);
+  --shadow:0 2px 0 rgba(0,0,0,.25), 0 12px 30px -16px rgba(0,0,0,.85); --on-ac:#22201c;
+  color-scheme:dark;
+  --pat:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 0.94  0 0 0 0 0.82  4 0 0 0 -1.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.085'/%3E%3C/svg%3E");
+  --pat-size:200px 200px;
+}
+:root[data-bg="blanco"], .bgv[data-bg="blanco"]{
+  --bg:#ffffff; --surface:#ffffff; --surface-2:#f6f6f5; --ink:#161616; --ink-2:#555555;
+  --ink-3:#8a8a8a; --line:#e4e4e2; --line-soft:#efefed; --lattice:transparent;
+  --lat2:transparent; --glow:rgba(255,255,255,0); --emboss:rgba(0,0,0,.07);
+  --shadow:0 2px 0 rgba(0,0,0,.04), 0 10px 26px -14px rgba(0,0,0,.28); --on-ac:#ffffff;
+  color-scheme:light;
+  --pat:none;
+  --pat-size:auto;
+}
+@media (prefers-color-scheme: dark){
+  :root[data-bg="blanco"]:not([data-theme="light"]),
+  :root:not([data-theme="light"]) .bgv[data-bg="blanco"]{
+    --bg:#121212; --surface:#1c1c1c; --surface-2:#242424; --ink:#f2f2f2; --ink-2:#b3b3b3;
+    --ink-3:#858585; --line:#333333; --line-soft:#2a2a2a; --lattice:transparent;
+    --lat2:transparent; --glow:rgba(255,255,255,0); --emboss:rgba(0,0,0,.5);
+    --shadow:0 2px 0 rgba(0,0,0,.25), 0 12px 30px -16px rgba(0,0,0,.85); --on-ac:#121212;
+    color-scheme:dark;
+    --pat:none;
+    --pat-size:auto;
+  }
+}
+:root[data-bg="blanco"][data-theme="dark"],
+:root[data-theme="dark"] .bgv[data-bg="blanco"]{
+  --bg:#121212; --surface:#1c1c1c; --surface-2:#242424; --ink:#f2f2f2; --ink-2:#b3b3b3;
+  --ink-3:#858585; --line:#333333; --line-soft:#2a2a2a; --lattice:transparent;
+  --lat2:transparent; --glow:rgba(255,255,255,0); --emboss:rgba(0,0,0,.5);
+  --shadow:0 2px 0 rgba(0,0,0,.25), 0 12px 30px -16px rgba(0,0,0,.85); --on-ac:#121212;
+  color-scheme:dark;
+  --pat:none;
+  --pat-size:auto;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -391,13 +454,13 @@ h1{
 }
 @keyframes lk-in{from{opacity:0; transform:translateY(-6px) scale(.98)} to{opacity:1; transform:none}}
 .lk-h{font-size:.7rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin:2px 2px 9px}
-.lk-bgs{display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; margin:0 0 16px}
+.lk-bgs{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px 10px; margin:0 0 16px}
 .lk-bg{
   appearance:none; background:none; border:0; padding:0; font:inherit; cursor:pointer;
   display:flex; flex-direction:column; align-items:center; gap:6px;
   color:var(--ink-2); font-size:.74rem; font-weight:700;
 }
-.lk-bg .bgv{width:100%; height:78px; border-radius:11px; border:2px solid var(--line)}
+.lk-bg .bgv{width:100%; height:64px; border-radius:11px; border:2px solid var(--line)}
 .lk-bg[aria-pressed="true"]{color:var(--ink); font-weight:800}
 .lk-bg[aria-pressed="true"] .bgv{border-color:var(--ink); box-shadow:0 0 0 2px var(--surface), 0 0 0 4px var(--ink)}
 .bgv{
@@ -549,6 +612,8 @@ tr:last-child td{border-bottom:0}
     <button type="button" class="lk-bg" data-set-bg="madera" aria-pressed="false"><span class="bgv" data-bg="madera"></span>Madera</button>
     <button type="button" class="lk-bg" data-set-bg="burdeos" aria-pressed="false"><span class="bgv" data-bg="burdeos"></span>Burdeos</button>
     <button type="button" class="lk-bg" data-set-bg="marino" aria-pressed="false"><span class="bgv" data-bg="marino"></span>Marino</button>
+    <button type="button" class="lk-bg" data-set-bg="papel" aria-pressed="false"><span class="bgv" data-bg="papel"></span>Papel</button>
+    <button type="button" class="lk-bg" data-set-bg="blanco" aria-pressed="false"><span class="bgv" data-bg="blanco"></span>Blanco</button>
   </div>
   <p class="lk-h">Tema</p>
   <div class="lk-seg" role="group" aria-label="Tema">
@@ -3018,7 +3083,7 @@ tr:last-child td{border-bottom:0}
 
   /* ---- aspecto: fondo y tema ---- */
   var root = document.documentElement;
-  var BGS = ["tapete", "madera", "burdeos", "marino"];
+  var BGS = ["tapete", "madera", "burdeos", "marino", "papel", "blanco"];
   var lookBtn = document.getElementById("look");
   var lookP = document.getElementById("lookp");
   var metaTheme = document.querySelector('meta[name="theme-color"]');
