@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Juegos de Mesa</title>
-<meta name="description" content="Resumen offline de las reglas de Scopa, Solitario Pirámide, Crisps!, Tien Len, Golf, Hearts, Hearts a 2 jugadores, Duck Soup, Bugami, Bravado, Dracula y Mate.">
+<meta name="description" content="Resumen offline de las reglas de Scopa, Solitario Pirámide, Crisps!, Tien Len, Golf, Hearts, Hearts a 2 jugadores, Duck Soup, Bugami, Bravado, Dracula, Mate, Brisca y 500.">
 <meta name="theme-color" content="#10362a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -31,7 +31,7 @@
   --scopa:#966709; --piramide:#2b5796; --crisps:#b04f14; --tienlen:#ad2130;
   --golf:#4a6b16; --hearts:#a01236; --hearts2:#74306b;
   --ducksoup:#1d6e74; --bugami:#4d3fa0; --bravado:#3d6282; --dracula:#2f2a36;
-  --mate:#7a4b25;
+  --mate:#7a4b25; --brisca:#1f7a4a; --cinquecento:#a3246f;
   --maxw:46rem;
 }
 @media (prefers-color-scheme: dark){
@@ -40,7 +40,7 @@
     --scopa:#e6ba52; --piramide:#8ab0ec; --crisps:#f09a52; --tienlen:#f0767e;
     --golf:#b4cf63; --hearts:#f58aa6; --hearts2:#dfa0d6;
     --ducksoup:#6cc6cc; --bugami:#aca2f2; --bravado:#9ec1de; --dracula:#cfc6dc;
-    --mate:#dcae7e;
+    --mate:#dcae7e; --brisca:#6fd19c; --cinquecento:#f08cc4;
   }
 }
 :root[data-theme="dark"]{
@@ -48,7 +48,7 @@
   --scopa:#e6ba52; --piramide:#8ab0ec; --crisps:#f09a52; --tienlen:#f0767e;
   --golf:#b4cf63; --hearts:#f58aa6; --hearts2:#dfa0d6;
   --ducksoup:#6cc6cc; --bugami:#aca2f2; --bravado:#9ec1de; --dracula:#cfc6dc;
-  --mate:#dcae7e;
+  --mate:#dcae7e; --brisca:#6fd19c; --cinquecento:#f08cc4;
 }
 
 /* ---------- fondos: seis paletas, cada una en claro y oscuro ----------
@@ -762,6 +762,26 @@ tr:last-child td{border-bottom:0}
           <b class="k" data-c="7d" style="--r:8deg"></b>
         </span>
         <span><span class="nm">Mate</span><span class="meta">2 jugadores &middot; 20 cartas</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
+      </button>
+    </li>
+    <li data-k="brisca española baraja española 40 cartas triunfo muestra cambiar el siete el dos señas parejas briscas as tres fournier tute">
+      <button class="tile" type="button" data-go="brisca" style="--ac:var(--brisca)">
+        <span class="art" aria-hidden="true">
+          <b class="k" data-c="Ao" style="--r:-8deg"></b>
+          <b class="k" data-c="3p" style="--r:8deg"></b>
+        </span>
+        <span><span class="nm">Brisca</span><span class="meta">2 o 4 jugadores &middot; 40 cartas</span></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
+      </button>
+    </li>
+    <li data-k="500 quinientos cinquecento marianna mariana briscola sicilia cantar cantes rey caballo matrimonio parejas cubrirse mariannone mariannino">
+      <button class="tile" type="button" data-go="cinquecento" style="--ac:var(--cinquecento)">
+        <span class="art" aria-hidden="true">
+          <b class="k" data-c="Ro" style="--r:-8deg"></b>
+          <b class="k" data-c="Co" style="--r:8deg"></b>
+        </span>
+        <span><span class="nm">500</span><span class="meta">4 jugadores &middot; 40 cartas</span></span>
         <span class="go" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 1.5 8.5 6 4 10.5"/></svg></span>
       </button>
     </li>
@@ -3008,17 +3028,401 @@ tr:last-child td{border-bottom:0}
   </section>
 </div>
 
+
+<!-- ================= BRISCA ================= -->
+<div class="wrap gv" id="g-brisca" hidden style="--ac:var(--brisca)">
+  <p class="kicker">España &middot; bazas, triunfo y señas</p>
+  <h2>Brisca</h2>
+  <ul class="chips"><li>2 o 4 jugadores</li><li>A 4, por parejas</li><li>40 cartas</li><li>3 en mano</li></ul>
+
+  <div class="resumen">
+    <div class="rband">Resumen<span class="dots"><span></span><span></span><span></span></span></div>
+
+    <div class="rblock">
+      <h3>Cartas a repartir</h3>
+      <ul class="rlist">
+        <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>3 cartas</strong>, de una en una</span></li>
+        <li><span class="lbl">La siguiente</span><span style="margin-left:auto"><strong>boca arriba</strong>: marca el triunfo</span></li>
+      </ul>
+      <p class="sub" style="margin-top:10px">Baraja española de 40 cartas. Tras cada baza se roba del mazo para volver a tener tres.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Orden y valor</h3>
+      <div class="order" style="margin:.2em 0 0">
+        <span class="hi">As<em>11</em></span><span class="hi">3<em>10</em></span><span>Rey<em>4</em></span><span>Caballo<em>3</em></span><span>Sota<em>2</em></span><span>7 6 5 4 2<em>0</em></span>
+      </div>
+    </div>
+
+    <div class="rblock">
+      <h3>La baza</h3>
+      <p><strong>No hay que asistir ni que triunfar</strong>: se juega la carta que se quiera. Gana el <strong>triunfo más alto</strong>; si no hay triunfo, la carta más alta <strong>del palo de salida</strong>. Luego roba cada uno, empezando por quien ganó.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>El cambio</h3>
+      <p>Tras ganar una baza y antes de robar, puedes <strong>cambiar el 7 de triunfo</strong> por la carta de triunfo que está boca arriba. Si esa carta es un 7 o menor, se cambia <strong>por el 2</strong>.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Cómo se gana</h3>
+      <p>Hay <strong>120 puntos</strong> en la baraja: gana el juego quien <strong>pase de 60</strong>. A 60 cada uno, el juego se anula. La partida, al número de juegos que se pacte.</p>
+    </div>
+  </div>
+
+  <nav class="snav" aria-label="Secciones"><ul>
+    <li><a href="#br-cartas">Cartas</a></li>
+    <li><a href="#br-prep">Reparto</a></li>
+    <li><a href="#br-baza">La baza</a></li>
+    <li><a href="#br-cambio">El cambio</a></li>
+    <li><a href="#br-tanteo">Tanteo</a></li>
+    <li><a href="#br-senas">Señas</a></li>
+    <li><a href="#br-var">Variantes</a></li>
+  </ul></nav>
+
+  <section id="br-cartas">
+    <h3 class="sec">Cartas y valores</h3>
+    <p class="sub">De la misma familia que el Tute: un juego de bazas con triunfo en el que no se reparte todo al principio, sino que se va robando del mazo.</p>
+    <p>Se juega con la <strong>baraja española de 40 cartas</strong>. Este es el orden de mayor a menor en cada palo, y lo que vale cada carta al contar:</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Carta</th><th class="num">Puntos</th></tr></thead>
+        <tbody>
+          <tr><td><span class="seq"><b class="k" data-c="Ao"></b></span> <strong>As</strong></td><td class="num"><strong>11</strong></td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="3o"></b></span> <strong>Tres</strong></td><td class="num"><strong>10</strong></td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Ro"></b></span> <strong>Rey</strong></td><td class="num">4</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Co"></b></span> <strong>Caballo</strong></td><td class="num">3</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="So"></b></span> <strong>Sota</strong></td><td class="num">2</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="7o"></b></span> <strong>7, 6, 5, 4 y 2</strong></td><td class="num">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note warn">
+      <b>El tres va segundo</b>
+      <p>Por encima del rey. El as y el tres son las <strong>briscas</strong>: entre las ocho suman 84 de los 120 puntos de la baraja.</p>
+    </div>
+  </section>
+
+  <section id="br-prep">
+    <h3 class="sec">Preparación y reparto</h3>
+    <p class="sub">Se juega normalmente a dos o a cuatro. A cuatro, por parejas: los compañeros se sientan enfrente.</p>
+    <h4>Con cuatro: sorteo de parejas</h4>
+    <ol class="steps">
+      <li>Cada uno saca una carta y la enseña. <strong>Las dos más altas juegan contra las dos más bajas.</strong></li>
+      <li>Reparte quien sacó la más alta y elige sitio. Su compañero se sienta enfrente, y a su derecha, el rival que sacó la carta mayor.</li>
+    </ol>
+    <h4>El reparto</h4>
+    <ol class="steps">
+      <li>El que da baraja y ofrece cortar al de su izquierda, que no puede levantar ni dejar <strong>menos de cuatro cartas</strong>.</li>
+      <li>Reparte <strong>tres cartas a cada jugador</strong>, de una en una, en sentido contrario a las agujas del reloj.</li>
+      <li>Descubre la siguiente carta: su palo es el <strong>triunfo</strong>. Se deja boca arriba junto al mazo, en el centro.</li>
+    </ol>
+    <p>En los juegos siguientes, el turno de dar sigue rotando en el mismo sentido.</p>
+  </section>
+
+  <section id="br-baza">
+    <h3 class="sec">La baza</h3>
+    <ol class="steps">
+      <li>Sale el jugador a la <strong>derecha del que da</strong>: el «mano». Juega una carta boca arriba.</li>
+      <li>Los demás, por turno, juegan <strong>la carta que quieran</strong>: no hay obligación de asistir al palo ni de jugar triunfo.</li>
+      <li>Gana la baza <strong>el triunfo más alto</strong>. Si nadie ha jugado triunfo, gana <strong>la carta más alta del palo de salida</strong>.</li>
+      <li>Cada jugador <strong>roba una carta</strong> del mazo, empezando por quien ganó la baza.</li>
+      <li>Quien ganó sale a la siguiente.</li>
+    </ol>
+    <ol class="play">
+      <li class="hd">Triunfo: oros · Ana y Cris contra Bru y Dani</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="3p"></b></span><span class="why">sale con una brisca</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="Cp"></b></span><span class="why">copa menor</span></li>
+      <li><span class="who">Cris</span><span class="seq"><b class="k" data-c="2e"></b></span><span class="why">tira una carta sin valor</span></li>
+      <li><span class="who">Dani</span><span class="seq"><b class="k" data-c="4o"></b></span><span class="why">triunfo, aunque sea un 4</span></li>
+      <li class="hd">Gana Dani: 10 + 3 = 13 puntos para Bru y Dani</li>
+    </ol>
+    <h4>Cuándo se acaba</h4>
+    <p>Se juega robando hasta vaciar el mazo; la carta de triunfo boca arriba es la última que se roba. Luego se juegan <strong>las tres últimas bazas</strong> con lo que quede en la mano, ya sin robar.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Jugadores</th><th class="num">Bazas robando</th><th class="num">Sin robar</th><th class="num">Total</th></tr></thead>
+        <tbody>
+          <tr><td>2</td><td class="num">17</td><td class="num">3</td><td class="num">20</td></tr>
+          <tr><td>4</td><td class="num">7</td><td class="num">3</td><td class="num">10</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="br-cambio">
+    <h3 class="sec">El cambio del siete y del dos</h3>
+    <p>Después de <strong>ganar una baza</strong> y <strong>antes de robar</strong>, cualquier jugador puede recoger la carta de triunfo que está boca arriba y dejar en su lugar:</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Si la de triunfo es…</th><th>Se cambia por</th></tr></thead>
+        <tbody>
+          <tr><td><strong>As, tres, rey, caballo o sota</strong></td><td><span class="seq"><b class="k" data-c="7o"></b></span> el <strong>7</strong> de triunfo</td></tr>
+          <tr><td><strong>El 7 o menor</strong></td><td><span class="seq"><b class="k" data-c="2o"></b></span> el <strong>2</strong> de triunfo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note warn">
+      <b>Hasta la penúltima baza</b>
+      <p>El cambio <strong>no se puede hacer después de jugada la penúltima baza</strong>.</p>
+    </div>
+    <p class="sub">Con triunfo de oros y el as de oros boca arriba, quien tenga el 7 de oros y gane una baza se queda con el as, la carta más fuerte de la partida, a cambio de un 7 que no vale nada.</p>
+  </section>
+
+  <section id="br-tanteo">
+    <h3 class="sec">Tanteo</h3>
+    <ol class="steps">
+      <li>Acabado el juego, cada jugador o pareja <strong>suma los puntos de las cartas</strong> de sus bazas. Si se juega por parejas, el tanteo es común.</li>
+      <li>Gana el juego quien <strong>más puntos</strong> tenga. Como hay 120 en total, basta con <strong>61</strong>.</li>
+      <li>Si cada uno hace <strong>60</strong>, hay empate y el juego <strong>se anula</strong>.</li>
+      <li>Antes de empezar se pacta <strong>cuántos juegos</strong> forman la partida. La gana quien antes llegue a ese número de juegos ganados.</li>
+    </ol>
+  </section>
+
+  <section id="br-senas">
+    <h3 class="sec">Las señas</h3>
+    <p>Jugando por parejas, <strong>no se puede decir ni enseñar</strong> al compañero lo que tienes. Pero sí se permite entenderse con <strong>señas</strong>, a escondidas de los rivales. Estas son las más admitidas:</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Seña</th><th>Significa</th></tr></thead>
+        <tbody>
+          <tr><td>Alzar los ojos</td><td><strong>As</strong> de triunfo</td></tr>
+          <tr><td>Guiñar un ojo</td><td><strong>Tres</strong> de triunfo</td></tr>
+          <tr><td>Estirar los labios hacia delante</td><td><strong>Rey</strong> de triunfo</td></tr>
+          <tr><td>Torcer los labios hacia la derecha</td><td><strong>Caballo</strong> de triunfo</td></tr>
+          <tr><td>Sacar un poco la lengua</td><td><strong>Sota</strong> de triunfo</td></tr>
+          <tr><td>Torcer la cabeza hacia un lado</td><td><strong>Briscas</strong>: ases y treses de otro palo</td></tr>
+          <tr><td>Cerrar un momento los ojos</td><td><strong>No tengo triunfo</strong></td></tr>
+          <tr><td>Soplar un poco</td><td>Pide al compañero que <strong>cargue</strong> una carta de puntos que no sea brisca ni triunfo</td></tr>
+          <tr><td>Mirarle fijamente</td><td>Pregunta al compañero <strong>qué cartas tiene</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">La gracia está en que las vea tu compañero y no los rivales. Cada mesa acaba teniendo sus señas propias: pactadlas antes.</p>
+  </section>
+
+  <section id="br-var">
+    <h3 class="sec">Variantes</h3>
+    <p class="sub">La brisca se juega en medio mundo y cada sitio tiene sus costumbres. Estas aparecen en la Wikipedia en español; si en tu mesa se juega alguna, pactadla antes.</p>
+    <ul class="bul">
+      <li><strong>Cambio en cualquier momento.</strong> El 7 (o el 2) se puede cambiar en cualquier momento, incluso a mitad de baza, siempre que ya hayas ganado alguna baza y antes del último robo.</li>
+      <li><strong>Enseñarse las cartas.</strong> Jugando por parejas, al principio los compañeros se intercambian las cartas para ver qué tiene el otro.</li>
+      <li><strong>Triunfo fijo por juego.</strong> En vez de destapar una carta, el triunfo va rotando: oros en el primer juego, copas en el segundo, espadas en el tercero y bastos en el cuarto.</li>
+      <li><strong>Empate a 60.</strong> En lugar de anularse, gana quien tenga más cartas.</li>
+      <li><strong>Paliza.</strong> Ganar por más de 100 puntos vale por dos juegos.</li>
+      <li><strong>Partida.</strong> Lo habitual es jugar a tres, cinco o siete juegos ganados.</li>
+    </ul>
+    <div class="note">
+      <b>¿Y la Briscola?</b>
+      <p>La brisca viene de la <em class="t">briscola</em> italiana y se juega prácticamente igual. De ella salen variantes con cantes, como el <a href="#/cinquecento"><strong>500</strong></a>.</p>
+    </div>
+    <div class="note">
+      <b>De dónde salen estas reglas</b>
+      <p>Resumen del reglamento de <strong>Heraclio Fournier</strong>, el fabricante de naipes de Vitoria (nhfournier.es). Pagat no tiene todavía las reglas de la brisca y remite precisamente a esa página. Las variantes son de la Wikipedia en español.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= 500 (CINQUECENTO) ================= -->
+<div class="wrap gv" id="g-cinquecento" hidden style="--ac:var(--cinquecento)">
+  <p class="kicker">Sicilia &middot; la Marianna a 500 puntos</p>
+  <h2>500</h2>
+  <ul class="chips"><li>4 jugadores</li><li>Por parejas</li><li>40 cartas</li><li>5 en mano</li><li>A 500 puntos</li></ul>
+
+  <div class="resumen">
+    <div class="rband">Resumen<span class="dots"><span></span><span></span><span></span></span></div>
+
+    <div class="rblock">
+      <h3>Cartas a repartir</h3>
+      <ul class="rlist">
+        <li><span class="lbl">A cada jugador</span><span style="margin-left:auto"><strong>5 cartas</strong></span></li>
+        <li><span class="lbl">El resto</span><span style="margin-left:auto">mazo boca abajo</span></li>
+      </ul>
+      <p class="sub" style="margin-top:10px">No se destapa ninguna carta: <strong>al empezar no hay triunfo</strong>. Lo fija el primer cante.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Orden y valor</h3>
+      <div class="order" style="margin:.2em 0 0">
+        <span class="hi">As<em>11</em></span><span class="hi">3<em>10</em></span><span>Rey<em>4</em></span><span>Caballo<em>3</em></span><span>Sota<em>2</em></span><span>7 6 5 4 2<em>0</em></span>
+      </div>
+      <p class="sub" style="margin-top:10px">Los mismos que en la <a href="#/brisca"><strong>Brisca</strong></a>.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>La baza</h3>
+      <p><strong>No hay que asistir.</strong> Gana la carta más alta del palo de salida, o el triunfo más alto si ya lo hay. Tras cada baza se roba, empezando por quien la gana.</p>
+    </div>
+
+    <div class="rblock">
+      <h3>Cantar</h3>
+      <p>El <strong>rey y el caballo del mismo palo</strong> en la mano forman una <strong>marianna</strong>. La primera que se canta vale <strong>40</strong> y su palo pasa a ser triunfo. Las siguientes valen <strong>20</strong> y ya no cambian el triunfo.</p>
+      <div class="seq" style="margin-top:8px"><b class="k" data-c="Ro"></b><b class="k" data-c="Co"></b></div>
+    </div>
+
+    <div class="rblock">
+      <h3>Cómo se gana</h3>
+      <p>Cada pareja suma los puntos de sus cartas y sus cantes, y los va acumulando mano a mano. <strong>Se juega a 500.</strong></p>
+    </div>
+  </div>
+
+  <nav class="snav" aria-label="Secciones"><ul>
+    <li><a href="#qc-cartas">Cartas</a></li>
+    <li><a href="#qc-prep">Reparto</a></li>
+    <li><a href="#qc-baza">La baza</a></li>
+    <li><a href="#qc-cantar">Cantar</a></li>
+    <li><a href="#qc-fin">Final y puntos</a></li>
+    <li><a href="#qc-cubrir">Cubrirse</a></li>
+    <li><a href="#qc-marianna">La Marianna</a></li>
+  </ul></nav>
+
+  <section id="qc-cartas">
+    <h3 class="sec">Cartas y valores</h3>
+    <p class="sub">Un pariente de la Briscola italiana, que se juega en Sicilia: mismo orden y mismos valores, pero con <strong>cantes</strong>, que además de dar puntos deciden el triunfo. En otros sitios se le llama <em class="t">Marianna</em>, que es el juego del que sale.</p>
+    <p>Baraja de <strong>40 cartas</strong> de palos latinos. En Sicilia se usa la siciliana; la <strong>española</strong> es equivalente, con el rey, el caballo y la sota como figuras.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Carta</th><th class="num">Puntos</th></tr></thead>
+        <tbody>
+          <tr><td><span class="seq"><b class="k" data-c="Ae"></b></span> <strong>As</strong></td><td class="num"><strong>11</strong></td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="3e"></b></span> <strong>Tres</strong></td><td class="num"><strong>10</strong></td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Re"></b></span> <strong>Rey</strong></td><td class="num">4</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Ce"></b></span> <strong>Caballo</strong></td><td class="num">3</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="Se"></b></span> <strong>Sota</strong></td><td class="num">2</td></tr>
+          <tr><td><span class="seq"><b class="k" data-c="7e"></b></span> <strong>7, 6, 5, 4 y 2</strong></td><td class="num">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="sub">120 puntos en cartas por mano, más lo que se cante.</p>
+  </section>
+
+  <section id="qc-prep">
+    <h3 class="sec">Preparación y reparto</h3>
+    <ol class="steps">
+      <li>Cuatro jugadores <strong>por parejas fijas</strong>, cada uno enfrente de su compañero. Se reparte y se juega <strong>en sentido contrario a las agujas del reloj</strong>.</li>
+      <li>Cualquiera puede repartir la primera vez. Baraja y le corta el de su izquierda.</li>
+      <li>Reparte <strong>cinco cartas a cada uno</strong>, boca abajo, y deja el resto en un mazo boca abajo en la mesa.</li>
+      <li>No se destapa ninguna carta: <strong>no hay triunfo</strong> hasta que alguien cante.</li>
+    </ol>
+  </section>
+
+  <section id="qc-baza">
+    <h3 class="sec">La baza</h3>
+    <ol class="steps">
+      <li>Sale a la primera baza el jugador a la <strong>derecha del que reparte</strong>.</li>
+      <li>Cada uno juega <strong>la carta que quiera</strong>: no hay obligación de asistir al palo, ni antes ni después de que haya triunfo.</li>
+      <li>Mientras no haya triunfo, gana <strong>la carta más alta del palo de salida</strong>. Una carta de otro palo no puede ganar.</li>
+      <li>Si ya hay triunfo y en la baza se ha jugado alguno, gana <strong>el triunfo más alto</strong>.</li>
+      <li>Empezando por quien la ganó, cada jugador <strong>roba una carta</strong> del mazo para volver a tener cinco. Quien ganó sale a la siguiente.</li>
+    </ol>
+    <p class="sub">El mazo tiene 20 cartas: se juegan 5 bazas robando y las 5 últimas con lo que quede en la mano.</p>
+  </section>
+
+  <section id="qc-cantar">
+    <h3 class="sec">Cantar la marianna</h3>
+    <p>Una <strong>marianna</strong> es tener en la mano el <strong>rey y el caballo del mismo palo</strong>. Declararla se llama <strong>cantar</strong>: se enseñan las dos cartas y se apuntan los puntos.</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th>Cante</th><th class="num">Puntos</th><th>Triunfo</th></tr></thead>
+        <tbody>
+          <tr><td><strong>La primera</strong> marianna de la mano</td><td class="num"><strong>40</strong></td><td>Su palo pasa a ser triunfo</td></tr>
+          <tr><td><strong>Las siguientes</strong></td><td class="num">20</td><td>No lo cambian</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="bul">
+      <li>Se puede cantar <strong>cuando se quiera</strong>, incluso a mitad de una baza.</li>
+      <li>Si es la primera, fija el triunfo <strong>para la baza en curso</strong> y todas las siguientes.</li>
+      <li>Nadie puede cantar <strong>más de una marianna en la misma baza</strong>.</li>
+      <li>En cuanto se roba la última carta del mazo <strong>ya no se puede cantar</strong>.</li>
+    </ul>
+    <div class="note warn">
+      <b>El triunfo cuenta al acabar la baza</b>
+      <p>Lo que decide la baza es el triunfo que haya <strong>cuando termina</strong>. Si la primera marianna se canta a mitad de baza, las cartas de ese palo que ya estuvieran en la mesa pasan a ser triunfo.</p>
+    </div>
+    <ol class="play">
+      <li class="hd">Sin triunfo todavía · Ana y Cris contra Bru y Dani</li>
+      <li><span class="who">Ana</span><span class="seq"><b class="k" data-c="3p"></b></span><span class="why">sale a copas</span></li>
+      <li><span class="who">Bru</span><span class="seq"><b class="k" data-c="7e"></b></span><span class="why">otro palo: en principio no gana</span></li>
+      <li><span class="who">Cris</span><span class="seq"><b class="k" data-c="Ap"></b></span><span class="why">el as: va ganando su pareja</span></li>
+      <li><span class="who">Dani</span><span class="seq"><b class="k" data-c="Re"></b><b class="k" data-c="Ce"></b></span><span class="why">canta espadas: 40 y triunfo</span></li>
+      <li><span class="who">Dani</span><span class="seq"><b class="k" data-c="2b"></b></span><span class="why">juega una carta cualquiera</span></li>
+      <li class="hd">El 7 de espadas de Bru ya es triunfo: Bru y Dani ganan la baza (21) y el cante (40)</li>
+    </ol>
+  </section>
+
+  <section id="qc-fin">
+    <h3 class="sec">Final de la mano y puntos</h3>
+    <ol class="steps">
+      <li>Vacío el mazo, se juegan las <strong>cinco últimas bazas</strong> con las cartas de la mano, con las mismas reglas y sin robar. Ya no se canta.</li>
+      <li>Cada pareja suma los <strong>puntos de las cartas</strong> que ha ganado (120 en total) y los de sus <strong>cantes</strong>.</li>
+      <li>Los puntos se <strong>acumulan</strong> de una mano a la siguiente.</li>
+      <li>La partida acaba cuando una pareja <strong>llega a 500 o más</strong>, y gana la que más tenga.</li>
+    </ol>
+  </section>
+
+  <section id="qc-cubrir">
+    <h3 class="sec">Variante: cubrirse</h3>
+    <p class="sub">Se puede jugar en el 500 o en la Marianna. Permite formar una marianna entre los dos compañeros.</p>
+    <ol class="steps">
+      <li>Si todavía <strong>no hay triunfo</strong> y a quien le toca salir tiene un rey o un caballo, antes de salir puede preguntar a su compañero: <strong>«¿Me cubres en…?»</strong>, nombrando el palo. Por ejemplo, «¿me cubres en oros?».</li>
+      <li>Si el compañero tiene la otra carta de la marianna de ese palo, puede decir que sí.</li>
+      <li>Entonces el primero <strong>sale con su rey o su caballo</strong>, y el compañero tiene que jugar <strong>la otra carta</strong> en esa baza.</li>
+      <li>Si ganan la baza, se apuntan <strong>20 puntos</strong> (en vez de los 40 de una marianna en una sola mano) y ese palo pasa a ser triunfo.</li>
+      <li>Si no la ganan, porque un rival juega el as o el tres de ese palo, no puntúan y sigue sin haber triunfo.</li>
+    </ol>
+    <p>Una vez fijado el triunfo, ya no se puede formar una marianna entre compañeros.</p>
+  </section>
+
+  <section id="qc-marianna">
+    <h3 class="sec">La Marianna, el juego original</h3>
+    <p class="sub">El 500 es la versión siciliana de la Marianna. Esta es la base, con lo que cambia:</p>
+    <div class="scrollx">
+      <table>
+        <thead><tr><th></th><th>500</th><th>Marianna</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Baraja</strong></td><td>Palos latinos, rey y caballo</td><td>Francesa sin 8, 9 ni 10, rey y dama</td></tr>
+          <tr><td><strong>1.ª marianna</strong></td><td>40</td><td>40</td></tr>
+          <tr><td><strong>2.ª, 3.ª y 4.ª</strong></td><td>20 cada una</td><td>60, 80 y 100</td></tr>
+          <tr><td><strong>¿Cambian el triunfo?</strong></td><td>No: lo fija la primera</td><td>Sí: manda la última cantada</td></tr>
+          <tr><td><strong>Mariannino</strong></td><td>No existe</td><td>4 damas y un rey: 250, triunfo el del rey</td></tr>
+          <tr><td><strong>Mariannone</strong></td><td>No existe</td><td>4 reyes y una dama: 500, <strong>gana la partida</strong></td></tr>
+          <tr><td><strong>Se juega a</strong></td><td>500</td><td>501</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>En la Marianna, si en una misma baza cantan dos jugadores distintos, el triunfo lo marca el cante del que haya jugado <strong>más tarde</strong> en esa baza.</p>
+    <h4>Otras costumbres de la Marianna</h4>
+    <ul class="bul">
+      <li><strong>Cantar al empezar la baza.</strong> Solo se canta antes de que se juegue la primera carta; quien sale espera unos segundos por si alguien quiere cantar. Da pie a hacer como que vas a cantar para que otro se guarde el suyo.</li>
+      <li><strong>Cantes más bajos:</strong> 20, 40, 60 y 80.</li>
+      <li><strong>Solo canta quien sale.</strong> Para cantar hay que ganar una baza y tener la salida.</li>
+      <li><strong>Triunfo fijo.</strong> El primer cante fija el triunfo y los demás solo dan puntos, como en el 500.</li>
+      <li><strong>Un cante de propina.</strong> Se permite cantar en la quinta baza por el final, justo después de robar las últimas cartas.</li>
+    </ul>
+    <div class="note">
+      <b>Y para dos jugadores</b>
+      <p>La misma familia tiene versiones a dos: la <strong>Briscola 151</strong>, con triunfo destapado y cantes de 40 y 20, a 151 puntos, y el <strong>Mariaccio</strong>. Están descritas en la misma página de Pagat.</p>
+    </div>
+    <div class="note">
+      <b>De dónde salen estas reglas</b>
+      <p>Resumen de la página <em class="t">Marianna</em> de pagat.com, de John McLeod, basada en información de Paolo Ronzoni; el 500 (<em class="t">Cinquecento</em>) está descrito en ella como variante siciliana.</p>
+    </div>
+  </section>
+</div>
+
 </main>
 
 <script>
 (function(){
   "use strict";
   var GAMES = ["scopa","piramide","crisps","tienlen","golf","hearts","hearts2",
-               "ducksoup","bugami","bravado","dracula","mate"];
+               "ducksoup","bugami","bravado","dracula","mate",
+               "brisca","cinquecento"];
   var TITLES = {scopa:"Scopa", piramide:"Solitario Pirámide", crisps:"Crisps!", tienlen:"Tien Len",
                 golf:"Golf", hearts:"Hearts", hearts2:"Hearts a 2 jugadores",
                 ducksoup:"Duck Soup", bugami:"Bugami", bravado:"Bravado", dracula:"Dracula",
-                mate:"Mate"};
+                mate:"Mate", brisca:"Brisca", cinquecento:"500"};
   var home = document.getElementById("home");
   var back = document.getElementById("back");
   var brand = document.getElementById("brand");

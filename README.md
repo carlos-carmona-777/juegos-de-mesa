@@ -3,7 +3,8 @@
 App web (PWA) con el resumen de reglas de **Scopa**, **Solitario Pirámide**, **Crisps!**,
 **Tien Len**, **Golf**, **Hearts**, **Hearts a 2 jugadores**, y cuatro juegos originales de
 David Parlett: **Duck Soup**, **Bugami**, **Bravado** y **Dracula**, más **Mate**, un juego
-alemán de 1915 de información perfecta.
+alemán de 1915 de información perfecta, la **Brisca** española y el **500**, la variante
+siciliana de la Marianna.
 Se instala en la pantalla de inicio del iPhone y funciona **sin conexión**.
 
 **En línea: https://carlos-carmona-777.github.io/juegos-de-mesa/**
@@ -161,6 +162,12 @@ Los cuatro juegos de **David Parlett** (Duck Soup, Bugami, Bravado y Dracula) es
 resumidos de sus reglamentos originales en <https://www.parlettgames.uk/oricards/>. Donde
 el reglamento deja algo abierto y la ficha lo concreta, lo dice: por ejemplo, que en Dracula
 los multiplicadores no se acumulan, que se deduce de sus propios ejemplos.
+
+La **Brisca** sigue el reglamento de Heraclio Fournier
+(<https://www.nhfournier.es/como-jugar/brisca/>): Pagat todavía no tiene reglas propias
+de la brisca y remite a esa página. Las variantes de su última sección son de la
+Wikipedia en español. El **500** sale de la página de Marianna de Pagat
+(<https://www.pagat.com/marriage/marianna.html>), donde aparece como *Cinquecento*.
 
 **Mate** está resumido de las reglas de pagat.com
 (<https://www.pagat.com/misc/mate.html>), incluida la regla de apartar una carta
